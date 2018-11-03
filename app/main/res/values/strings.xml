@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NextDest</string>
+    <string name="addActivityTile">Add new Activity/Event</string>
+    <string name="typeLabel">Type</string>
+    <string name="detailLabel">Details</string>
+    <string name="dateLabel">Date:</string>
+    <string name="descriptionLabel">Description:</string>
+    <string name="descriptionActivityHint">How is the activity?</string>
+    <string name="dateTimeActivityHint">When your activity is going go to happen?</string>
+    <string name="costLabel">Cost:</string>
+    <string name="costActivityHint">How much the event going to cost?</string>
+</resources>
