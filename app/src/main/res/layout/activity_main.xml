@@ -1,18 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTitleAddActivity"
+        style="@style/titleStyle"
+        android:text="@string/addActivityTile"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <LinearLayout
+            style="@style/llInputPair">
+            <TextView
+                style="@style/tvLabelStyle"
+                android:text="@string/typeLabel"/>
+            <!--<SearchView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />-->
+            <Spinner
+                android:id="@+id/spType"
+                style="@style/spinnerStyle"
+                ></Spinner>
 
-</android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+        <TextView
+            android:text="@string/detailLabel"
+            style="@style/subtitleStyle"
+            />
+        <LinearLayout
+            style="@style/llInputPair">
+            <TextView
+                style="@style/tvLabelStyle"
+                android:text="@string/dateLabel"/>
+            <EditText
+                android:id="@+id/tvActivityDate"
+                style="@style/tvDatePicker"
+                android:inputType="datetime"
+                android:hint="@string/dateTimeActivityHint"/>
+            <!--<TextView
+                android:id="@+id/tvActivityDate"
+                style="@style/tvDatePicker"/>-->
+        </LinearLayout>
+        <LinearLayout
+            style="@style/llInputPair">
+            <TextView
+                style="@style/tvLabelStyle"
+                android:text="@string/costLabel"/>
+            <EditText
+                android:id="@+id/tvActivityCost"
+                style="@style/tvDatePicker"
+                android:inputType="numberDecimal"
+                android:hint="@string/costActivityHint"/>
+            <!--<TextView
+                android:id="@+id/tvActivityDate"
+                style="@style/tvDatePicker"/>-->
+        </LinearLayout>
+        <LinearLayout
+            style="@style/llInputPair">
+            <TextView
+                style="@style/tvLabelStyle"
+                android:text="@string/descriptionLabel"/>
+            <EditText
+                android:id="@+id/etActivityDescription"
+                style="@style/descriptionStyle"
+                android:hint="@string/descriptionActivityHint"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
