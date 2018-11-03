@@ -1,4 +1,4 @@
-package com.nextdestapp;
+package com.nextdest;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.nextdestapp", appContext.getPackageName());
+        assertEquals("com.nextdest", appContext.getPackageName());
     }
 }
