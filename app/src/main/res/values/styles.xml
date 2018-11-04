@@ -9,22 +9,22 @@
     </style>
 
 
-    <style name="titleStyle">
+    <style name="tvTitleStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">40dp</item>
+        <item name="android:layout_margin">20dp</item>
         <item name="android:textSize">24dp</item>
         <item name="android:gravity">center</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="spinnerStyle">
+    <style name="spActivityTypeStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
     <style name="tvLabelStyle">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
@@ -32,9 +32,11 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
     </style>
 
-    <style name="subtitleStyle">
+    <style name="tvSubtitleStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">20dp</item>
@@ -42,12 +44,12 @@
     </style>
 
     <style name="tvDatePicker">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:clickable">true</item>
     </style>
 
-    <style name="descriptionStyle">
+    <style name="etDescriptionStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:inputType">textMultiLine</item>
@@ -55,6 +57,53 @@
         <item name="android:gravity">top|left</item>
         <item name="android:maxLines">10</item>
         <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="etNormalTextInput">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="ibAddPhoto">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:width">48dp</item>
+        <item name="android:height">48dp</item>
+        <item name="android:background">@drawable/ic_baseline_add_photo_alternate_24px</item>
+    </style>
+
+    <style name="btSubmitStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:background">@drawable/bt_round_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">40dp</item>
+        <item name="android:paddingRight">40dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="btImageViewDelete">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style name="btImageViewCancel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="ivImageViewPhoto">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#333</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
 

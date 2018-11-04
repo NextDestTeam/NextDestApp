@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EventFormActivity"
+    android:background="#EEE">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvTitleAddActivity"
+                style="@style/tvTitleStyle"
+                android:text="@string/addActivityTile"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <LinearLayout
+                    style="@style/llInputPair">
+                    <TextView
+                        style="@style/tvLabelStyle"
+                        android:text="@string/typeLabel"/>
+                    <!--<SearchView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />-->
+                    <Spinner
+                        android:id="@+id/spEventFormType"
+                        style="@style/spActivityTypeStyle"
+                        ></Spinner>
+
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/llInputPair">
+                    <TextView
+                        android:text="@string/detailLabel"
+                        style="@style/tvSubtitleStyle"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/llInputPair">
+                    <TextView
+                        style="@style/tvLabelStyle"
+                        android:text="@string/activityNameLabel"/>
+                    <EditText
+                        android:id="@+id/etEventFormActivityName"
+                        android:hint="@string/nameActivityHint"
+                        style="@style/etNormalTextInput"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/llInputPair">
+                    <TextView
+                        style="@style/tvLabelStyle"
+                        android:text="@string/dateLabel"/>
+                    <!--<EditText
+                        android:id="@+id/tvActivityDate"
+                        style="@style/tvDatePicker"
+                        android:inputType="datetime"
+                        android:hint="@string/dateTimeActivityHint"/>-->
+                    <TextView
+                        android:id="@+id/tvEventFormDate"
+                        style="@style/tvDatePicker"
+                        android:hint="@string/dateActivityHint"
+                        android:onClick="chooseDate"/>
+                    <TextView
+                        android:id="@+id/tvEventFormTime"
+                        style="@style/tvDatePicker"
+                        android:hint="@string/timeActivityHint"
+                        android:onClick="chooseTime"/>
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/llInputPair">
+                    <TextView
+                        style="@style/tvLabelStyle"
+                        android:text="@string/costLabel"/>
+                    <EditText
+                        android:id="@+id/etEventFormCost"
+                        style="@style/tvDatePicker"
+                        android:inputType="numberDecimal"
+                        android:hint="@string/costActivityHint"/>
+                    <!--<TextView
+                        android:id="@+id/tvActivityDate"
+                        style="@style/tvDatePicker"/>-->
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/llInputPair">
+                    <TextView
+                        style="@style/tvLabelStyle"
+                        android:text="@string/descriptionLabel"/>
+                    <EditText
+                        android:id="@+id/etEventFormDescription"
+                        style="@style/etDescriptionStyle"
+                        android:hint="@string/descriptionActivityHint"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/llInputPair">
+                    <TextView
+                        style="@style/tvLabelStyle"
+                        android:text="@string/shortDescriptionLabel"/>
+                    <EditText
+                        android:id="@+id/etEventFormShortDescription"
+                        style="@style/etDescriptionStyle"
+                        android:hint="@string/shortDescriptionActivityHint"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/llInputPair">
+                    <TextView
+                        style="@style/tvLabelStyle"
+                        android:text="@string/locationLabel"/>
+                    <EditText
+                        android:id="@+id/etEventFormLocation"
+                        android:hint="@string/locationActivityHint"
+                        style="@style/etNormalTextInput"
+                        />
+                </LinearLayout>
+
+                <LinearLayout style="@style/llInputPair">
+
+                    <ImageButton
+                        android:id="@+id/ibEventFormAddPhoto"
+                        style="@style/ibAddPhoto"
+                         />
+
+                    <ImageSwitcher
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/llInputPair">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:id="@+id/btEventFormSubmit"
+                            style="@style/btSubmitStyle"
+                            android:text="@string/submit"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

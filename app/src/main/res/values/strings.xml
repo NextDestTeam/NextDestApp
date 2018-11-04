@@ -4,9 +4,19 @@
     <string name="typeLabel">Type</string>
     <string name="detailLabel">Details</string>
     <string name="dateLabel">Date:</string>
-    <string name="descriptionLabel">Description:</string>
-    <string name="descriptionActivityHint">How is the activity?</string>
-    <string name="dateTimeActivityHint">When your activity is going go to happen?</string>
+    <string name="descriptionLabel">Detailed Description:</string>
+    <string name="descriptionActivityHint">How is the activity in details?</string>
+    <string name="dateActivityHint">What Date?</string>
+    <string name="timeActivityHint">What time?</string>
     <string name="costLabel">Cost:</string>
     <string name="costActivityHint">How much the event going to cost?</string>
+    <string name="shortDescriptionLabel">Short description:</string>
+    <string name="shortDescriptionActivityHint">How would you describe in a few words an invitation to your activity or event?</string>
+    <string name="locationLabel">Location:</string>
+    <string name="locationActivityHint">Where is going to happen your activity or event?</string>
+    <string name="activityNameLabel">Activity or Event Name:</string>
+    <string name="nameActivityHint">How is called you activity or event?</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
 </resources>
