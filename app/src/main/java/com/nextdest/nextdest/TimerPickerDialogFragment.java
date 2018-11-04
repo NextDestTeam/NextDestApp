@@ -9,23 +9,23 @@ import android.text.format.DateFormat;
 import java.util.Calendar;
 
 
-public class TimePickerDialogFragment extends AppCompatDialogFragment
-        implements TimePickerDialog.OnTimeSetListener {
+public class TimerPickerDialogFragment extends AppCompatDialogFragment {
+
+    public static final String TIMERPICKER_DIALOG_CALLBACK = "TIMERPICKER_DIALOG_CALLBACK";
+    private TimePickerDialog.OnTimeSetListener oCallback;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        oCallback = (TimePickerDialog.OnTimeSetListener)this.getArguments().get(TIMERPICKER_DIALOG_CALLBACK);
         // Use the current time as the default values for the picker
         final Calendar c = Calendar.getInstance();
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
 
         // Create a new instance of TimePickerDialog and return it
-        return new TimePickerDialog(getActivity(), this, hour, minute,
+        return new TimePickerDialog(getActivity(), oCallback, hour, minute,
                 DateFormat.is24HourFormat(getActivity()));
     }
 
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        // Do something with the time chosen by the user
-    }
 }
 

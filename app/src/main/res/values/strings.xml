@@ -9,7 +9,7 @@
     <string name="dateActivityHint">What Date?</string>
     <string name="timeActivityHint">What time?</string>
     <string name="costLabel">Cost:</string>
-    <string name="costActivityHint">How much the event going to cost?</string>
+    <string name="costActivityHint">How much?</string>
     <string name="shortDescriptionLabel">Short description:</string>
     <string name="shortDescriptionActivityHint">How would you describe in a few words an invitation to your activity or event?</string>
     <string name="locationLabel">Location:</string>

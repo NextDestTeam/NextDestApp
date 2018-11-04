@@ -74,7 +74,7 @@
                         android:onClick="chooseDate"/>
                     <TextView
                         android:id="@+id/tvEventFormTime"
-                        style="@style/tvDatePicker"
+                        style="@style/tvTimePicker"
                         android:hint="@string/timeActivityHint"
                         android:onClick="chooseTime"/>
                 </LinearLayout>
@@ -85,8 +85,7 @@
                         android:text="@string/costLabel"/>
                     <EditText
                         android:id="@+id/etEventFormCost"
-                        style="@style/tvDatePicker"
-                        android:inputType="numberDecimal"
+                        style="@style/etEventFormCost"
                         android:hint="@string/costActivityHint"/>
                     <!--<TextView
                         android:id="@+id/tvActivityDate"
@@ -134,8 +133,9 @@
                          />
 
                     <ImageSwitcher
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="#444"/>
                 </LinearLayout>
 
                 <LinearLayout style="@style/llInputPair">
