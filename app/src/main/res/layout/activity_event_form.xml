@@ -15,11 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
+            <!--<TextView
                 android:id="@+id/tvTitleAddActivity"
                 style="@style/tvTitleStyle"
                 android:text="@string/addActivityTile"
-                />
+                />-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,12 +130,21 @@
                     <ImageButton
                         android:id="@+id/ibEventFormAddPhoto"
                         style="@style/ibAddPhoto"
+                        android:onClick="openImage"
                          />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    <ImageSwitcher
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="#444"/>
+                        <!--<ImageSwitcher
+                            android:id="@+id/isEventFormPhoto"
+                            style="@style/isEventFormPhoto"
+                            />-->
+                        <ImageView
+                            android:id="@+id/ivEventFormPhoto"
+                            style="@style/ivEventFormPhoto"
+                            />
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout style="@style/llInputPair">
@@ -145,7 +154,9 @@
                         <Button
                             android:id="@+id/btEventFormSubmit"
                             style="@style/btSubmitStyle"
-                            android:text="@string/submit"/>
+                            android:text="@string/submit"
+                            android:onClick="saveEvent"
+                            />
                     </RelativeLayout>
                 </LinearLayout>
 

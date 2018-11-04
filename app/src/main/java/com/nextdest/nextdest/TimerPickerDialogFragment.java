@@ -3,7 +3,6 @@ package com.nextdest.nextdest;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.app.TimePickerDialog;
 import android.app.Dialog;
-import android.widget.TimePicker;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import java.util.Calendar;
