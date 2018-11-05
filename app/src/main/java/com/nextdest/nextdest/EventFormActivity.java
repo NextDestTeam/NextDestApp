@@ -31,8 +31,10 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.io.ByteArrayOutputStream;
+import java.util.GregorianCalendar;
 
 
 public class EventFormActivity extends AppCompatActivity
@@ -41,6 +43,7 @@ public class EventFormActivity extends AppCompatActivity
         TimePickerDialog.OnTimeSetListener{
 
     private static int RESULT_LOAD_IMAGE = 1;
+    private static String EVENT_FORM_ACTIVITY = "EVENT_FORM_ACTIVITY";
 
     TextView tvFormTitle;
     Spinner spType;
@@ -54,7 +57,7 @@ public class EventFormActivity extends AppCompatActivity
     ImageButton ibAddPhoto;
     ImageView ivPhoto;
     Button btSubmit;
-    private EventForm eventForm;
+    private EventForm eventForm = new EventForm();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +75,38 @@ public class EventFormActivity extends AppCompatActivity
         ibAddPhoto = (ImageButton) findViewById(R.id.ibEventFormAddPhoto);
         ivPhoto = (ImageView) findViewById(R.id.ivEventFormPhoto);
         btSubmit = (Button) findViewById(R.id.btEventFormSubmit);
+        btSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveEvent(v);
+            }
+        });
 
         loadTypesOfEvent();
+        int eventId = getIntent().getIntExtra(ListEventActivity.EXTRA_EVENT_CLICKED,0);
+        if(eventId!=0)
+            loadEdit(EventFormService.getInstance().load(eventId));
+
+    }
+
+    private void loadEdit(EventForm load) {
+        for(int i=0; i < spType.getAdapter().getCount();i++){
+            if(spType.getAdapter().getItem(i).toString().equals(load.getType())){
+                spType.setSelection(i);
+                break;
+            }
+
+        }
+
+        etName.setText(load.getName());
+        tvDate.setText(DateFormat.getDateFormat(getApplicationContext()).format(load.getDate()));
+        tvTime.setText(DateFormat.getTimeFormat(getApplicationContext()).format(load.getDate()));
+        etCost.setText(String.valueOf(load.getCost()));
+        etDescription.setText(load.getDescription());
+        etShortDescription.setText(load.getShortDescription());
+        etLocation.setText(load.getLocation());
+        Bitmap bMap = BitmapFactory.decodeByteArray(load.getPhoto(), 0, load.getPhoto().length);
+        ivPhoto.setImageBitmap(bMap);
     }
 
     private void loadTypesOfEvent() {
@@ -157,8 +190,9 @@ public class EventFormActivity extends AppCompatActivity
         if(validate()){
 
         }
-        EventFormService eventService = new EventFormService();
-        eventService.save(eventForm);
+        EventFormService.getInstance().save(eventForm);
+        Intent iSelectedEvent = new Intent(this,ListEventActivity.class);
+        this.startActivity(iSelectedEvent);
 
     }
 
@@ -167,13 +201,14 @@ public class EventFormActivity extends AppCompatActivity
     }
 
     private void fillForm() {
-        eventForm.setType(spType.getSelectedItem().toString());
+        eventForm.setType((String)spType.getSelectedItem());
         eventForm.setName(etName.getText().toString());
         try {
+            Calendar calendar = new GregorianCalendar();
             Date date = DateFormat.getDateFormat(getApplicationContext()).parse(tvDate.getText().toString());
             Date time = DateFormat.getTimeFormat(getApplicationContext()).parse(tvTime.getText().toString());
-            date.setTime(time.getTime());
-            eventForm.setDate(date);
+            calendar.set(date.getYear(),date.getMonth(),date.getDay(),time.getHours(),time.getMinutes());
+            eventForm.setDate(calendar.getTime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -187,6 +222,8 @@ public class EventFormActivity extends AppCompatActivity
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         eventForm.setPhoto(stream.toByteArray());
+
+
 
     }
 

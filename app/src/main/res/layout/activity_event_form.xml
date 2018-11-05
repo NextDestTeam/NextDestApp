@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventFormActivity"
-    android:background="#EEE">
+    tools:context=".EventFormActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,11 +14,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <!--<TextView
+            <TextView
                 android:id="@+id/tvTitleAddActivity"
                 style="@style/tvTitleStyle"
-                android:text="@string/addActivityTile"
-                />-->
+                android:text="@string/activityFormTitle"
+                />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -155,7 +154,6 @@
                             android:id="@+id/btEventFormSubmit"
                             style="@style/btSubmitStyle"
                             android:text="@string/submit"
-                            android:onClick="saveEvent"
                             />
                     </RelativeLayout>
                 </LinearLayout>

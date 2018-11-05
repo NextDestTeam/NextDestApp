@@ -4,9 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SelectedEventActivity">
 
-    <RelativeLayout
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,117 +22,84 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/TextView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="El Classico"
-                android:textSize="25sp"
-                android:textStyle="bold"
-
-
+                android:id="@+id/tvSelectedActivityTitle"
+                android:text="@string/elClasico"
+                style="@style/tvSelectedActivityTitle"
                 />
 
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/image"
+                android:id="@+id/ivSelectedActivityPhoto"
+                style="@style/ivSelectedViewPhoto"
+                android:src="@drawable/image" />
 
-
+            <TextView
+                style="@style/tvSelectedActivityDetailLabel"
+                android:text="@string/detailLabel"
+                />
+            <TextView
+                android:id="@+id/tvSelectedActivityShortDescription"
+                style="@style/tvSelectedActivityContent"
+                android:text="@string/barcelona_game"
                 />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Details"
-                android:textColor="@color/blue"
-                android:textSize="25sp"
-                android:textStyle="bold"
-
-
+                style="@style/tvSelectedActivityLabel"
+                android:text="@string/locationLabel"
                 />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Place : "
-                android:textSize="20sp"
-                android:textStyle="bold"
-
+                android:id="@+id/tvSelectedActivityLocation"
+                style="@style/tvSelectedActivityContent"
+                android:text="@string/locationLabel"
                 />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Barcelona (Camp Nou) Stadium "
-                android:textSize="15sp" />
+                style="@style/tvSelectedActivityLabel"
+                android:text="@string/costLabel"
+                 />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Price Of Ticket : "
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="100$"
-                android:textSize="15sp"
-
+                android:id="@+id/tvSelectedActivityCost"
+                style="@style/tvSelectedActivityContent"
+                android:text="@string/costValue"
                 />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date : "
-                android:textSize="20sp"
-                android:textStyle="bold"
 
+                style="@style/tvSelectedActivityLabel"
+                android:text="@string/dateLabel"
                 />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="27-1-2019"
-                android:textSize="15sp"
-
-
+                android:id="@+id/tvSelectedActivityDate"
+                style="@style/tvSelectedActivityContent"
+                android:text="30/04/2015"
                 />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Extra information :"
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="you can reserve your ticket from : (www.reserv.com)
-                 the match will start at 06:00 pm"
+                style="@style/tvSelectedActivityLabel"
+                android:text="@string/descriptionLabel" />
 
 
-                    />
-
-            </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Comments : "
-                android:textColor="@color/blue"
-                android:textSize="25sp"
-                android:textStyle="bold"
+                android:id="@+id/tvSelectedActivityDescription"
+                style="@style/etDescriptionStyle"
+                android:text="you can reserve your ticket from : (www.reserv.com)
+             the match will start at 06:00 pm"
 
+                />
+            <Button
+                android:id="@+id/btSelectActivityEdit"
+                style="@style/btEditStyle"
+                android:text="@string/edit"
+                />
+
+
+
+            <TextView
+                style="@style/tvSelectedActivityCommentTitle"
+                android:text="@string/commentsLabel"
 
                 />
 
@@ -231,14 +202,16 @@
 
         </LinearLayout>
 
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
 
     </RelativeLayout>
+    </ScrollView>
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+
 
 </android.support.constraint.ConstraintLayout>

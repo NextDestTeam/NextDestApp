@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout style="@style/llInputPair"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/ivListEventItemPhoto"
+        style="@style/listEventItemPhoto"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvListEventItemName"
+            style="@style/listEventItemName"
+            android:text="@string/activityNameLabel"/>
+        <TextView
+            android:id="@+id/tvListEventItemDescription"
+            style="@style/listEventItemDescription"
+            android:text="@string/descriptionLabel"/>
+    </LinearLayout>
+</LinearLayout>
