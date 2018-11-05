@@ -1,4 +1,4 @@
-package com.nextdestapp;
+package com.nextdest;
 
 import org.junit.Test;
 
