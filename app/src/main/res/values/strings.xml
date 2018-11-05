@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Happy Weekend</string>
 
     <string name="title_activity_options">Options</string>
@@ -75,4 +76,5 @@
         <item>Sports</item>
         <item>Camping</item>
     </string-array>
+
 </resources>
