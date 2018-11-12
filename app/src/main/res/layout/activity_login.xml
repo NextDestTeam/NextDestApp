@@ -25,12 +25,13 @@
         android:background="@drawable/shapeemail"
         android:drawableLeft="@drawable/iconsuser"
         android:drawablePadding="10dp"
-        android:hint="UserName"
+        android:hint="@string/usern"
         android:padding="10dp"
         android:textColor="@android:color/background_light"
-        android:textColorHighlight="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textSize="18sp"/>
+        android:textColorHighlight="@color/highlightColour"
+        android:textColorHint="@color/highlightColour"
+        android:textSize="18sp"
+        style="@style/highlightTxt"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -39,12 +40,12 @@
         android:background="@drawable/shapeemail"
         android:drawableLeft="@drawable/iconlock"
         android:drawablePadding="10dp"
-        android:hint="Password"
+        android:hint="@string/pass"
         android:padding="10dp"
         android:textColor="@android:color/background_light"
-        android:textColorHighlight="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textSize="18sp"/>
+        android:textColorHighlight="@color/highlightColour"
+        android:textColorHint="@color/highlightColour"
+        style="@style/highlightTxt"/>
 
     <!-- Password Label -->
     <Button
@@ -56,9 +57,9 @@
         android:background="@drawable/loginshape"
         android:onClick="login"
         android:padding="10dp"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="@android:color/background_dark"
-        android:textSize="18sp" />
+        style="@style/highlightTxt" />
 
 
     <TextView
@@ -67,8 +68,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:gravity="center"
-        android:text="No account yet? Create one"
+        android:text="@string/noAccountTxt"
         android:textColor="@android:color/background_light"
-        android:textSize="18sp" />
+        style="@style/highlightTxt" />
 
 </LinearLayout>
