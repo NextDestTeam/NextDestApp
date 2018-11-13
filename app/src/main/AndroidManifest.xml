@@ -27,7 +27,7 @@
             android:label="@string/title_activity_options"
             android:theme="@style/AppTheme" />
         <activity android:name=".ListEventActivity"/>
-        <activity android:name=".EventSearchActivity"/>
+        <activity android:name=".PopluarActivity"/>
         <activity android:name=".EventSearchResultActivity"/>
 
     </application>

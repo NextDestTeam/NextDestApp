@@ -6,11 +6,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
-public class EventSearchActivity extends AppCompatActivity {
+import com.nextdest.adapter.GridAdabter;
+
+public class PopluarActivity extends AppCompatActivity {
+
+    GridView gridView;
+
+    int images []= {R.drawable.barca,R.drawable.festival,R.drawable.mou,R.drawable.food,R.drawable.dance,R.drawable.party };
+    String values [] = {
+            "El Classico",
+            "Jazz Party",
+            "Natural Trip",
+            "Diner ",
+            "Tines Match",
+            "Classic Party"};
 
     Button btSearch;
+    ImageView btnimage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +62,18 @@ public class EventSearchActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
+
+        gridView = (GridView)findViewById(R.id.gridView);
+
+
+        GridAdabter gridAdabter = new GridAdabter (this , images ,values);
+        gridView.setAdapter(gridAdabter);
     }
+
+
 
 
 
