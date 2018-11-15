@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".EventSearchResultActivity">
 
-
-
     <Spinner
         android:id="@+id/spinnerPeople"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
         android:layout_marginTop="88dp" />
 
     <TextView
@@ -23,8 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="26dp"
         android:text="@string/Type" />
 
@@ -59,7 +61,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/spinnerPeople"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginStart="158dp"
+        android:layout_marginLeft="158dp"
         android:layout_marginBottom="0dp" />
 
     <Spinner
@@ -67,32 +71,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="278dp"
+        android:layout_marginLeft="278dp"
         android:layout_marginTop="90dp" />
 
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnSearch"
+        android:layout_width="187dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="140dp"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="133dp"
-        style="@style/btSubmitStyle"
+        android:layout_marginStart="102dp"
+        android:layout_marginLeft="102dp"
+        android:layout_marginTop="124dp"
         android:background="@drawable/bt_round_button"
         android:text="@string/Srch" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp">
+
 
         <TextView
             style="@style/whatTxt"
@@ -115,8 +124,10 @@
             android:layout_width="match_parent"
             android:layout_height="271dp"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginBottom="0dp" />
 
     </RelativeLayout>
