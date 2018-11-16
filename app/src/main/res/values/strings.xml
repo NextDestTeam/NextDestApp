@@ -30,6 +30,7 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="errorLoadImage">Error uploading image</string>
+    <string name="actName">Activity name</string>
     <string name="activityFormTitle">Activity Form</string>
     <string name="elClasico">El Classico</string>
     <string name="barcelona_game">Barcelona (Camp Nou) Stadium</string>
