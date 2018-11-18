@@ -85,4 +85,20 @@
         <item>Camping</item>
     </string-array>
 
+    <string-array name="event_namesArr">
+        <item>El Classico</item>
+        <item>Festival</item>
+        <item>Food Market</item>
+        <item>Music</item>
+
+    </string-array>
+
+    <string-array name="event_imagesArr">
+        <item>@drawable/barca</item>
+        <item>@drawable/festival</item>
+        <item>@drawable/dance</item>
+        <item>@drawable/music</item>
+    </string-array>
+
+
 </resources>
