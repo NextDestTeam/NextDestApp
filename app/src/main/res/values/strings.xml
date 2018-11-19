@@ -58,7 +58,6 @@
     <string name="fest">Festival</string>
 
 
-
     <string-array name="people_array">
         <item>Alone</item>
         <item>Couple</item>
@@ -76,5 +75,9 @@
         <item>Sports</item>
         <item>Camping</item>
     </string-array>
+    <string name="title_activity_popular_event_nav">PopularEventNav</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
