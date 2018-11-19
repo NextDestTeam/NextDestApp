@@ -21,9 +21,9 @@
     <string name="costLabel">Cost:</string>
     <string name="costActivityHint">Cost of Activity?</string>
     <string name="shortDescriptionLabel">Short Description:</string>
-    <string name="shortDescriptionActivityHint">Shot Descritption of Activity</string>
+    <string name="shortDescriptionActivityHint">Short Descritption of Activity</string>
     <string name="locationLabel">Location:</string>
-    <string name="locationActivityHint">Where Activity happening?</string>
+    <string name="locationActivityHint">Where Activity is happening?</string>
     <string name="activityNameLabel">Activity Name</string>
     <string name="nameActivityHint">Name of Activity</string>
     <string name="submit">Submit</string>

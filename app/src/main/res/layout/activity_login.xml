@@ -25,13 +25,12 @@
         android:background="@drawable/shapeemail"
         android:drawableLeft="@drawable/iconsuser"
         android:drawablePadding="10dp"
-        android:hint="@string/usern"
+        android:hint="UserName"
         android:padding="10dp"
         android:textColor="@android:color/background_light"
-        android:textColorHighlight="@color/highlightColour"
-        android:textColorHint="@color/highlightColour"
-        android:textSize="18sp"
-        style="@style/highlightTxt"/>
+        android:textColorHighlight="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="18sp"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -40,12 +39,12 @@
         android:background="@drawable/shapeemail"
         android:drawableLeft="@drawable/iconlock"
         android:drawablePadding="10dp"
-        android:hint="@string/pass"
+        android:hint="Password"
         android:padding="10dp"
         android:textColor="@android:color/background_light"
-        android:textColorHighlight="@color/highlightColour"
-        android:textColorHint="@color/highlightColour"
-        style="@style/highlightTxt"/>
+        android:textColorHighlight="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="18sp"/>
 
     <!-- Password Label -->
     <Button
@@ -57,9 +56,9 @@
         android:background="@drawable/loginshape"
         android:onClick="login"
         android:padding="10dp"
-        android:text="@string/login"
+        android:text="Login"
         android:textColor="@android:color/background_dark"
-        style="@style/highlightTxt" />
+        android:textSize="18sp" />
 
 
     <TextView
@@ -68,8 +67,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:gravity="center"
-        android:text="@string/noAccountTxt"
+        android:text="No account yet? Create one"
         android:textColor="@android:color/background_light"
-        style="@style/highlightTxt" />
+        android:textSize="18sp" />
 
 </LinearLayout>

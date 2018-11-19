@@ -41,8 +41,6 @@ public class EventSearchResultActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent mIntent = new Intent(EventSearchResultActivity.this,SelectedEventActivity.class);
-                mIntent.putExtra("eventImage", eventImages[i]);
-                mIntent.putExtra("eventName", eventNames[i]);
                 startActivity(mIntent);
             }
         });

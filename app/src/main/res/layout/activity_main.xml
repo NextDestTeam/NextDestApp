@@ -12,49 +12,31 @@
     android:weightSum="3">
 
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="2"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_weight="2"
         android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="291dp"
-            android:layout_height="128dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="0dp"
-            android:src="@drawable/logo1" />
-
 
         <TextView
             android:id="@+id/textView"
-            style="@style/slogans"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="102dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="@string/slogan"
             android:textColor="@android:color/background_light"
+            android:textSize="18sp"
             tools:fontFamily="sans-serif"
             tools:fontFeatureSettings="@tools:sample/cities" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewbager"
-            android:layout_width="match_parent"
-            android:layout_height="203dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="128dp" />
-
-
-    </RelativeLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,7 +55,7 @@
             android:background="@drawable/loginshape"
             android:onClick="login"
             android:padding="5dp"
-            android:text="@string/login"
+            android:text="Login"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp" />
 
@@ -86,7 +68,7 @@
             android:background="@drawable/loginshape"
             android:onClick="Register"
             android:padding="5dp"
-            android:text="@string/reg"
+            android:text="Register"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp" />
     </LinearLayout>
