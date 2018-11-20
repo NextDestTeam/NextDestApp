@@ -12,9 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nextdest.form.EventForm;
-import com.nextdest.service.EventFormService;
-
-
 
 
 public class SelectedEventActivity extends AppCompatActivity {
@@ -39,7 +36,7 @@ public class SelectedEventActivity extends AppCompatActivity {
 
         tvName = (TextView) findViewById(R.id.tvSelectedActivityTitle);
         ivPhoto = (ImageView) findViewById(R.id.ivSelectedActivityPhoto);
-        tvShortDescription = (TextView) findViewById(R.id.tvSelectedActivityShortDescription);
+        tvShortDescription = (TextView) findViewById(R.id.tvSelectedActivityDescription);
         tvDescription = (TextView) findViewById(R.id.tvSelectedActivityDescription);
         tvLocation = (TextView) findViewById(R.id.tvSelectedActivityLocation);
         tvCost = (TextView) findViewById(R.id.tvSelectedActivityCost);
@@ -49,9 +46,18 @@ public class SelectedEventActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        int id = intent.getIntExtra(EXTRA_EVENT_CLICKED,0);
-        form =  EventFormService.getInstance().load(id);
-        loadForm(form);
+        tvName.setText(intent.getStringExtra("tvName"));
+        ivPhoto.setImageResource(intent.getIntExtra("ivPhoto",0));
+        tvShortDescription.setText(intent.getStringExtra("tvShortDescription"));
+        tvCost.setText(intent.getStringExtra("tvCost"));
+        tvDate.setText(intent.getStringExtra("tvDate"));
+        tvLocation.setText(intent.getStringExtra("tvLocation"));
+
+
+
+        //int id = intent.getIntExtra(EXTRA_EVENT_CLICKED,0);
+        //form =  EventFormService.getInstance().load(id);
+        //loadForm(form);
 
         btEdit.setOnClickListener(new View.OnClickListener() {
             @Override
