@@ -49,10 +49,18 @@ public class SelectedEventActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
+        tvName.setText(intent.getStringExtra("tvName"));
+        ivPhoto.setImageResource(intent.getIntExtra("ivPhoto",0));
+        tvShortDescription.setText(intent.getStringExtra("tvShortDescription"));
+        tvCost.setText(intent.getStringExtra("tvCost"));
+        tvDate.setText(intent.getStringExtra("tvDate"));
+        tvLocation.setText(intent.getStringExtra("tvLocation"));
+
+        /*Intent intent = getIntent();
         int id = intent.getIntExtra(EXTRA_EVENT_CLICKED,0);
         form =  EventFormService.getInstance().load(id);
         loadForm(form);
-
+        */
         btEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
