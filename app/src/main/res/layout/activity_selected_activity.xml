@@ -32,7 +32,15 @@
                 style="@style/ivSelectedViewPhoto"
                 android:src="@drawable/image" />
 
-
+            <TextView
+                style="@style/tvSelectedActivityDetailLabel"
+                android:text="@string/detailLabel"
+                />
+            <TextView
+                android:id="@+id/tvSelectedActivityShortDescription"
+                style="@style/tvSelectedActivityContent"
+                android:text="@string/barcelona_game"
+                />
 
             <TextView
                 style="@style/tvSelectedActivityLabel"
@@ -66,17 +74,6 @@
                 android:id="@+id/tvSelectedActivityDate"
                 style="@style/tvSelectedActivityContent"
                 android:text="30/04/2015"
-                />
-            <TextView
-
-                style="@style/tvSelectedActivityLabel"
-                android:text="Time:"
-                />
-
-            <TextView
-                android:id="@+id/tvSelectedActivitytime"
-                style="@style/tvSelectedActivityContent"
-                android:text="12:00pm"
                 />
 
             <TextView
