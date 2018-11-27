@@ -15,36 +15,29 @@
     <string name="detailLabel">Details</string>
     <string name="dateLabel">Date:</string>
     <string name="descriptionLabel">Detailed Description:</string>
-    <string name="descriptionActivityHint">Detailed description of Activity</string>
-    <string name="dateActivityHint">Date?</string>
-    <string name="timeActivityHint">Time?</string>
+    <string name="descriptionActivityHint">How is the activity in details?</string>
+    <string name="dateActivityHint">What Date?</string>
+    <string name="timeActivityHint">What time?</string>
     <string name="costLabel">Cost:</string>
-    <string name="costActivityHint">Cost of Activity?</string>
-    <string name="shortDescriptionLabel">Short Description:</string>
-    <string name="shortDescriptionActivityHint">Short Descritption of Activity</string>
+    <string name="costActivityHint">How much?</string>
+    <string name="shortDescriptionLabel">Short description:</string>
+    <string name="shortDescriptionActivityHint">How would you describe in a few words an invitation to your activity or event?</string>
     <string name="locationLabel">Location:</string>
-    <string name="locationActivityHint">Where Activity is happening?</string>
-    <string name="activityNameLabel">Activity Name</string>
-    <string name="nameActivityHint">Name of Activity</string>
+    <string name="locationActivityHint">Where is going to happen your activity or event?</string>
+    <string name="activityNameLabel">Activity or Event Name:</string>
+    <string name="nameActivityHint">How is called you activity or event?</string>
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
-    <string name="errorLoadImage">Error uploading image</string>
-    <string name="actName">Activity name</string>
+    <string name="errorLoadImage">Error loading image</string>
     <string name="activityFormTitle">Activity Form</string>
     <string name="elClasico">El Classico</string>
     <string name="barcelona_game">Barcelona (Camp Nou) Stadium</string>
     <string name="costValue">$100</string>
     <string name="commentsLabel">Comments:</string>
-    <string name="addNewEvent">Add New Activity</string>
+    <string name="addNewEvent">Add new event</string>
     <string name="edit">Edit</string>
-    <string name="login">Login</string>
-    <string name="reg">Register</string>
-    <string name="slogan">Your Guide To Spend The Best Times</string>
-    <string name="usern"> User Name</string>
-    <string name="pass"> Password</string>
-    <string name="noAccountTxt">No account yet? Create one</string>
-
+    <string name="profname">Username</string>
     <string-array name="events_types">
         <item>Concert</item>
         <item>Theater</item>
@@ -66,7 +59,6 @@
     <string name="fest">Festival</string>
 
 
-
     <string-array name="people_array">
         <item>Alone</item>
         <item>Couple</item>
@@ -84,21 +76,9 @@
         <item>Sports</item>
         <item>Camping</item>
     </string-array>
+    <string name="title_activity_popular_event_nav">PopularEventNav</string>
 
-    <string-array name="event_namesArr">
-        <item>El Classico</item>
-        <item>Festival</item>
-        <item>Food Market</item>
-        <item>Music</item>
-
-    </string-array>
-
-    <string-array name="event_imagesArr">
-        <item>@drawable/barca</item>
-        <item>@drawable/festival</item>
-        <item>@drawable/dance</item>
-        <item>@drawable/music</item>
-    </string-array>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

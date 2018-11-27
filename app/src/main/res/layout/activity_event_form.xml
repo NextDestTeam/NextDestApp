@@ -129,7 +129,8 @@
                     <ImageButton
                         android:id="@+id/ibEventFormAddPhoto"
                         style="@style/ibAddPhoto"
-                        android:onClick="openImage" />
+                        android:onClick="openImage"
+                         />
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">

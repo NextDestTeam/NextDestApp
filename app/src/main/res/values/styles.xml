@@ -32,7 +32,7 @@
     </style>
 
     <style name="tvLabelStyle">
-        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
@@ -68,6 +68,7 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/bt_round_button</item>
     </style>
+
     <style name="etEventFormCost">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -212,17 +213,25 @@
     </style>
 
 
-    <style name="text" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:textSize">20dp</item>
-        <item name="android:textColor">@color/colorBlack</item>
-        <item name="android:textStyle"> bold</item>
+    <style name="text">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/colorgray</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="whatTxt" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="whatTxt">
         <item name="android:textSize">20dp</item>
+
     </style>
 
-    <style name="imageSize" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="usernam">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="imageSize">
         <item name="android:layout_width">80dp</item>
         <item name="android:layout_height">80dp</item>
     </style>
@@ -231,6 +240,11 @@
         <item name="android:layout_width">1000dp</item>
         <item name="android:layout_height">60dp</item>
 
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 
