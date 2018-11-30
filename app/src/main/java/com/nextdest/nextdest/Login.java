@@ -20,7 +20,7 @@ public class Login extends AppCompatActivity {
     public void login(View view) {
 
         if(etLogin.getText().toString().equals("u")){
-            Intent i = new Intent(this, EventSearchActivity.class);
+            Intent i = new Intent(this, PopluarActivity.class);
             this.startActivity(i);
         }else {
             Intent i = new Intent(this, ListEventActivity.class);
