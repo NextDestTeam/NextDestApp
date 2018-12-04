@@ -1,4 +1,4 @@
-package com.nextdest.nextdest;
+package com.nextdest.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,13 +8,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class GridAdabter extends BaseAdapter {
+import com.nextdest.nextdest.GridAdabter;
+import com.nextdest.nextdest.R;
+
+public class SearchAdabter extends BaseAdapter {
 
 
     Context context;
 
-    private final int [] images;
-    private final String [] values;
+    private final int [] imagestemp;
+    private final String [] valuestemp;
 
 
 
@@ -26,16 +29,16 @@ public class GridAdabter extends BaseAdapter {
     }
 
 
-    public GridAdabter(Context context, int[] images, String[] values) {
+    public SearchAdabter(Context context, int[] imagestemp, String[] valuestemp) {
         this.context = context;
-        this.images = images;
-        this.values=values;
+        this.imagestemp = imagestemp;
+        this.valuestemp=valuestemp;
         ;
     }
 
     @Override
     public int getCount() {
-        return values.length;
+        return valuestemp.length;
     }
 
     @Override
@@ -55,20 +58,17 @@ public class GridAdabter extends BaseAdapter {
         final View result;
 
         if (convertView == null) {
-            viewHolder = new ViewHolder();
+            viewHolder = new GridAdabter.ViewHolder();
             convertView = layoutInflater.from(parent.getContext()).inflate(R.layout.single_item, parent, false);
             ImageView imageView = (ImageView) convertView.findViewById(R.id.imageSingleItem);
             TextView textView = (TextView) convertView.findViewById(R.id.textSingleItem);
             result=convertView;
             convertView.setTag(viewHolder);
-            imageView.setImageResource(images[position]);
-            textView.setText(values[position]);
+            imageView.setImageResource(imagestemp[position]);
+            textView.setText(valuestemp[position]);
         }
 
         return convertView;
-        }
-
-
-
+    }
 
 }

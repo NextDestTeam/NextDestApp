@@ -53,6 +53,14 @@
                 android:text="@string/locationLabel"
                 />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/loc"
+                style="@style/btEditStyle"
+                android:text="show location"/>
+
+
             <TextView
                 style="@style/tvSelectedActivityLabel"
                 android:text="@string/costLabel"
@@ -69,6 +77,8 @@
                 style="@style/tvSelectedActivityLabel"
                 android:text="@string/dateLabel"
                 />
+
+
 
             <TextView
                 android:id="@+id/tvSelectedActivityDate"
@@ -94,6 +104,7 @@
                 style="@style/btEditStyle"
                 android:text="@string/edit"
                 />
+
 
 
 

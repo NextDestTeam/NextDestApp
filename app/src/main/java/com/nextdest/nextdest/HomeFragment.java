@@ -2,28 +2,38 @@ package com.nextdest.nextdest;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
+import java.util.ArrayList;
 
 
 public class HomeFragment extends Fragment {
 
-
+    MaterialSearchView searchView;
     Context context;
+    GridAdabter myAdabter;
+    ArrayAdapter<String> adapter;
+
+    private ArrayList<String> valuestemp;
+    private ArrayList<Integer> imagestemp;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
       final   int images []= {R.drawable.barca,R.drawable.festival,R.drawable.mou,R.drawable.food,R.drawable.tennis,R.drawable.party, R.drawable.tango ,R.drawable.marathon ,R.drawable.cars ,R.drawable.flam ,R.drawable.theater , R.drawable.galler};
-        final  String values [] = {
+       final   String values [] = {
                 "El Classico",
                 "Jazz Party",
                 "Natural Trip",
@@ -49,13 +59,28 @@ public class HomeFragment extends Fragment {
 
 
 
+
+
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         gridView= (GridView) v.findViewById(R.id.gridView);
-        GridAdabter gridAdabter = new GridAdabter (context , images ,values);
+        final GridAdabter gridAdabter = new GridAdabter (context , images ,values );
         gridView.setAdapter(gridAdabter);
 
+//test
+
+
+
+
+
+
+
+
+
+
+
+//end test
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

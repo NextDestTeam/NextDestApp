@@ -30,6 +30,7 @@ public class SelectedEventActivity extends AppCompatActivity {
     TextView tvDescription;
     Button btEdit;
     EventForm form;
+    Button btloc;
 
 
     @Override
@@ -45,6 +46,7 @@ public class SelectedEventActivity extends AppCompatActivity {
         tvCost = (TextView) findViewById(R.id.tvSelectedActivityCost);
         tvDate = (TextView) findViewById(R.id.tvSelectedActivityDate);
         btEdit = (Button) findViewById(R.id.btSelectActivityEdit);
+        btloc = (Button) findViewById(R.id.loc);
 
 
 
@@ -69,7 +71,17 @@ public class SelectedEventActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        
+
+
+        btloc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String  location=tvLocation.getText().toString();
+                Intent intent =new Intent(SelectedEventActivity.this,MapsActivity.class);
+                intent.putExtra("loc",location);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadForm(EventForm form) {

@@ -36,6 +36,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
+        //--------------------------------------
+        // test
+
+
+
+
+        //end test
+        //---------------------------------------
+
+
+
+
         viewPager =(ViewPager)findViewById(R.id.viewbager);
         ImageAdapter adapter=new ImageAdapter(this);
         viewPager.setAdapter(adapter);
