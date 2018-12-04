@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home"
+            />
+        <item
+            android:id="@+id/like"
+            android:icon="@drawable/ic_thumb_up_black_24dp"
+            android:title="Favorite Type"
+            />
+
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Log Out " />
+
+
+
+        <item
+            android:id="@+id/filters"
+            android:icon="@drawable/search2"
+            android:title="Filters"/>
+
+
+
+        <item android:title="Event Type">
+            <menu>
+                <item
+                    android:id="@+id/music"
+                    android:icon="@drawable/ic_library_music_black_24dp"
+                    android:title="Music" />
+                <item
+                    android:id="@+id/sport"
+                    android:icon="@drawable/ic_rowing_black_24dp"
+                    android:title="Sport" />
+                <item
+                    android:id="@+id/fun"
+                    android:icon="@drawable/ic_cake_black_24dp"
+                    android:title="Fun Time" />
+                <item
+                    android:id="@+id/natur"
+                    android:icon="@drawable/ic_nature_black_24dp"
+                    android:title="Natural" />
+
+            </menu>
+        </item>
+
+
+
+    </group>
+
+
+
+</menu>
