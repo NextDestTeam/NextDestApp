@@ -28,9 +28,9 @@ public class UserProfile extends Fragment {
         TextView tvProfName = view.findViewById(R.id.profName);
         ImageView imgProfilePic = view.findViewById(R.id.imgProfPic);
 
-        tvUsername.setText("emilia");
-        tvEmail.setText("emilia@gmail.com");
-        tvProfName.setText("Emilia Shikeenga");
+        tvUsername.setText("leo");
+        tvEmail.setText("leom@gmail.com");
+        tvProfName.setText("Leo Messi");
         imgProfilePic.setImageResource(R.drawable.barca);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
