@@ -62,7 +62,7 @@ public class SelectedEventActivity extends AppCompatActivity {
         int id = intent.getIntExtra(EXTRA_EVENT_CLICKED,0);
         form =  EventFormService.getInstance().load(id);
         loadForm(form);
-        */
+
         btEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,17 +71,7 @@ public class SelectedEventActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
-        btloc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String  location=tvLocation.getText().toString();
-                Intent intent =new Intent(SelectedEventActivity.this,MapsActivity.class);
-                intent.putExtra("loc",location);
-                startActivity(intent);
-            }
-        });
+        
     }
 
     private void loadForm(EventForm form) {
