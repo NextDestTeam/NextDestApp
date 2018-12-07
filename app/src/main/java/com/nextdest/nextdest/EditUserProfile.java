@@ -61,7 +61,6 @@ public class EditUserProfile extends Fragment {
         tvUsername.setText("leo");
         tvEmail.setText("leom@gmail.com");
         tvProfName.setText("Leo Messi");
-        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 
