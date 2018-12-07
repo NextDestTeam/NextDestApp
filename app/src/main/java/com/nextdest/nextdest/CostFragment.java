@@ -33,10 +33,8 @@ public class CostFragment extends Fragment {
 
         /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
                 R.array.people_array, android.R.layout.simple_spinner_item);
-
         ArrayAdapter<CharSequence> adapterCost = ArrayAdapter.createFromResource(context,
                 R.array.cost_array, android.R.layout.simple_spinner_item);
-
         ArrayAdapter<CharSequence> adapterAct = ArrayAdapter.createFromResource(context,
                 R.array.activity_array, android.R.layout.simple_spinner_item);
 // Specify the layout

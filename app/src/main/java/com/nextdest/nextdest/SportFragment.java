@@ -1,7 +1,6 @@
 package com.nextdest.nextdest;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,9 +16,9 @@ public class SportFragment extends Fragment {
     Context context;
     RecyclerView recyclerView;
     MyAdapter myAdapter;
-    // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
-    ArrayList<Row> items = new ArrayList<>();
+    ArrayList<Row> list = new ArrayList<>();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,37 +26,26 @@ public class SportFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_sport, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.my_recycler_view);
-        recyclerView.setLayoutManager(layoutManager);
-        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.tennis));
-        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
 
-        recyclerView.setAdapter(new MyAdapter(items, new MyAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Row items) {
-                Intent intent = new Intent(getActivity(),SelectedEventActivityRec.class);
-                intent.putExtra("image", items.getId());
-                intent.putExtra("detail", items.getDetal());
-                intent.putExtra("name", items.getName());
-                intent.putExtra("Price", items.getPrice());
-                intent.putExtra("time", items.getTime());
-                intent.putExtra("date", items.getDate());
-                intent.putExtra("place", items.getId());
-                startActivity(intent);
-            }
-        }));
+        recyclerView.setLayoutManager(layoutManager);
+        myAdapter=new MyAdapter(list, context);
+        recyclerView.setAdapter(myAdapter);
         return view;
     }
 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
-        // toolbar.setTitle("Sport Event");
+        getActivity().setTitle("Sport Event");
     }
 }

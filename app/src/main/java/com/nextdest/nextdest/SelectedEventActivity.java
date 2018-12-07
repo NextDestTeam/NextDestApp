@@ -38,9 +38,9 @@ public class SelectedEventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_activity);
 
-        tvName = (TextView) findViewById(R.id.tvSelectedActivityTitle);
+//        tvName = (TextView) findViewById(R.id.tvSelectedActivityTitle);
         ivPhoto = (ImageView) findViewById(R.id.ivSelectedActivityPhoto);
-        tvShortDescription = (TextView) findViewById(R.id.tvSelectedActivityShortDescription);
+//        tvShortDescription = (TextView) findViewById(R.id.tvSelectedActivityShortDescription);
         tvDescription = (TextView) findViewById(R.id.tvSelectedActivityDescription);
         tvLocation = (TextView) findViewById(R.id.tvSelectedActivityLocation);
         tvCost = (TextView) findViewById(R.id.tvSelectedActivityCost);
@@ -58,19 +58,7 @@ public class SelectedEventActivity extends AppCompatActivity {
         tvDate.setText(intent.getStringExtra("tvDate"));
         tvLocation.setText(intent.getStringExtra("tvLocation"));
 
-        /*Intent intent = getIntent();
-        int id = intent.getIntExtra(EXTRA_EVENT_CLICKED,0);
-        form =  EventFormService.getInstance().load(id);
-        loadForm(form);
 
-        btEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),EventFormActivity.class);
-                i.putExtra(EXTRA_EVENT_CLICKED,form.getId());
-                startActivity(i);
-            }
-        });
         
     }
 
