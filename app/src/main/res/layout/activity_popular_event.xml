@@ -4,164 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EventSearchActivity">
+    tools:context=".PopluarActivity">
 
-    <TextView
-        style="@style/text"
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <TextView
+            android:id="@+id/textView4"
+
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="70dp"
+
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="4dp"
+            android:text="@string/what"
+            android:textStyle="bold"
+            style = "@style/whatTxt"/>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <GridView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginBottom="271dp"
-        android:text="@string/pop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:id="@+id/gridView"
+        android:numColumns="3"
 
-    <Spinner
-        android:id="@+id/spinnerPeople"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="116dp" />
+        >
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="78dp"
-        android:text="@string/Type" />
 
-    <TextView
-        android:id="@+id/textView2"
-        style="@style/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="171dp"
-        android:layout_marginLeft="171dp"
-        android:layout_marginTop="0dp"
-        android:text="@string/cost" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:text="@string/Act"
-        style = "@style/text"/>
-
-    <Spinner
-        android:id="@+id/spinnerCost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/spinnerPeople"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="158dp"
-        android:layout_marginBottom="0dp" />
-
-    <Spinner
-        android:id="@+id/spinnerActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="295dp"
-        android:layout_marginTop="113dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="4dp"
-        android:text="@string/what"
-        style = "@style/whatTxt"/>
-
-    <Button
-        android:id="@+id/btPopularActivitySearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bt_round_button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="130dp"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="158dp"
-        android:text="@string/Srch" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_alignEnd="@+id/spinner"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-66dp"
-        android:layout_marginBottom="157dp"
-        style="@style/imageSize"
-        app:srcCompat="@drawable/festival" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        style="@style/imageSize"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="155dp"
-        app:srcCompat="@drawable/mou" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="39dp"
-        android:layout_marginRight="39dp"
-        android:layout_marginBottom="161dp"
-        style="@style/imageSize"
-        app:srcCompat="@drawable/barca" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-6dp"
-        android:layout_marginBottom="48dp"
-        android:layout_toEndOf="@+id/spinner"
-        style="@style/imageSize"
-        app:srcCompat="@drawable/dance" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_alignStart="@+id/imageView3"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="47dp"
-        style="@style/imageSize"
-        app:srcCompat="@drawable/music" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_alignStart="@+id/imageView4"
-        android:layout_alignTop="@+id/imageView5"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="1dp"
-        style="@style/imageSize"
-        app:srcCompat="@drawable/party" />
+    </GridView>
 
 
 </RelativeLayout>
+
+
