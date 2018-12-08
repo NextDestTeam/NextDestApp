@@ -25,7 +25,7 @@
         android:id="@+id/textSingleItem"
         android:gravity="center"
         android:textStyle="bold"
-        android:layout_alignBottom="@id/imageSingleItem"
+        android:layout_alignBottom="@id/textSingleItem"
         android:textColor="@color/cardview_dark_background"
 
 

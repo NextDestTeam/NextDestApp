@@ -48,8 +48,8 @@ public class GridAdabter extends BaseAdapter {
         if (convertView==null){
             view=new View(context);
             view=layoutInflater.inflate(R.layout.single_item , null);
-            ImageView imageView = (ImageView)view.findViewById(R.id.imageview);
-            TextView textView= (TextView) view.findViewById(R.id.textview);
+            ImageView imageView = (ImageView)view.findViewById(R.id.imageSingleItem);
+            TextView textView= (TextView) view.findViewById(R.id.textSingleItem);
             imageView.setImageResource(images[position]);
             textView.setText(values[position]);
 
