@@ -1,4 +1,4 @@
-package com.nextdest.nextdest;
+package com.nextdest.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MusicFragment extends Fragment  {
+public class MusicFragment extends Fragment {
     Context context;
     RecyclerView recyclerView;
     MyAdapter myAdapter;

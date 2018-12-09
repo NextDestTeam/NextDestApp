@@ -1,4 +1,4 @@
-package com.nextdest.nextdest;
+package com.nextdest.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -67,9 +67,9 @@ public class PopularEventNav extends AppCompatActivity
         final List<String> des=new ArrayList<>(); des.add(" you can attend this party now in ... "); des.add( "El Classico match Real Madrid (VS) Barcelona" );
                 des.add("amazing trip to wild ");des.add("Good Plase to have a diner with friends"); des.add("For tines lovers her yo have a big match ");
 
-        final   String cost[]= {"100$" , "35$" , "40$", "50$" ,"25$","30$","25$"};
+        final String cost[]= {"100$" , "35$" , "40$", "50$" ,"25$","30$","25$"};
         final List<String> location=new ArrayList<>(); location.add (" Taragona "); location.add("Barcelona Camp nou"); location.add(" Taragona "); location.add("Llieda ");location.add(" Barcelona"); location.add("Llieda");
-        final  String date []= {"26/11/2018" , "3/1/2019" , " 12/12/2018" , "12/12/2018","2/1/2019","4/1/2019","27/12/2018"};
+        final String date []= {"26/11/2018" , "3/1/2019" , " 12/12/2018" , "12/12/2018","2/1/2019","4/1/2019","27/12/2018"};
 
 
 
@@ -117,7 +117,7 @@ public class PopularEventNav extends AppCompatActivity
                     toolbar.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent= new Intent (getApplicationContext(),searchResult.class);
+                            Intent intent= new Intent(getApplicationContext(),searchResult.class);
                             startActivity(intent);
 
 
@@ -150,7 +150,7 @@ public class PopularEventNav extends AppCompatActivity
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                                Intent intent= new Intent (getApplicationContext(),SelectedEventActivity.class);
+                                Intent intent= new Intent(getApplicationContext(),SelectedEventActivity.class);
                                 Intent intent1 = intent.putExtra("ivPhoto", images[i]);
                                 intent.putExtra("tvName", nameFound.get(i));
                                 intent.putExtra("tvShortDescription", des.get(i));

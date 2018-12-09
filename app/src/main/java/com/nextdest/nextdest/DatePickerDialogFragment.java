@@ -1,4 +1,4 @@
-package com.nextdest.nextdest;
+package com.nextdest.activity;
 
 import android.support.v7.app.AppCompatDialogFragment;
 import android.app.DatePickerDialog;
@@ -6,7 +6,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import java.util.Calendar;
 
-public class DatePickerDialogFragment extends AppCompatDialogFragment{
+public class DatePickerDialogFragment extends AppCompatDialogFragment {
 
         public static final String DATEPICKER_DIALOG_CALLBACK = "DATEPICKER_DIALOG_CALLBACK";
         private DatePickerDialog.OnDateSetListener oCallback;

@@ -1,228 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SelectedEventActivity">
 
+    <ImageView
+        android:id="@+id/ivSelectedActivityPhoto"
+        style="@style/ivSelectedViewPhoto"
+        android:src="@drawable/image" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RatingBar
+                android:id="@+id/rbSelectedActivityRatingBar"
+                style="@style/ratingBarView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+            <TextView
+                android:id="@+id/tvSelectedActivityEvaluationCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/ratingEvaluation"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/rbSelectedActivityRatingBar"
+                android:text="@string/reviews"
+                />
+            <ImageButton
+                android:id="@+id/ibComment"
+                style="@style/ibComment"
+                app:layout_constraintLeft_toRightOf="@id/tvSelectedActivityEvaluationCounter"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvSelectedActivityTitle"
+            style="@style/tvSelectedActivityTitle"
+            android:text="@string/elClasico" />
+
+
+        <!--<TextView
+            style="@style/tvSelectedActivityDetailLabel"
+            android:text="@string/detailLabel" />-->
+
+        <TextView
+            android:id="@+id/tvSelectedActivityShortDescription"
+            style="@style/tvSelectedActivityContent"
+            android:text="@string/barcelona_game" />
+
+        <!--<TextView
+            style="@style/tvSelectedActivityLabel"
+            android:text="@string/locationLabel" />-->
+
+
+        <fragment
+            android:name="com.nextdest.activity.MapFragment"
+            android:id="@+id/frSelectedActivityMap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/tvSelectedActivityLocation"
+            style="@style/tvSelectedActivityContent"
+            android:text="@string/address" />
+
+        <!--<Button
+            android:id="@+id/loc"
+            style="@style/btEditStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="show location" />-->
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvSelectedActivityCostLabel"
+                    style="@style/tvSelectedActivityLabel"
+                    android:text="@string/costLabel" />
+
+                <TextView
+                    android:id="@+id/tvSelectedActivityCost"
+                    style="@style/tvSelectedActivityContentDivided"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSelectedActivityCostLabel"
+                    android:text="@string/costValue" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvSelectedActivityDateLabel"
+                    style="@style/tvSelectedActivityLabel"
+                    android:text="@string/dateLabel" />
+                <TextView
+                    android:id="@+id/tvSelectedActivityDate"
+                    style="@style/tvSelectedActivityContentDivided"
+                    app:layout_constraintLeft_toRightOf="@+id/tvSelectedActivityDateLabel"
+                    android:text="30/04/2015" />
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/tvSelectedActivityLabel"
+            android:text="@string/descriptionLabel" />
+
+
+        <TextView
+            android:id="@+id/tvSelectedActivityDescription"
+            style="@style/etDescriptionStyle"
+            android:text="you can reserve your ticket from : (www.reserv.com)
+     the match will start at 06:00 pm"
+
+            />
+        <!--<Button
+        android:id="@+id/btSelectActivityEdit"
+        style="@style/btEditStyle"
+        android:text="@string/edit"
+        />-->
+
+
+        <!--<TextView
+            style="@style/tvSelectedActivityCommentTitle"
+            android:text="@string/commentsLabel"
+
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="left"
+                android:src="@drawable/ab"
+
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Amazing !!!"
+                android:textSize="15sp"
+
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="left"
+                android:src="@drawable/ac"
+
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="oooh Thanks !! "
+                android:textSize="15sp"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="left"
+                android:src="@drawable/ad"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="can you please put another tickets costs"
+                android:textSize="15sp"
+
+                />
+        </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvSelectedActivityTitle"
-                android:text="@string/elClasico"
-                style="@style/tvSelectedActivityTitle"
-                />
+            android:layout_marginTop="10dp">
 
             <ImageView
-                android:id="@+id/ivSelectedActivityPhoto"
-                style="@style/ivSelectedViewPhoto"
-                android:src="@drawable/image" />
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/ani"
 
-            <TextView
-                style="@style/tvSelectedActivityDetailLabel"
-                android:text="@string/detailLabel"
-                />
-            <TextView
-                android:id="@+id/tvSelectedActivityShortDescription"
-                style="@style/tvSelectedActivityContent"
-                android:text="@string/barcelona_game"
                 />
 
             <TextView
-                style="@style/tvSelectedActivityLabel"
-                android:text="@string/locationLabel"
-                />
-
-            <TextView
-                android:id="@+id/tvSelectedActivityLocation"
-                style="@style/tvSelectedActivityContent"
-                android:text="@string/locationLabel"
-                />
-
-            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/loc"
-                style="@style/btEditStyle"
-                android:text="show location"/>
-
-
-            <TextView
-                style="@style/tvSelectedActivityLabel"
-                android:text="@string/costLabel"
-                 />
-
-            <TextView
-                android:id="@+id/tvSelectedActivityCost"
-                style="@style/tvSelectedActivityContent"
-                android:text="@string/costValue"
-                />
-
-            <TextView
-
-                style="@style/tvSelectedActivityLabel"
-                android:text="@string/dateLabel"
-                />
-
-
-
-            <TextView
-                android:id="@+id/tvSelectedActivityDate"
-                style="@style/tvSelectedActivityContent"
-                android:text="30/04/2015"
-                />
-
-            <TextView
-                style="@style/tvSelectedActivityLabel"
-                android:text="@string/descriptionLabel" />
-
-
-
-            <TextView
-                android:id="@+id/tvSelectedActivityDescription"
-                style="@style/etDescriptionStyle"
-                android:text="you can reserve your ticket from : (www.reserv.com)
-             the match will start at 06:00 pm"
+                android:layout_marginLeft="15dp"
+                android:hint="but your comment her"
+                android:textSize="15sp"
 
                 />
-            <Button
-                android:id="@+id/btSelectActivityEdit"
-                style="@style/btEditStyle"
-                android:text="@string/edit"
-                />
-
-
-
-
-            <TextView
-                style="@style/tvSelectedActivityCommentTitle"
-                android:text="@string/commentsLabel"
-
-                />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="left"
-                    android:src="@drawable/ab"
-
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Amazing !!!"
-                    android:textSize="15sp"
-
-                    />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="left"
-                    android:src="@drawable/ac"
-
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="oooh Thanks !! "
-                    android:textSize="15sp"
-
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="left"
-                    android:src="@drawable/ad"
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="can you please put another tickets costs"
-                    android:textSize="15sp"
-
-                    />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:src="@drawable/ani"
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:hint="but your comment her"
-                    android:textSize="15sp"
-
-                    />
-            </LinearLayout>
-
 
         </LinearLayout>
+-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvSelectedActivityComments"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
-        <android.support.constraint.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="20dp" />
+    </LinearLayout>
 
-    </RelativeLayout>
-    </ScrollView>
-
+<android.support.constraint.Guideline
+    android:id="@+id/guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_begin="20dp" />
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
+</ScrollView>

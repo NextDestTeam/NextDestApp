@@ -1,4 +1,4 @@
-package com.nextdest.nextdest;
+package com.nextdest.activity;
 
 /**
  * Created by hp on 10/31/2017.

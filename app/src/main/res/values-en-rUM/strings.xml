@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Happy Weekend</string>
+
+    <string name="title_activity_options">Options</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="addActivityTile">Add new Activity/Event</string>
+    <string name="typeLabel">Type</string>
+    <string name="detailLabel">Details</string>
+    <string name="dateLabel">Date:</string>
+    <string name="descriptionLabel">Detailed Description:</string>
+    <string name="descriptionActivityHint">How is the activity in details?</string>
+    <string name="dateActivityHint">What Date?</string>
+    <string name="timeActivityHint">What time?</string>
+    <string name="costLabel">Cost:</string>
+    <string name="costActivityHint">How much?</string>
+    <string name="shortDescriptionLabel">Short description:</string>
+    <string name="shortDescriptionActivityHint">How would you describe in a few words an invitation to your activity or event?</string>
+    <string name="locationLabel">Location:</string>
+    <string name="locationActivityHint">Where is going to happen your activity or event?</string>
+    <string name="activityNameLabel">Activity or Event Name:</string>
+    <string name="nameActivityHint">How is called you activity or event?</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="errorLoadImage">Error loading image</string>
+    <string name="activityFormTitle">Activity Form</string>
+    <string name="elClasico">El Classico</string>
+    <string name="barcelona_game">Barcelona (Camp Nou) Stadium</string>
+    <string name="costValue">$100</string>
+    <string name="commentsLabel">Comments:</string>
+    <string name="addNewEvent">Add new event</string>
+    <string name="edit">Edit</string>
+    <string-array name="events_types">
+        <item>Concert</item>
+        <item>Theater</item>
+        <item>Opera</item>
+        <item>Party</item>
+        <item>Rave</item>
+    </string-array>
+
+
+    <string name="Type">Type of People</string>
+    <string name="cost">Cost</string>
+    <string name="Act">Activities</string>
+    <string name="Srch">Search</string>
+    <string name="pop">Popular Activities</string>
+    <string name="what">What would you like to do?</string>
+    <string name="here">Here are recommendations for you:</string>
+    <string name="el">El Classico</string>
+    <string name="music">Music Concert</string>
+    <string name="fest">Festival</string>
+
+
+    <string-array name="people_array">
+        <item>Alone</item>
+        <item>Couple</item>
+        <item>Friends</item>
+    </string-array>
+
+    <string-array name="cost_array">
+        <item>5€ - 10€</item>
+        <item>11€ - 20€</item>
+        <item>50€+</item>
+    </string-array>
+
+    <string-array name="activity_array">
+        <item>Music</item>
+        <item>Sports</item>
+        <item>Camping</item>
+    </string-array>
+    <string name="title_activity_popular_event_nav">PopularEventNav</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="normal_map">Normal_Map</string>
+    <string name="hybrid_map">Hybrid_Map</string>
+    <string name="satellite_map">Satellite_Map</string>
+    <string name="terrain_map">Terrain_Map</string>
+    <string name="address">Carrer Bisbe Torres 2, 1r 1a</string>
+    <string name="without_location_permission">Couldn\'t load the map because of the location permission.</string>
+    <string name="your_impression">What\'s your impression?</string>
+
+
+</resources>

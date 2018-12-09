@@ -1,4 +1,4 @@
-package com.nextdest.nextdest;
+package com.nextdest.activity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -22,9 +22,8 @@ import android.widget.ArrayAdapter;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.Bitmap;
 
-
-import com.nextdest.form.EventForm;
-import com.nextdest.service.EventFormService;
+import com.nextdest.model.Event;
+import com.nextdest.service.EventService;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -57,7 +56,7 @@ public class EventFormActivity extends AppCompatActivity
     ImageButton ibAddPhoto;
     ImageView ivPhoto;
     Button btSubmit;
-    private EventForm eventForm = new EventForm();
+    private Event event = new Event();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,11 +84,11 @@ public class EventFormActivity extends AppCompatActivity
         loadTypesOfEvent();
         int eventId = getIntent().getIntExtra(ListEventActivity.EXTRA_EVENT_CLICKED,0);
         if(eventId!=0)
-            loadEdit(EventFormService.getInstance().load(eventId));
+            loadEdit(EventService.getInstance().load(eventId));
 
     }
 
-    private void loadEdit(EventForm load) {
+    private void loadEdit(Event load) {
         for(int i=0; i < spType.getAdapter().getCount();i++){
             if(spType.getAdapter().getItem(i).toString().equals(load.getType())){
                 spType.setSelection(i);
@@ -190,7 +189,7 @@ public class EventFormActivity extends AppCompatActivity
         if(validate()){
 
         }
-        EventFormService.getInstance().save(eventForm);
+        EventService.getInstance().save(event);
         Intent iSelectedEvent = new Intent(this,ListEventActivity.class);
         this.startActivity(iSelectedEvent);
 
@@ -201,27 +200,27 @@ public class EventFormActivity extends AppCompatActivity
     }
 
     private void fillForm() {
-        eventForm.setType((String)spType.getSelectedItem());
-        eventForm.setName(etName.getText().toString());
+        event.setType((String)spType.getSelectedItem());
+        event.setName(etName.getText().toString());
         try {
             Calendar calendar = new GregorianCalendar();
             Date date = DateFormat.getDateFormat(getApplicationContext()).parse(tvDate.getText().toString());
             Date time = DateFormat.getTimeFormat(getApplicationContext()).parse(tvTime.getText().toString());
             calendar.set(date.getYear(),date.getMonth(),date.getDay(),time.getHours(),time.getMinutes());
-            eventForm.setDate(calendar.getTime());
+            event.setDate(calendar.getTime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        eventForm.setShortDescription(etShortDescription.getText().toString());
-        eventForm.setDescription(etDescription.getText().toString());
-        eventForm.setCost(Double.parseDouble(etCost.getText().toString()));
-        eventForm.setLocation(etLocation.getText().toString());
+        event.setShortDescription(etShortDescription.getText().toString());
+        event.setDescription(etDescription.getText().toString());
+        event.setCost(Double.parseDouble(etCost.getText().toString()));
+        event.setLocation(etLocation.getText().toString());
 
         BitmapDrawable bitmapDrawable = ((BitmapDrawable) ivPhoto.getDrawable());
         Bitmap bitmap = bitmapDrawable .getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-        eventForm.setPhoto(stream.toByteArray());
+        event.setPhoto(stream.toByteArray());
 
 
 

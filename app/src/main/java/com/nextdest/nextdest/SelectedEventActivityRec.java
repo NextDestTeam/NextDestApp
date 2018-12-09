@@ -1,5 +1,5 @@
 
-package com.nextdest.nextdest;
+package com.nextdest.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -62,7 +62,7 @@ public class SelectedEventActivityRec extends AppCompatActivity {
           btloc.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                String  location=tvLocation.getText().toString();
+                String location=tvLocation.getText().toString();
                 Intent intent =new Intent(SelectedEventActivityRec.this,MapsActivity.class);
                 intent.putExtra("loc",location);
                 startActivity(intent);

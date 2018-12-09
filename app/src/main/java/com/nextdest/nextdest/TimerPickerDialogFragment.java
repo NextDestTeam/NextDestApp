@@ -1,4 +1,4 @@
-package com.nextdest.nextdest;
+package com.nextdest.activity;
 
 import android.support.v7.app.AppCompatDialogFragment;
 import android.app.TimePickerDialog;

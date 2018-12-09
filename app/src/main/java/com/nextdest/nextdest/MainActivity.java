@@ -1,4 +1,4 @@
-package com.nextdest.nextdest;
+package com.nextdest.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         timer.scheduleAtFixedRate(new MyTimerTask(),4000,4000);
 
     }
-     public class MyTimerTask extends TimerTask{
+     public class MyTimerTask extends TimerTask {
 
          @Override
          public void run() {

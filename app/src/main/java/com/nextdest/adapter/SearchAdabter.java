@@ -8,8 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nextdest.nextdest.GridAdabter;
-import com.nextdest.nextdest.R;
+import com.nextdest.activity.GridAdapter;
+import com.nextdest.activity.R;
 
 public class SearchAdabter extends BaseAdapter {
 
@@ -17,7 +17,7 @@ public class SearchAdabter extends BaseAdapter {
     Context context;
 
     private final int [] imagestemp;
-    private final String [] valuestemp;
+    private final String[] valuestemp;
 
 
 
@@ -54,11 +54,11 @@ public class SearchAdabter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        GridAdabter.ViewHolder viewHolder;
+        GridAdapter.ViewHolder viewHolder;
         final View result;
 
         if (convertView == null) {
-            viewHolder = new GridAdabter.ViewHolder();
+            viewHolder = new GridAdapter.ViewHolder();
             convertView = layoutInflater.from(parent.getContext()).inflate(R.layout.single_item, parent, false);
             ImageView imageView = (ImageView) convertView.findViewById(R.id.imageSingleItem);
             TextView textView = (TextView) convertView.findViewById(R.id.textSingleItem);
