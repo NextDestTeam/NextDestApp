@@ -1,4 +1,4 @@
-package com.nextdest.activity;
+package com.nextdest.nextdest;
 
 import android.content.Context;
 import android.content.Intent;

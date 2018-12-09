@@ -1,4 +1,4 @@
-package com.nextdest.activity;
+package com.nextdest.nextdest;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;

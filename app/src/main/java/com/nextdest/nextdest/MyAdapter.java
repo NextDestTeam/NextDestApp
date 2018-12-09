@@ -1,4 +1,4 @@
-package com.nextdest.activity;
+package com.nextdest.nextdest;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;

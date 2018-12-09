@@ -1,4 +1,4 @@
-package com.nextdest.activity;
+package com.nextdest.nextdest;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

@@ -69,7 +69,7 @@
 
 
         <fragment
-            android:name="com.nextdest.activity.MapFragment"
+            android:name="com.nextdest.nextdest.MapFragment"
             android:id="@+id/frSelectedActivityMap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

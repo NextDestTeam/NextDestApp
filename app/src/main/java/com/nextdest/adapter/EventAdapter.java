@@ -12,8 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nextdest.activity.R;
 import com.nextdest.model.Event;
+import com.nextdest.nextdest.R;
 
 import java.util.List;
 

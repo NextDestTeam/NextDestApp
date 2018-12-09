@@ -1,4 +1,4 @@
-package com.nextdest.activity;
+package com.nextdest.nextdest;
 
 interface OnMapFragmentReadyCallback {
 

@@ -1,4 +1,4 @@
-package com.nextdest.activity;
+package com.nextdest.nextdest;
 
 import android.support.v7.app.AppCompatDialogFragment;
 import android.app.DatePickerDialog;

@@ -8,8 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nextdest.activity.GridAdapter;
-import com.nextdest.activity.R;
+import com.nextdest.nextdest.GridAdapter;
+import com.nextdest.nextdest.R;
+
 
 public class SearchAdabter extends BaseAdapter {
 

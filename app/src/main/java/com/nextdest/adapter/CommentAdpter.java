@@ -7,9 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nextdest.nextdest.R;
 import com.nextdest.view.model.CommentViewModel;
-import com.nextdest.activity.CommentViewHolder;
-import com.nextdest.activity.R;
+import com.nextdest.nextdest.CommentViewHolder;
+
 
 import java.util.List;
 

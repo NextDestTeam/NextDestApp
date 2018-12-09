@@ -1,4 +1,4 @@
-package com.nextdest.activity;
+package com.nextdest.nextdest;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,6 +6,8 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.nextdest.nextdest.R;
 
 public class ImageAdapter extends PagerAdapter {
     private Context mContext;

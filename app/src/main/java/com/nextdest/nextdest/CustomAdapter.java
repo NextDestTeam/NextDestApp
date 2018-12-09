@@ -1,4 +1,4 @@
-package com.nextdest.activity;
+package com.nextdest.nextdest;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -34,8 +34,8 @@ public class CustomAdapter extends ArrayAdapter {
     }
 
     @Override
-    public com.nextdest.activity.DataModel getItem(int position) {
-        return (com.nextdest.activity.DataModel) dataSet.get(position);
+    public DataModel getItem(int position) {
+        return (DataModel) dataSet.get(position);
     }
 
 
@@ -59,7 +59,7 @@ public class CustomAdapter extends ArrayAdapter {
             result=convertView;
         }
 
-        com.nextdest.activity.DataModel item = getItem(position);
+        DataModel item = getItem(position);
 
 
         viewHolder.txtName.setText(item.name);
