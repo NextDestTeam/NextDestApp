@@ -12,17 +12,25 @@ public class ReactionService implements IService<Reaction> {
     private static ReactionService instance;
     private static int nextId = 1;
     private ReactionService(){    }
-    public ReactionService getInstance(){
+    public static ReactionService getInstance(){
         if(instance==null)instance = new ReactionService();
         return instance;
     }
 
     @Override
     public void save(Reaction object) {
-        if(object.getId()==0){
+        List<Reaction> userReaction = getUserReactions(object.getIdUser());
+        if(object.getId()==0 && userReaction.size()==0){
             object.setId(nextId++);
             reactionList.add(object);
         }
+
+        for (Reaction reaction :
+                userReaction) {
+            if (reaction.getIdActivity() == object.getIdActivity()) {
+                reaction.setReaction(object.getReaction());
+            }
+            }
     }
 
     @Override
@@ -37,5 +45,23 @@ public class ReactionService implements IService<Reaction> {
     @Override
     public List<Reaction> getAll() {
         return Collections.unmodifiableList(reactionList);
+    }
+
+    private List<Reaction> getUserReactions(int userId){
+        List<Reaction> result = new ArrayList<>();
+        for (Reaction reaction :
+                reactionList) {
+            if(reaction.getIdUser()==userId)result.add(reaction);
+        }
+        return result;
+    }
+
+    private List<Reaction> getActivityReactions(int activityId){
+        List<Reaction> result = new ArrayList<>();
+        for (Reaction reaction :
+                reactionList) {
+            if(reaction.getIdActivity()==activityId)result.add(reaction);
+        }
+        return result;
     }
 }

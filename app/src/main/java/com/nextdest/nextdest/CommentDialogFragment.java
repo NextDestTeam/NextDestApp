@@ -57,6 +57,9 @@ public class CommentDialogFragment extends DialogFragment {
         btCancel = view.findViewById(R.id.btCommentDialogCancel);
         btComment = view.findViewById(R.id.btCommentDialogComment);
 
+        //TODO REMOVE TO ENABLE RATING
+        rating.setVisibility(View.GONE);
+
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,11 +77,12 @@ public class CommentDialogFragment extends DialogFragment {
                     c.setComment(comment.getText().toString());
                     CommentService.getInstance().save(c);
                 //}
-                Rating r = new Rating();
+                //TODO REMOVE THIS TO ENABLE RATING
+                /*Rating r = new Rating();
                 r.setIdActivity(idActivity);
                 r.setIdUser(idUser);
                 r.setRating(rating.getRating());
-                RatingService.getInstance().save(r);
+                RatingService.getInstance().save(r);*/
                 dismiss();
             }
         });

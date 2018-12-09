@@ -93,6 +93,9 @@
     <string name="your_impression">What\'s your impression?</string>
     <string name="please_let_your_comments">Please let your comments.</string>
     <string name="comment">Comment</string>
+    <string name="not_interested">Not interested</string>
+    <string name="interested">Interested</string>
+    <string name="maybe">Maybe</string>
 
 
 </resources>

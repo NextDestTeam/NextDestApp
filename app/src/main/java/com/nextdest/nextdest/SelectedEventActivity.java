@@ -13,25 +13,31 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.nextdest.adapter.ReactionAdapter;
 import com.nextdest.model.Event;
+import com.nextdest.model.Reaction;
+import com.nextdest.model.ReactionType;
 import com.nextdest.service.EventService;
+import com.nextdest.service.ReactionService;
 import com.nextdest.view.model.CommentViewModel;
 import com.nextdest.adapter.CommentAdpter;
 import com.nextdest.form.EventForm;
-import com.nextdest.service.EventFormService;
+import com.nextdest.view.model.ReactionViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SelectedEventActivity extends AppCompatActivity implements OnMapFragmentReadyCallback {
+public class SelectedEventActivity extends AppCompatActivity implements OnMapFragmentReadyCallback, AdapterView.OnItemSelectedListener {
 
     public static final String EXTRA_EVENT_CLICKED = "EXTRA_EVENT_CLICKED";
 
@@ -51,9 +57,12 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
     private RatingBar rbRating;
     private EventForm eventForm;
     List<CommentViewModel> listComment;
+    List<ReactionViewModel> reactionViewModelList;
     private Event event;
     private CommentAdpter commentAdapter;
+    private Spinner spReaction;
     MapFragment mapFragment;
+    ReactionAdapter adapter;
 
 
     @Override
@@ -77,6 +86,15 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
         rvComments = findViewById(R.id.rvSelectedActivityComments);
         tvReviews = findViewById(R.id.tvSelectedActivityEvaluationCounter);
         rbRating = findViewById(R.id.rbSelectedActivityRatingBar);
+
+        //TODO REMOVE TO ENABLE RATING
+        rbRating.setVisibility(View.GONE);
+
+        spReaction = findViewById(R.id.spActivitySelectedReaction);
+
+        spReaction.setOnItemSelectedListener(this);
+
+        createReactionView();
 
         rvComments.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -122,30 +140,40 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
             }
         });
 
-        /*Intent intent = getIntent();
-        int id = intent.getIntExtra(EXTRA_EVENT_CLICKED,0);
-        form =  EventFormService.getInstance().load(id);
-        loadForm(form);
-        */
-        /*btEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),EventFormActivity.class);
-                i.putExtra(EXTRA_EVENT_CLICKED,form.getId());
-                startActivity(i);
-            }
-        });*/
 
+    }
 
-//        btloc.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String location=tvLocation.getText().toString();
-//                Intent intent =new Intent(SelectedEventActivity.this,MapsActivity.class);
-//                intent.putExtra("loc",location);
-//                startActivity(intent);
-//            }
-//        });
+    private void createReactionView() {
+
+        reactionViewModelList  = new ArrayList<>();
+
+        ReactionViewModel notInterested = new ReactionViewModel();
+        notInterested.setText(getResources().getString(R.string.not_interested));
+        notInterested.setCode(ReactionType.NO_WAY_TO_GO);
+        notInterested.setDrawable(getResources().getDrawable(R.mipmap.ic_thumb_not_interested_round));
+
+        ReactionViewModel interested = new ReactionViewModel();
+        interested.setText(getResources().getString(R.string.interested));
+        interested.setCode(ReactionType.INTERESTED);
+        interested.setDrawable(getResources().getDrawable(R.mipmap.ic_thumb_interested_round));
+
+        ReactionViewModel maybe = new ReactionViewModel();
+        maybe.setText(getResources().getString(R.string.maybe
+        ));
+        maybe.setCode(ReactionType.MAY_GO);
+        maybe.setDrawable(getResources().getDrawable(R.mipmap.ic_thumb_may_be_round));
+
+        reactionViewModelList.add(notInterested);
+        reactionViewModelList.add(interested);
+        reactionViewModelList.add(maybe);
+
+        adapter = new ReactionAdapter(this.getApplicationContext(),
+                R.layout.reaction_item,reactionViewModelList);
+
+        adapter.setDropDownViewResource(android.R.layout
+                .simple_spinner_dropdown_item);
+        //adapter.setDropDownViewResource(R.layout.reaction_item);
+        spReaction.setAdapter(adapter);
     }
 
     private void updateComments() {
@@ -156,8 +184,8 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
         for (int i=0; i< event.getCommentList().size(); i++) {
             CommentViewModel commentViewModel = new CommentViewModel();
             commentViewModel.setComment(event.getCommentList().get(i).getComment());
-            commentViewModel.setRating(event.getRatingList().get(i).getRating());
-            avg = (avg+event.getRatingList().get(i).getRating())/2;
+            //commentViewModel.setRating(event.getRatingList().get(i).getRating());
+            //avg = (avg+event.getRatingList().get(i).getRating())/2;
             BitmapDrawable drawable = (BitmapDrawable) this.getResources().getDrawable(R.drawable.barca);
             commentViewModel.setPhoto(drawable);
             listComment.add(commentViewModel);
@@ -211,5 +239,22 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
     @Override
     public void mapFragmentReady(MapFragment mapFragment) {
         mapFragment.locate(event.getLocation(),event.getName());
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        ReactionViewModel reactionViewModel = adapter.getItem(position);
+
+        Reaction reaction = new Reaction();
+        reaction.setIdUser(1);
+        reaction.setIdActivity(event.getId());
+        reaction.setReaction(reactionViewModel.getCode());
+        ReactionService.getInstance().save(reaction);
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        spReaction.setSelection(0);
     }
 }

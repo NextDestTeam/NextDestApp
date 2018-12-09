@@ -30,11 +30,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <RatingBar
+                android:visibility="gone"
                 android:id="@+id/commentFragmentRatingBar"
                 style="@style/ratingBarViewCommentItem"/>
 
             <TextView
                 android:id="@+id/commentFragmentComment"
+                android:layout_margin="@dimen/margin"
                 style="@style/commentFragmentComment"
                 android:text="Comments............."/>
         </LinearLayout>

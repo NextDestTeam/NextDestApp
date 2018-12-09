@@ -21,12 +21,14 @@
 
         <TextView
             style="@style/tvTitleStyle"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/your_impression" />
 
 
         <RatingBar
+            android:visibility="gone"
             android:id="@+id/rbCommentDialogRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

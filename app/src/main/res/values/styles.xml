@@ -301,6 +301,10 @@
         <item name="android:paddingLeft">14dp</item>
     </style>
 
+    <style name="spActivityReaction" parent="tvSelectedActivityContent">
+        <item name="android:layout_marginLeft">@dimen/margin</item>
+    </style>
+
     <style name="commentFragmentComment">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -315,8 +319,14 @@
         <item name="android:layout_width">@dimen/iconWidth</item>
         <item name="android:layout_height">@dimen/iconHeigth</item>
         <item name="android:background">@android:color/transparent</item>
-        <item name="android:src">@mipmap/ic_comment_round</item>
         <item name="android:layout_marginLeft">@dimen/margin</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="ivImageReaction">
+        <item name="android:layout_width">@dimen/iconWidth</item>
+        <item name="android:layout_height">@dimen/iconHeigth</item>
+        <item name="android:background">@android:color/transparent</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
 

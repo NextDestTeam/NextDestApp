@@ -26,6 +26,7 @@
             android:layout_height="wrap_content">
             <RatingBar
                 android:id="@+id/rbSelectedActivityRatingBar"
+                android:visibility="gone"
                 style="@style/ratingBarView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -35,16 +36,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/ratingEvaluation"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ibComment"
+                app:layout_constraintBottom_toBottomOf="@+id/ibComment"
                 app:layout_constraintLeft_toRightOf="@+id/rbSelectedActivityRatingBar"
                 android:text="@string/reviews"
                 />
             <ImageButton
                 android:id="@+id/ibComment"
                 style="@style/ibComment"
+                android:src="@mipmap/ic_comment_round"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/tvSelectedActivityEvaluationCounter"
                 />
+            <Spinner
+                android:id="@+id/spActivitySelectedReaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/spActivityReaction"
+                android:background="@android:color/transparent"
+                app:layout_constraintLeft_toRightOf="@id/ibComment"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"></Spinner>
 
         </android.support.constraint.ConstraintLayout>
 

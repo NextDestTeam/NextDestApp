@@ -18,6 +18,7 @@ public class Event {
     private byte[] photo;
     private List<Comment> commentList = new ArrayList<>();
     private List<Rating> ratingList = new ArrayList<>();
+    private List<Reaction> reactionList = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -99,6 +100,8 @@ public class Event {
         ratingList.add(rating);
     }
 
+    public void addReation(Reaction reaction){reactionList.add(reaction);}
+
     public List<Comment> getCommentList(){
         return Collections.unmodifiableList(commentList);
     }
@@ -106,5 +109,7 @@ public class Event {
     public List<Rating> getRatingList(){
         return Collections.unmodifiableList(ratingList);
     }
+
+    public List<Reaction> getReactionList(){return Collections.unmodifiableList(reactionList);}
 
 }
