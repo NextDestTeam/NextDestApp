@@ -10,4 +10,14 @@
     <dimen name="commentPhotoHeight">64dp</dimen>
     <dimen name="mtrl_card_spacing" >3dp</dimen>
     <dimen name="padding">14dp</dimen>
+    <dimen name="textPaddingLeft">8dp</dimen>
+    <dimen name="textPaddingTop">8dp</dimen>
+    <dimen name="textPaddingBottom">8dp</dimen>
+    <dimen name="textPaddingRight">8dp</dimen>
+    <dimen name="ratingPaddingTop">8dp</dimen>
+    <dimen name="commentHeight">186dp</dimen>
+    <dimen name="margin">14dp</dimen>
+    <dimen name="iconWidth">36dp</dimen>
+    <dimen name="iconHeigth">36dp</dimen>
+    <dimen name="marginTop">8dp</dimen>
 </resources>

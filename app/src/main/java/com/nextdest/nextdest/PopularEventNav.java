@@ -65,11 +65,11 @@ public class PopularEventNav extends AppCompatActivity
 
 
         final List<String> des=new ArrayList<>(); des.add(" you can attend this party now in ... "); des.add( "El Classico match Real Madrid (VS) Barcelona" );
-                des.add("amazing trip to wild ");des.add("Good Plase to have a diner with friends"); des.add("For tines lovers her yo have a big match ");
+        des.add("amazing trip to wild ");des.add("Good Plase to have a diner with friends"); des.add("For tines lovers her yo have a big match ");
 
-        final String cost[]= {"100$" , "35$" , "40$", "50$" ,"25$","30$","25$"};
+        final   String cost[]= {"100$" , "35$" , "40$", "50$" ,"25$","30$","25$"};
         final List<String> location=new ArrayList<>(); location.add (" Taragona "); location.add("Barcelona Camp nou"); location.add(" Taragona "); location.add("Llieda ");location.add(" Barcelona"); location.add("Llieda");
-        final String date []= {"26/11/2018" , "3/1/2019" , " 12/12/2018" , "12/12/2018","2/1/2019","4/1/2019","27/12/2018"};
+        final  String date []= {"26/11/2018" , "3/1/2019" , " 12/12/2018" , "12/12/2018","2/1/2019","4/1/2019","27/12/2018"};
 
 
 
@@ -109,17 +109,55 @@ public class PopularEventNav extends AppCompatActivity
 
 
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
 
 
 
-                    toolbar.setOnClickListener(new View.OnClickListener() {
+                toolbar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent= new Intent (getApplicationContext(),searchResult.class);
+                        startActivity(intent);
+
+
+                    }
+                });
+
+
+
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (newText != null && !newText.isEmpty()) {
+                    final List<String> nameFound = new ArrayList<String>();
+                    for (String item : values1) {
+                        if (item.contains(newText)) {
+                            nameFound.add(item);
+                        }
+                    }
+
+                    ArrayAdapter adapter = new ArrayAdapter(PopularEventNav.this, android.R.layout.simple_list_item_1, nameFound);
+                    testview.setAdapter(adapter);
+
+
+
+
+                    testview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
-                        public void onClick(View view) {
-                            Intent intent= new Intent(getApplicationContext(),searchResult.class);
-                            startActivity(intent);
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                            Intent intent= new Intent (getApplicationContext(),SelectedEventActivity.class);
+                            Intent intent1 = intent.putExtra("ivPhoto", images[i]);
+                            intent.putExtra("tvName", nameFound.get(i));
+                            intent.putExtra("tvShortDescription", des.get(i));
+                            //intent.putExtra("tvCost",cost[i]);
+                            //intent.putExtra("tvDate",date[i]);
+                            intent.putExtra("tvLocation", location.get(i));
+                            startActivity(intent);
 
                         }
                     });
@@ -127,54 +165,16 @@ public class PopularEventNav extends AppCompatActivity
 
 
 
-                    return false;
-                    }
 
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    if (newText != null && !newText.isEmpty()) {
-                        final List<String> nameFound = new ArrayList<String>();
-                        for (String item : values1) {
-                            if (item.contains(newText)) {
-                                nameFound.add(item);
-                            }
-                        }
-
-                        ArrayAdapter adapter = new ArrayAdapter(PopularEventNav.this, android.R.layout.simple_list_item_1, nameFound);
-                        testview.setAdapter(adapter);
-
-
-
-
-                        testview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                                Intent intent= new Intent(getApplicationContext(),SelectedEventActivity.class);
-                                Intent intent1 = intent.putExtra("ivPhoto", images[i]);
-                                intent.putExtra("tvName", nameFound.get(i));
-                                intent.putExtra("tvShortDescription", des.get(i));
-                                //intent.putExtra("tvCost",cost[i]);
-                                //intent.putExtra("tvDate",date[i]);
-                                intent.putExtra("tvLocation", location.get(i));
-                                startActivity(intent);
-
-                            }
-                        });
-
-
-
-
-
-                    }
-
-
-
-                    return true;
                 }
 
 
-            });
+
+                return true;
+            }
+
+
+        });
 
 
 
