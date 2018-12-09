@@ -263,6 +263,9 @@ public class PopularEventNav extends AppCompatActivity
             case R.id.filters:
                 fragment = new Filters();
                 break;
+            case R.id.profile:
+                fragment = new UserProfile();
+                break;
         }
 
         //replacing the fragment

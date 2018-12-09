@@ -11,7 +11,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-
     <string name="addActivityTile">Add new Activity/Event</string>
     <string name="typeLabel">Type</string>
     <string name="detailLabel">Details</string>
@@ -39,6 +38,7 @@
     <string name="commentsLabel">Comments:</string>
     <string name="addNewEvent">Add new event</string>
     <string name="edit">Edit</string>
+    <string name="profname">Username</string>
     <string-array name="events_types">
         <item>Concert</item>
         <item>Theater</item>
@@ -58,6 +58,7 @@
     <string name="el">El Classico</string>
     <string name="music">Music Concert</string>
     <string name="fest">Festival</string>
+
 
 
     <string-array name="people_array">

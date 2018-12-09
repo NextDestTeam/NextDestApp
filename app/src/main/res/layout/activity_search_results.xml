@@ -6,21 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".EventSearchResultActivity">
 
-    <TextView
-        style="@style/whatTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginBottom="289dp"
-        android:text="@string/here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Spinner
         android:id="@+id/spinnerPeople"
@@ -57,15 +43,16 @@
 
     <TextView
         android:id="@+id/textView3"
+        style="@style/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:text="@string/Act"
-        style = "@style/text"/>
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:text="@string/Act" />
 
     <Spinner
         android:id="@+id/spinnerCost"
@@ -82,83 +69,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="306dp"
+        android:layout_marginStart="300dp"
         android:layout_marginTop="86dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="140dp"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="133dp"
-        android:background="@drawable/bt_round_button"
-        android:text="@string/Srch" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        style="@style/resSize"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-165dp"
-        android:layout_marginBottom="101dp"
-        app:srcCompat="@drawable/music" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        style="@style/resSize"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="207dp"
-        app:srcCompat="@drawable/barca" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        style="@style/resSize"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-171dp"
-        android:layout_marginBottom="13dp"
-        app:srcCompat="@drawable/festival" />
-
-    <TextView
-        android:id="@+id/textView5"
-        style="@style/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView4"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_marginEnd="-23dp"
-        android:layout_marginBottom="6dp"
-        android:text="@string/el" />
-
-    <TextView
-        android:id="@+id/textView6"
-        style="@style/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView3"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_marginEnd="-49dp"
-        android:layout_marginBottom="-93dp"
-        android:text="@string/music" />
-
-    <TextView
-        android:id="@+id/textView7"
-        style="@style/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView"
-        android:layout_alignStart="@+id/spinnerCost"
-        android:layout_marginStart="-2dp"
-        android:layout_marginBottom="99dp"
-        android:text="@string/fest" />
 
 
 </RelativeLayout>

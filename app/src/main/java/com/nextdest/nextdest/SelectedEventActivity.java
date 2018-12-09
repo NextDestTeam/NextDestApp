@@ -24,6 +24,7 @@ import com.nextdest.service.EventService;
 import com.nextdest.view.model.CommentViewModel;
 import com.nextdest.adapter.CommentAdpter;
 import com.nextdest.form.EventForm;
+import com.nextdest.service.EventFormService;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

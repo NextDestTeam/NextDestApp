@@ -68,7 +68,6 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/bt_round_button</item>
     </style>
-
     <style name="etEventFormCost">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -126,20 +125,6 @@
         <item name="android:paddingTop">10dp</item>
         <item name="android:textSize">16dp</item>
         <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="btSubmitSecondaryStyle" parent="btSubmitStyle">
-        <item name="android:background">@drawable/bt_round_button_secondary</item>
-    </style>
-
-    <style name="btSubmitCardStyle" parent="btSubmitStyle">
-        <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingLeft">10dp</item>
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:paddingTop">5dp</item>
-    </style>
-    <style name="btSubmitCardSecondaryStyle" parent="btSubmitCardStyle">
-        <item name="android:background">@drawable/bt_round_button_secondary</item>
     </style>
 
     <style name="btImageViewDelete">
@@ -257,7 +242,14 @@
         <item name="android:textSize">20dp</item>
     </style>
 
-    <style name="imageSize" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="usernam">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="imageSize">
         <item name="android:layout_width">80dp</item>
         <item name="android:layout_height">80dp</item>
     </style>
@@ -273,60 +265,5 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ratingBarView" parent="@style/Widget.AppCompat.RatingBar.Small">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center_vertical</item>
-        <!--<item name="android:layout_marginTop">8dp</item>-->
-        <item name="android:numStars">5</item>
-        <item name="android:rating">3</item>
-        <item name="android:stepSize">0.5</item>
-    </style>
 
-    <style name="ratingEvaluation" parent="tvSelectedActivityContent">
-        <item name="android:paddingLeft">18dp</item>
-    </style>
-
-    <style name="ratingEvaluationText" parent="ratingEvaluation">
-        <item name="android:padding">0dp</item>
-    </style>
-
-    <style name="tvSelectedActivityContentDivided" parent="tvSelectedActivityContent">
-        <item name="android:paddingLeft">14dp</item>
-    </style>
-
-    <style name="commentFragmentComment">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:paddingLeft">@dimen/textPaddingLeft</item>
-        <!--<item name="android:paddingTop">@dimen/textPaddingTop</item>-->
-        <item name="android:paddingBottom">@dimen/textPaddingBottom</item>
-        <item name="android:paddingRight">@dimen/textPaddingRight</item>
-
-    </style>
-
-    <style name="ibComment">
-        <item name="android:layout_width">@dimen/iconWidth</item>
-        <item name="android:layout_height">@dimen/iconHeigth</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:src">@mipmap/ic_comment_round</item>
-        <item name="android:layout_marginLeft">@dimen/margin</item>
-        <item name="android:scaleType">centerCrop</item>
-    </style>
-
-    <style name="ratingBarViewCommentItem" parent="ratingBarView">
-        <item name="android:layout_marginTop">@dimen/marginTop</item>
-    </style>
-
-
-    <dimen name="textPaddingLeft">8dp</dimen>
-    <dimen name="textPaddingTop">8dp</dimen>
-    <dimen name="textPaddingBottom">8dp</dimen>
-    <dimen name="textPaddingRight">8dp</dimen>
-    <dimen name="ratingPaddingTop">8dp</dimen>
-    <dimen name="commentHeight">186dp</dimen>
-    <dimen name="margin">14dp</dimen>
-    <dimen name="iconWidth">36dp</dimen>
-    <dimen name="iconHeigth">36dp</dimen>
-    <dimen name="marginTop">8dp</dimen>
 </resources>
