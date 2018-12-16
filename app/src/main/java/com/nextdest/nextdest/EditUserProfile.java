@@ -58,9 +58,9 @@ public class EditUserProfile extends Fragment {
             }
         });
 
-        tvUsername.setText("emilia");
-        tvEmail.setText("emilia@gmail.com");
-        tvProfName.setText("Emilia Shikeenga");
+        tvUsername.setText("leo");
+        tvEmail.setText("leom@gmail.com");
+        tvProfName.setText("Leo Messi");
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

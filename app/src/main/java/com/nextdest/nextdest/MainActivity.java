@@ -1,6 +1,8 @@
 package com.nextdest.nextdest;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteTableLockedException;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +14,12 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Button login =(Button) findViewById(R.id.btn_login);
         Button reg =(Button) findViewById(R.id.btn_reg);
         login.setOnClickListener(new View.OnClickListener() {
