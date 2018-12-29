@@ -1,4 +1,4 @@
-package com.nextdest.nextdest;
+package com.nextdest.database;
 
 import android.content.ContentValues;
 import android.content.Context;
