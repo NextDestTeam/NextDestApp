@@ -1,5 +1,14 @@
 package com.nextdest.nextdest;
 
+import android.graphics.Bitmap;
+
+import com.nextdest.model.Comment;
+import com.nextdest.model.Rating;
+import com.nextdest.model.Reaction;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by hp on 10/31/2017.
  */
@@ -7,14 +16,43 @@ package com.nextdest.nextdest;
 public class Row {
 
     private String name;
-   private String date;
-    private String Price;
+    private String date;
+    private int Price;
     private String place;
     private String detal;
     private String time;
     private int id;
 
-    public Row(String name, String date, String price, String place, String detal, String time, int id) {
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
+
+    public List<Rating> getRatingList() {
+        return ratingList;
+    }
+
+    public void setRatingList(List<Rating> ratingList) {
+        this.ratingList = ratingList;
+    }
+
+    public List<Reaction> getReactionList() {
+        return reactionList;
+    }
+
+    public void setReactionList(List<Reaction> reactionList) {
+        this.reactionList = reactionList;
+    }
+
+    private List<Comment> commentList = new ArrayList<>();
+    private List<Rating> ratingList = new ArrayList<>();
+    private List<Reaction> reactionList = new ArrayList<>();
+
+
+    public Row(String name, String date, int price, String place, String detal, String time, int id) {
         this.name = name;
         this.date = date;
         Price = price;
@@ -42,11 +80,11 @@ public class Row {
         this.date = date;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return Price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         Price = price;
     }
 

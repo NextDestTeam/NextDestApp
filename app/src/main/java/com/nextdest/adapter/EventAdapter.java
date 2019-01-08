@@ -12,14 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nextdest.form.EventForm;
+import com.nextdest.model.Event;
 import com.nextdest.nextdest.R;
 
 import java.util.List;
 
-public class EventAdapter extends ArrayAdapter<EventForm> {
+public class EventAdapter extends ArrayAdapter<Event> {
 
-    public EventAdapter(@NonNull Context context, int resource, List<EventForm> objects) {
+    public EventAdapter(@NonNull Context context, int resource, List<Event> objects) {
         super(context, resource,objects);
     }
 
@@ -32,7 +32,7 @@ public class EventAdapter extends ArrayAdapter<EventForm> {
                         R.layout.list_event_item,parent,false);
             }
 
-            EventForm currentEvent = getItem(position);
+            Event currentEvent = getItem(position);
 
             TextView tvItemName = convertView.findViewById(R.id.tvListEventItemName);
             tvItemName.setText(currentEvent.getName());

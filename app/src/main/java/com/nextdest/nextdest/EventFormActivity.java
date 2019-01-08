@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,10 +22,10 @@ import android.widget.TimePicker;
 import android.widget.ArrayAdapter;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.Bitmap;
+import android.widget.Toast;
 
-
-import com.nextdest.form.EventForm;
-import com.nextdest.service.EventFormService;
+import com.nextdest.model.Event;
+import com.nextdest.service.EventService;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -35,8 +36,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.io.ByteArrayOutputStream;
 import java.util.GregorianCalendar;
-
-
 public class EventFormActivity extends AppCompatActivity
         implements DatePickerDialog.OnDateSetListener,
         Serializable,
@@ -44,7 +43,7 @@ public class EventFormActivity extends AppCompatActivity
 
     private static int RESULT_LOAD_IMAGE = 1;
     private static String EVENT_FORM_ACTIVITY = "EVENT_FORM_ACTIVITY";
-
+    DB db =new DB (this);
     TextView tvFormTitle;
     Spinner spType;
     EditText etName;
@@ -57,7 +56,7 @@ public class EventFormActivity extends AppCompatActivity
     ImageButton ibAddPhoto;
     ImageView ivPhoto;
     Button btSubmit;
-    private EventForm eventForm = new EventForm();
+    private Event event = new Event();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,18 +77,34 @@ public class EventFormActivity extends AppCompatActivity
         btSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveEvent(v);
+                String Name=etName.getText().toString();
+                String date = tvDate.getText().toString();
+                String ShortDescription=etShortDescription.getText().toString();
+                String Description=etDescription.getText().toString();
+                int Cost=Integer.parseInt(etCost.getText().toString());
+                String Location=etLocation.getText().toString();
+
+               long id= db.addNew_ACTIVITY(Name,ShortDescription,Description,Location,Cost,1,date);
+              int _id =(int) (long)id;
+                Drawable bitmapDrawable =  ivPhoto.getDrawable();
+                Bitmap bitmap = ((BitmapDrawable)bitmapDrawable).getBitmap();
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                byte[] Photo=stream.toByteArray();
+                long image_id=db.addNew_ACTIVITY_IMAGE(_id,Photo);
+                Toast.makeText(getApplicationContext(),""+image_id,Toast.LENGTH_LONG).show();
+
             }
         });
 
         loadTypesOfEvent();
-        int eventId = getIntent().getIntExtra(ListEventActivity.EXTRA_EVENT_CLICKED,0);
+      /*  int eventId = getIntent().getIntExtra(ListEventActivity.EXTRA_EVENT_CLICKED,0);
         if(eventId!=0)
-            loadEdit(EventFormService.getInstance().load(eventId));
+            loadEdit(EventService.getInstance().load(eventId));
 
     }
 
-    private void loadEdit(EventForm load) {
+    private void loadEdit(Event load) {
         for(int i=0; i < spType.getAdapter().getCount();i++){
             if(spType.getAdapter().getItem(i).toString().equals(load.getType())){
                 spType.setSelection(i);
@@ -106,7 +121,7 @@ public class EventFormActivity extends AppCompatActivity
         etShortDescription.setText(load.getShortDescription());
         etLocation.setText(load.getLocation());
         Bitmap bMap = BitmapFactory.decodeByteArray(load.getPhoto(), 0, load.getPhoto().length);
-        ivPhoto.setImageBitmap(bMap);
+        ivPhoto.setImageBitmap(bMap);*/
     }
 
     private void loadTypesOfEvent() {
@@ -185,12 +200,12 @@ public class EventFormActivity extends AppCompatActivity
         startActivityForResult(i, RESULT_LOAD_IMAGE);
     }
 
-    public void saveEvent(View view) {
+   /* public void saveEvent(View view) {
         fillForm();
-        if(validate()){
+       if(validate()){
 
         }
-        EventFormService.getInstance().save(eventForm);
+        EventService.getInstance().save(event);
         Intent iSelectedEvent = new Intent(this,ListEventActivity.class);
         this.startActivity(iSelectedEvent);
 
@@ -201,30 +216,32 @@ public class EventFormActivity extends AppCompatActivity
     }
 
     private void fillForm() {
-        eventForm.setType((String)spType.getSelectedItem());
-        eventForm.setName(etName.getText().toString());
+        event.setType((String)spType.getSelectedItem());
+       String Name=etName.getText().toString();
+       String date = tvDate.getText().toString();
         try {
             Calendar calendar = new GregorianCalendar();
-            Date date = DateFormat.getDateFormat(getApplicationContext()).parse(tvDate.getText().toString());
+            //Date date = DateFormat.getDateFormat(getApplicationContext()).parse(tvDate.getText().toString());
             Date time = DateFormat.getTimeFormat(getApplicationContext()).parse(tvTime.getText().toString());
-            calendar.set(date.getYear(),date.getMonth(),date.getDay(),time.getHours(),time.getMinutes());
-            eventForm.setDate(calendar.getTime());
+           // calendar.set(date.getYear(),date.getMonth(),date.getDay(),time.getHours(),time.getMinutes());
+            event.setDate(calendar.getTime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        eventForm.setShortDescription(etShortDescription.getText().toString());
-        eventForm.setDescription(etDescription.getText().toString());
-        eventForm.setCost(Double.parseDouble(etCost.getText().toString()));
-        eventForm.setLocation(etLocation.getText().toString());
+        String ShortDescription=etShortDescription.getText().toString();
+        String Description=etDescription.getText().toString();
+      int Cost=Integer.parseInt(etCost.getText().toString());
+        String Location=etLocation.getText().toString();
 
-        BitmapDrawable bitmapDrawable = ((BitmapDrawable) ivPhoto.getDrawable());
-        Bitmap bitmap = bitmapDrawable .getBitmap();
+        Drawable bitmapDrawable =  ivPhoto.getDrawable();
+        Bitmap bitmap = ((BitmapDrawable)bitmapDrawable).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-        eventForm.setPhoto(stream.toByteArray());
+        byte[] Photo=stream.toByteArray();
+        db.addNew_ACTIVITY(Name,ShortDescription,Description,Location,Cost,1,date);
 
 
 
-    }
+    }*/
 
 }

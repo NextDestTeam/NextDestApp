@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.nextdest.nextdest.R;
+
 public class ImageAdapter extends PagerAdapter {
     private Context mContext;
     private int[]mImageids=new int[]{R.drawable.resturant2,R.drawable.music2,R.drawable.snow2,R.drawable.food};

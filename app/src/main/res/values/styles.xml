@@ -68,7 +68,6 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/bt_round_button</item>
     </style>
-
     <style name="etEventFormCost">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -88,6 +87,20 @@
     <style name="etNormalTextInput">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="etCommentTextInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/commentHeight</item>
+        <item name="android:layout_margin">@dimen/margin</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:gravity">top|left</item>
+        <item name="android:paddingBottom">@dimen/textPaddingBottom</item>
+        <item name="android:paddingTop">@dimen/textPaddingTop</item>
+        <item name="android:paddingLeft">@dimen/textPaddingLeft</item>
+        <item name="android:paddingRight">@dimen/textPaddingRight</item>
+        <item name="android:background">@drawable/comment_shape</item>
+        <item name="android:scrollbars">vertical</item>
     </style>
 
     <style name="ibAddPhoto">
@@ -112,6 +125,20 @@
         <item name="android:paddingTop">10dp</item>
         <item name="android:textSize">16dp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="btSubmitSecondaryStyle" parent="btSubmitStyle">
+        <item name="android:background">@drawable/bt_round_button_secondary</item>
+    </style>
+
+    <style name="btSubmitCardStyle" parent="btSubmitStyle">
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+    </style>
+    <style name="btSubmitCardSecondaryStyle" parent="btSubmitCardStyle">
+        <item name="android:background">@drawable/bt_round_button_secondary</item>
     </style>
 
     <style name="btImageViewDelete">
@@ -143,35 +170,41 @@
     <style name="tvSelectedActivityTitle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:textSize">25sp</item>
+        <!--<item name="android:layout_gravity">center</item>-->
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@android:color/primary_text_light</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="ivSelectedViewPhoto">
-        <item name="android:layout_width">200dp</item>
-        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">194dp</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">centerCrop</item>
     </style>
 
     <style name="tvSelectedActivityDetailLabel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/secondary_text_light</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="tvSelectedActivityLabel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/secondary_text_light</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="tvSelectedActivityContent">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@android:color/tertiary_text_light</item>
+        <item name="android:textSize">18dp</item>
     </style>
 
     <style name="tvSelectedActivityCommentTitle">
@@ -213,15 +246,14 @@
     </style>
 
 
-    <style name="text">
-        <item name="android:textSize">16dp</item>
-        <item name="android:textColor">@color/colorgray</item>
+    <style name="text" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="whatTxt">
+    <style name="whatTxt" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:textSize">20dp</item>
-
     </style>
 
     <style name="usernam">
@@ -247,5 +279,59 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="ratingBarView" parent="@style/Widget.AppCompat.RatingBar.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <!--<item name="android:layout_marginTop">8dp</item>-->
+        <item name="android:numStars">5</item>
+        <item name="android:rating">3</item>
+        <item name="android:stepSize">0.5</item>
+    </style>
+
+    <style name="ratingEvaluation" parent="tvSelectedActivityContent">
+        <item name="android:paddingLeft">18dp</item>
+    </style>
+
+    <style name="ratingEvaluationText" parent="ratingEvaluation">
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="tvSelectedActivityContentDivided" parent="tvSelectedActivityContent">
+        <item name="android:paddingLeft">14dp</item>
+    </style>
+
+    <style name="spActivityReaction" parent="tvSelectedActivityContent">
+        <item name="android:layout_marginLeft">@dimen/margin</item>
+    </style>
+
+    <style name="commentFragmentComment">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">@dimen/textPaddingLeft</item>
+        <!--<item name="android:paddingTop">@dimen/textPaddingTop</item>-->
+        <item name="android:paddingBottom">@dimen/textPaddingBottom</item>
+        <item name="android:paddingRight">@dimen/textPaddingRight</item>
+
+    </style>
+
+    <style name="ibComment">
+        <item name="android:layout_width">@dimen/iconWidth</item>
+        <item name="android:layout_height">@dimen/iconHeigth</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_marginLeft">@dimen/margin</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="ivImageReaction">
+        <item name="android:layout_width">@dimen/iconWidth</item>
+        <item name="android:layout_height">@dimen/iconHeigth</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="ratingBarViewCommentItem" parent="ratingBarView">
+        <item name="android:layout_marginTop">@dimen/marginTop</item>
+    </style>
 
 </resources>

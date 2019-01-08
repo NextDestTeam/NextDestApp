@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 import com.nextdest.adapter.EventAdapter;
 import com.nextdest.form.EventForm;
-import com.nextdest.service.EventFormService;
+import com.nextdest.service.EventService;
 
 public class ListEventActivity extends AppCompatActivity {
 
@@ -28,7 +28,7 @@ public class ListEventActivity extends AppCompatActivity {
         btAdd = (Button) findViewById(R.id.btListEventAdd);
 
         eventAdapter = new EventAdapter(getApplicationContext(),
-                0, EventFormService.getInstance().getEvents());
+                0, EventService.getInstance().getAll());
 
         lvEvents.setAdapter(eventAdapter);
 

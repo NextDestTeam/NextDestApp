@@ -1,6 +1,7 @@
 package com.nextdest.nextdest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,9 +19,9 @@ public class CostFragment extends Fragment {
     Context context;
     RecyclerView recyclerView;
     MyAdapter myAdapter;
+    // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
-    ArrayList<Row> list = new ArrayList<>();
-
+    ArrayList<Row> items = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,10 +34,8 @@ public class CostFragment extends Fragment {
 
         /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
                 R.array.people_array, android.R.layout.simple_spinner_item);
-
         ArrayAdapter<CharSequence> adapterCost = ArrayAdapter.createFromResource(context,
                 R.array.cost_array, android.R.layout.simple_spinner_item);
-
         ArrayAdapter<CharSequence> adapterAct = ArrayAdapter.createFromResource(context,
                 R.array.activity_array, android.R.layout.simple_spinner_item);
 // Specify the layout
@@ -46,21 +45,33 @@ public class CostFragment extends Fragment {
         spinnerCost.setAdapter(adapterCost);
         spinnerAct.setAdapter(adapterAct);*/
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.music));
-        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.party));
-        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
-        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.food));
-        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
-        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.music2));
-        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
-        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.snow2));
-        list.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
-        recyclerView.setLayoutManager(layoutManager);
-        myAdapter=new MyAdapter(list, context);
-        recyclerView.setAdapter(myAdapter);
+       /* items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
+        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
+        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
+        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
+        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
+        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
+        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
+        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
+        items.add(new Row("music","23 diciembre - 19h","10$","llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.festival));
+*/
+        recyclerView.setAdapter(new MyAdapter(items, new MyAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Row items) {
+                Intent intent = new Intent(getActivity(),RecActivity.class);
+                intent.putExtra("image", items.getId());
+                intent.putExtra("detail", items.getDetal());
+                intent.putExtra("name", items.getName());
+                intent.putExtra("Price", items.getPrice());
+              //  intent.putExtra("time", items.getTime());
+                intent.putExtra("date", items.getDate());
+                intent.putExtra("place", items.getPlace());
+                startActivity(intent);
+            }
+        }));
+
         return view;
     }
-
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
