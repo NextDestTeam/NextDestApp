@@ -44,7 +44,7 @@ public class UserProfile extends Fragment {
         ImageView imgProfilePic = view.findViewById(R.id.imgProfPic);
         Bundle bundle = getArguments();
         userName= bundle.getString("userName");
-        Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_LONG).show();
         Cursor cursor = db.get_LOGIN_Data(userName);
         while(cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.KEY_ID));
