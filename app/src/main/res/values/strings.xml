@@ -37,7 +37,9 @@
     <string name="costValue">$100</string>
     <string name="commentsLabel">Comments:</string>
     <string name="addNewEvent">Add new event</string>
+    <string name="wel">Welcome To Happy Weekend!</string>
     <string name="edit">Edit</string>
+    <string name="slogan">"Don't Know What To Do?... We'll Provide you With a List Of Options"</string>
     <string name="profname">Username</string>
     <string-array name="events_types">
         <item>Concert</item>

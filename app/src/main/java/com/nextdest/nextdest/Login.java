@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 
     EditText username;
     EditText password;
+    TextView signUp;
     Button login;
     DB db;
     @Override
@@ -20,6 +22,14 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         db =new DB(getApplicationContext());
+        username = (EditText) findViewById(R.id.etLogin);
+        signUp = (TextView) findViewById(R.id.link_signup);
+        signUp.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), Register.class);
+                startActivity(intent);
+            }
+        });
         username = (EditText) findViewById(R.id.etLogin);
         password = (EditText) findViewById(R.id.pass);
         login=(Button)findViewById(R.id.btn_login);

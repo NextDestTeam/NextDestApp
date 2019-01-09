@@ -17,17 +17,10 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:orientation="vertical">
-
-
-
         <android.support.v4.view.ViewPager
             android:id="@+id/viewbager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-
-
-
     </LinearLayout>
 
     <TextView
@@ -35,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Welcome To Happy Weekend!"
+        android:text="@string/wel"
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -46,10 +39,9 @@
         android:id="@+id/intro2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Don't Know What To Do?... We'll Provide you With a List Of Options"
+        android:text="@string/slogan"
         android:textColor="@color/white"
-        android:textSize="16dp"
-
+        android:textSize="14dp"
         android:textStyle="bold"
         app:fontFamily="monospace" />
 

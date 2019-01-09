@@ -15,10 +15,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +52,7 @@ public class EditUserProfile extends Fragment {
     String pass;
     String confpass;
     String userName="";
+    String emailPattern;
 
     public static EditUserProfile newInstance(String userName){
         EditUserProfile editUserProfile = new EditUserProfile();
@@ -64,10 +68,12 @@ public class EditUserProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         db = new DB(getContext());
 
+
         view = inflater.inflate(R.layout.fragment_edit_user_profile, container, false);
 
         TextView tvUsername = view.findViewById(R.id.edUserName);
         TextView tvEmail = view.findViewById(R.id.edEmail);
+
         TextView tvOldPassword = view.findViewById(R.id.oldPass);
         TextView tvNewPassword = view.findViewById(R.id.newPass);
         imgProfilePic = view.findViewById(R.id.edPropic);
@@ -102,9 +108,37 @@ public class EditUserProfile extends Fragment {
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
             }
         });
-
         tvUsername.setText(name);
         tvEmail.setText(email);
+
+       //validate entered email
+        email = tvEmail.getText().toString().trim();
+
+        emailPattern = "([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$";
+
+        tvEmail .addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+
+                if (email.matches(emailPattern))
+                {
+                    Toast.makeText(getActivity().getApplicationContext(),"valid email address",Toast.LENGTH_SHORT).show();
+                    // or
+                    //textView.setText("valid email");
+                }
+                else
+                {
+                    Toast.makeText(getActivity().getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
+                    //or
+                   // textView.setText("invalid email");
+                }
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // other stuffs
+            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // other stuffs
+            }
+        });
 
        // tvProfName.setText("Leo Messi");
         btnSave.setOnClickListener(new View.OnClickListener() {
