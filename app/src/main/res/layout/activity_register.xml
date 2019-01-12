@@ -60,6 +60,7 @@
         android:textColorHighlight="#ffffff"
         android:textColorHint="#ffffff"
         android:textSize="18sp"
+        android:inputType="textPassword"
         android:id="@+id/pass"/>
 
 
@@ -76,6 +77,7 @@
         android:textColorHighlight="#ffffff"
         android:textColorHint="#ffffff"
         android:textSize="18sp"
+        android:inputType="textPassword"
         android:id="@+id/repass"/>
 
     <!-- Password Label -->

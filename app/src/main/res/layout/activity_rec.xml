@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".RecActivity">
+
+
+        <ImageView
+            android:id="@+id/ivSelectedActivityPhoto"
+            style="@style/ivSelectedViewPhoto"
+            android:src="@drawable/image" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RatingBar
+                    android:id="@+id/rbSelectedActivityRatingBar"
+                    android:visibility="gone"
+                    style="@style/ratingBarView"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                <TextView
+                    android:id="@+id/tvSelectedActivityEvaluationCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/ratingEvaluation"
+                    app:layout_constraintTop_toTopOf="@+id/ibComment"
+                    app:layout_constraintBottom_toBottomOf="@+id/ibComment"
+                    app:layout_constraintLeft_toRightOf="@+id/rbSelectedActivityRatingBar"
+                    android:text="@string/reviews"
+                    />
+                <ImageButton
+                    android:id="@+id/ibComment"
+                    style="@style/ibComment"
+                    android:src="@mipmap/ic_comment_round"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tvSelectedActivityEvaluationCounter"
+                    />
+                <Spinner
+                    android:id="@+id/spActivitySelectedReaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/spActivityReaction"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintLeft_toRightOf="@id/ibComment"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"></Spinner>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvSelectedActivityTitle"
+                style="@style/tvSelectedActivityTitle"
+                android:text="@string/elClasico" />
+
+
+            <!--<TextView
+                style="@style/tvSelectedActivityDetailLabel"
+                android:text="@string/detailLabel" />-->
+
+            <TextView
+                android:id="@+id/tvSelectedActivityShortDescription"
+                style="@style/tvSelectedActivityContent"
+                android:text="@string/barcelona_game" />
+
+            <!--<TextView
+                style="@style/tvSelectedActivityLabel"
+                android:text="@string/locationLabel" />-->
+
+
+            <fragment
+                android:name="com.nextdest.nextdest.MapFragment"
+                android:id="@+id/frSelectedActivityMap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:id="@+id/tvSelectedActivityLocation"
+                style="@style/tvSelectedActivityContent"
+                android:text="@string/address" />
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvSelectedActivityCostLabel"
+                        style="@style/tvSelectedActivityLabel"
+                        android:text="@string/costLabel" />
+
+                    <TextView
+                        android:id="@+id/tvSelectedActivityCost"
+                        style="@style/tvSelectedActivityContentDivided"
+                        app:layout_constraintLeft_toRightOf="@+id/tvSelectedActivityCostLabel"
+                        android:text="@string/costValue" />
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tvSelectedActivityDateLabel"
+                        style="@style/tvSelectedActivityLabel"
+                        android:text="@string/dateLabel" />
+                    <TextView
+                        android:id="@+id/tvSelectedActivityDate"
+                        style="@style/tvSelectedActivityContentDivided"
+                        app:layout_constraintLeft_toRightOf="@+id/tvSelectedActivityDateLabel"
+                        android:text="30/04/2015" />
+                </android.support.constraint.ConstraintLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/tvSelectedActivityLabel"
+                android:text="@string/descriptionLabel" />
+
+
+            <TextView
+                android:id="@+id/tvSelectedActivityDescription"
+                style="@style/etDescriptionStyle"
+                android:text="you can reserve your ticket from : (www.reserv.com)
+     the match will start at 06:00 pm"
+
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvSelectedActivityComments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+
+    </LinearLayout>
+</ScrollView>

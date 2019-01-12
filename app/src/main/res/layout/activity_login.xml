@@ -45,6 +45,7 @@
         android:textColorHighlight="#ffffff"
         android:textColorHint="#ffffff"
         android:textSize="18sp"
+        android:inputType="textPassword"
         android:id="@+id/pass"/>
 
     <!-- Password Label -->

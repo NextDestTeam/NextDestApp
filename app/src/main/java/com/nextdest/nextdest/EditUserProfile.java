@@ -16,6 +16,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,6 +52,7 @@ public class EditUserProfile extends Fragment {
     String email;
     String pass;
     String confpass;
+    String newpass;
     String userName="";
     String emailPattern;
 
@@ -76,9 +78,11 @@ public class EditUserProfile extends Fragment {
 
         TextView tvOldPassword = view.findViewById(R.id.oldPass);
         TextView tvNewPassword = view.findViewById(R.id.newPass);
+        TextView tvConfPassword = view.findViewById(R.id.confPass);
         imgProfilePic = view.findViewById(R.id.edPropic);
 
         btnSave = view.findViewById(R.id.btnSave);
+
       //  TextView tvProfName = view.findViewById(R.id.edProfName);
         Cursor cursor = db.get_LOGIN_Data(userName);
         while(cursor.moveToNext()) {
@@ -99,6 +103,20 @@ public class EditUserProfile extends Fragment {
             imgProfilePic.setImageBitmap(bitmap);
         }
         cursor.close();
+
+        newpass = tvNewPassword.getText().toString();
+        confpass = tvConfPassword.getText().toString();
+        if (!TextUtils.isEmpty(newpass) && !TextUtils.isEmpty(confpass))
+        {
+            if(newpass.equals(confpass))
+            {
+                tvOldPassword.setText(confpass);
+            }
+            else {
+                //are different
+                Toast.makeText(getActivity().getApplicationContext(),"passwords dont match",Toast.LENGTH_SHORT).show();
+            }
+        }
 
         Button btnPropic = (Button) view.findViewById(R.id.btnEdPropic);
         btnPropic.setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Happy Weekend</string>
+    <string name="slogan">" ¿No sabe qué hacer? ... Le proporcionaremos una lista de opciones"</string>
+    <string name="profname">Nombre de usuario</string>
+    <string name="reviews">contraseña</string>
+</resources>
