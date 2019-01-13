@@ -20,7 +20,7 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String PERSON_PREFERENCE = "PERSON_PREFERENCE";
     public static final String ACTIVITY_IMAGE = "ACTIVITY_IMAGE";
     // Common column names
-    public static final String KEY_ID = "id";
+    public static final String KEY_ID = "_id";
     // PERSON_Type column names
     public static final String P_NAME_type = "P_NAME_type";
     // PERSON Table - column nmaes

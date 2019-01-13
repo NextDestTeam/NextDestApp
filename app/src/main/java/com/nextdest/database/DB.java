@@ -33,7 +33,8 @@ public class DB {
     }
 
     public Cursor get_PERSON_Type() {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.PERSON_Type", null);
+        db = mySQLiteDatabase.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.PERSON_Type+"", null);
 
         return c;
     }
@@ -50,7 +51,8 @@ public class DB {
     }
 
     public Cursor get_PERSON() {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.PERSON", null);
+        db = mySQLiteDatabase.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from "+ MySQLiteDatabase.PERSON+"", null);
 
         return c;
     }
@@ -65,9 +67,10 @@ public class DB {
     }
 
     public Cursor get_LOGIN(String name, String pass) {
-        Cursor c = db.rawQuery("SELECT * FROM MySQLiteDatabase.LOGIN WHERE MySQLiteDatabase.LOGIN_NAME = ? AND MySQLiteDatabase.PASSWORD = ?", new String[]{name, pass});
-
-        return c;
+        db = mySQLiteDatabase.getWritableDatabase();
+        // Cursor c = db.rawQuery( "select * from LOGIN",null);
+        Cursor cursor = db.rawQuery("select * from " + MySQLiteDatabase.LOGIN +" where " + MySQLiteDatabase.LOGIN_NAME + " like ? AND " + MySQLiteDatabase.PASSWORD+ " like ? " , new String[] {"%" + name +"%" ,"%"+ pass +"%"});
+        return cursor;
     }
 
     public long addNew_ACTIVITY(String name, String short_Description, String Description, String Location, int price, int person_Id) {
@@ -82,11 +85,15 @@ public class DB {
         return id;
     }
 
-    public Cursor get_ACTIVITY(String name, String pass) {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.ACTIVITY", null);
+
+    public Cursor get_ACTIVITY(int id) {
+        db = mySQLiteDatabase.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from "+ MySQLiteDatabase.ACTIVITY+" ",null);
+
 
         return c;
     }
+
 
     public long addNew_ACTIVITY_TYPE(String name) {
         ContentValues values = new ContentValues();
@@ -96,7 +103,8 @@ public class DB {
     }
 
     public Cursor get_ACTIVITY_TYPE() {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.ACTIVITY_TYPE", null);
+        db = mySQLiteDatabase.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.ACTIVITY_TYPE+"", null);
 
         return c;
     }
@@ -111,11 +119,11 @@ public class DB {
     }
 
     public Cursor get_PERSON_ACTIVITY_COMMENT(int id) {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.PERSON_ACTIVITY_COMMENT WHERE MySQLiteDatabase.ACTIVITY_ID = ?  ", new String[]{id + ""});
+        db = mySQLiteDatabase.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.PERSON_ACTIVITY_COMMENT+" WHERE "+MySQLiteDatabase.ACTIVITY_ID+" = ?  ", new String[]{id + ""});
 
         return c;
     }
-
     public long addNew_REACTION(String Reaction, int person_id, int activity_id) {
         ContentValues values = new ContentValues();
         values.put(MySQLiteDatabase.R_REACTION, Reaction);
@@ -126,7 +134,8 @@ public class DB {
     }
 
     public Cursor get_REACTION(int id) {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.REACTION WHERE MySQLiteDatabase.R_ACTIVITY_ID = ?  ", new String[]{id + ""});
+        db = mySQLiteDatabase.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.REACTION+" WHERE "+MySQLiteDatabase.R_ACTIVITY_ID+" = ?  ", new String[]{id + ""});
 
         return c;
     }
@@ -140,7 +149,8 @@ public class DB {
     }
 
     public Cursor get_PERSON_PREFERENCE(int id) {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.PERSON_PREFERENCE WHERE MySQLiteDatabase.PP__PERSON_ID = ?  ", new String[]{id + ""});
+        db = mySQLiteDatabase.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.PERSON_PREFERENCE+" WHERE "+MySQLiteDatabase.PP__PERSON_ID+" = ?  ", new String[]{id + ""});
 
         return c;
     }
@@ -155,7 +165,8 @@ public class DB {
     }
 
     public Cursor get_ACTIVITY_IMAGE(int id) {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.ACTIVITY_IMAGE WHERE MySQLiteDatabase.I_ACTIVITY_ID = ?  ", new String[]{id + ""});
+        db = mySQLiteDatabase.getWritableDatabase();
+        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.ACTIVITY_IMAGE+" WHERE "+MySQLiteDatabase.I_ACTIVITY_ID+" = ?  ", new String[]{id + ""});
 //Retrieving data:
 //
 // byte[] image = cursor.getBlob(1);
