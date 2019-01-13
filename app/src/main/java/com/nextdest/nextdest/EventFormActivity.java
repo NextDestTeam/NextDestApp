@@ -84,7 +84,7 @@ public class EventFormActivity extends AppCompatActivity
                 int Cost=Integer.parseInt(etCost.getText().toString());
                 String Location=etLocation.getText().toString();
 
-               long id= db.addNew_ACTIVITY(Name,ShortDescription,Description,Location,Cost,1,date);
+               long id= db.addNew_ACTIVITY(Name,ShortDescription,Description,Location,Cost,1,date,1);
               int _id =(int) (long)id;
                 Drawable bitmapDrawable =  ivPhoto.getDrawable();
                 Bitmap bitmap = ((BitmapDrawable)bitmapDrawable).getBitmap();

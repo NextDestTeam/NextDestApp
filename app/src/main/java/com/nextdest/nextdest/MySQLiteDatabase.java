@@ -47,6 +47,7 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String PRICE = "PRICE";
     public static final String A_PERSON_ID = "A_PERSON_ID";
     public static final String Date = "Date";
+    public static final String A_ACTIVITY_ID = "ACTIVITY_ID";
     // ACTIVITY_TYPE Table - column nmaes
     public static final String Type_NAME = "Type_NAME";
     // PERSON_ACTIVITY_COMMENT Table - column nmaes
@@ -79,7 +80,8 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("Create Table " + LOGIN + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + LOGIN_NAME + " TEXT, " + PASSWORD + " TEXT," + EMAIL + " TEXT);");
 
-        sqLiteDatabase.execSQL("Create Table " + ACTIVITY + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + SHORT_DESCRIPTION + " TEXT," + DESCRIPTION + " TEXT," + LOCATION + "TEXT," + PRICE + " INTEGER," + A_PERSON_ID + " INTEGER,"+Date+" TEXT);");
+        sqLiteDatabase.execSQL("Create Table " + ACTIVITY + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + SHORT_DESCRIPTION + " TEXT," + DESCRIPTION + " TEXT," + LOCATION + "TEXT," + PRICE + " INTEGER," + A_PERSON_ID + " INTEGER,"+Date+" TEXT," + A_ACTIVITY_ID+ " INTEGER);");
+
 
         sqLiteDatabase.execSQL("Create Table " + ACTIVITY_TYPE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + Type_NAME + " TEXT);");
 

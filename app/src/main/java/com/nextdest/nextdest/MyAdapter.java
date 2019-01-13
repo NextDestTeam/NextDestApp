@@ -95,7 +95,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
            // Price.setText(item.getPrice());
             date.setText(item.getDate());
             place.setText(item.getPlace());
-            imag.setImageResource(item.getId());
+            imag.setImageBitmap(item.getImage());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
