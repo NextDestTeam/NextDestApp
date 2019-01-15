@@ -6,8 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 public class MySQLiteDatabase extends SQLiteOpenHelper {
-    // Database Name
-    private static final String DATABASE_NAME = "NextDest";
+    private static final String DATABASE_NAME = "database";
 
     // Table Names
     public static final String PERSON_Type = "PERSON_Type";
@@ -19,6 +18,7 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String REACTION = "REACTION";
     public static final String PERSON_PREFERENCE = "PERSON_PREFERENCE";
     public static final String ACTIVITY_IMAGE = "ACTIVITY_IMAGE";
+    public static final String PROFILE_IMAGE = "PROFILE_IMAGE";
     // Common column names
     public static final String KEY_ID = "_id";
     // PERSON_Type column names
@@ -29,6 +29,10 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String EMAIL = "EMAIL";
     public static final String AGE = "AGE";
     public static final String PERSON_TYPE_ID = "PERSON_TYPE_ID";
+
+    //PROFILE_IMAGE table - column names
+    public static final String PIMAGE = "PIMAGE";
+    public static final String P_PERSON_ID = "P_PERSON_ID";
 
     // LOGIN Table - column nmaes
     public static final String PERSON_ID = "PERSON_ID";
@@ -42,6 +46,8 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String LOCATION = "LOCATION";
     public static final String PRICE = "PRICE";
     public static final String A_PERSON_ID = "A_PERSON_ID";
+    public static final String Date = "Date";
+    public static final String A_ACTIVITY_ID = "ACTIVITY_ID";
     // ACTIVITY_TYPE Table - column nmaes
     public static final String Type_NAME = "Type_NAME";
     // PERSON_ACTIVITY_COMMENT Table - column nmaes
@@ -56,8 +62,9 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String PP__PERSON_ID = "PP_PERSON_ID";
     public static final String ACTIVITY_TYPE_ID = "ACTIVITY_TYPE_ID ";
     // ACTIVITY_IMAGE Table - column nmaes
-    public static final String IMAGE = "IMAGE";
     public static final String I_ACTIVITY_ID = "I_ACTIVITY_ID ";
+    public static final String IMAGE = "IMAGE";
+
 
 
     public MySQLiteDatabase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -69,23 +76,55 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
         // Table Create Statements
         sqLiteDatabase.execSQL("Create Table " + PERSON_Type + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + P_NAME_type + " TEXT);");
 
-        sqLiteDatabase.execSQL("Create Table " + PERSON + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + FIRST_NAME + " TEXT, " + LAST_NAME + " TEXT," + EMAIL + " TEXT," + AGE + " Date," + PERSON_TYPE_ID + "INTEGER," + " FOREIGN KEY (" + PERSON_TYPE_ID + ") REFERENCES " + PERSON_Type + "(" + KEY_ID + "));");
+        sqLiteDatabase.execSQL("Create Table " + PERSON + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + FIRST_NAME + " TEXT, " + LAST_NAME + " TEXT," + EMAIL + " TEXT," + AGE + " Date," + PERSON_TYPE_ID + " INTEGER);");
 
-        sqLiteDatabase.execSQL("Create Table " + LOGIN + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + LOGIN_NAME + " TEXT, " + PASSWORD + " TEXT," + PERSON_ID + "INTEGER," + " FOREIGN KEY (" + PERSON_ID + ") REFERENCES " + PERSON + "(" + KEY_ID + "));");
+        sqLiteDatabase.execSQL("Create Table " + LOGIN + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + LOGIN_NAME + " TEXT, " + PASSWORD + " TEXT," + EMAIL + " TEXT, "+MySQLiteDatabase.PERSON_ID+" INTEGER);");
 
-        sqLiteDatabase.execSQL("Create Table " + ACTIVITY + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + SHORT_DESCRIPTION + " TEXT," + DESCRIPTION + " TEXT," + LOCATION + "TEXT," + PRICE + "INTEGER," + A_PERSON_ID + "INTEGER," + " FOREIGN KEY (" + A_PERSON_ID + ") REFERENCES " + PERSON + "(" + KEY_ID + "));");
+        sqLiteDatabase.execSQL("Create Table " + ACTIVITY + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + SHORT_DESCRIPTION + " TEXT," + DESCRIPTION + " TEXT," + LOCATION + " TEXT," + PRICE + " INTEGER," + A_PERSON_ID + " INTEGER,"+Date+" TEXT," + A_ACTIVITY_ID+ " INTEGER);");
+
 
         sqLiteDatabase.execSQL("Create Table " + ACTIVITY_TYPE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + Type_NAME + " TEXT);");
 
-        sqLiteDatabase.execSQL("Create Table " + PERSON_ACTIVITY_COMMENT + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + COMMENT + " TEXT," + C_PERSON_ID + "INTEGER," + " FOREIGN KEY (" + C_PERSON_ID + ") REFERENCES " + PERSON + "(" + KEY_ID + ")," + " FOREIGN KEY (" + ACTIVITY_ID + ") REFERENCES " + ACTIVITY + "(" + KEY_ID + "));");
+        sqLiteDatabase.execSQL("Create Table " + PERSON_ACTIVITY_COMMENT + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + COMMENT + " TEXT," + C_PERSON_ID + "INTEGER," + ACTIVITY_ID + " INTEGER);");
 
-        sqLiteDatabase.execSQL("Create Table " + REACTION + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + R_REACTION + " TEXT," + R_PERSON_ID + "INTEGER," + " FOREIGN KEY (" + R_PERSON_ID + ") REFERENCES " + PERSON + "(" + KEY_ID + ")," + " FOREIGN KEY (" + R_ACTIVITY_ID + ") REFERENCES " + ACTIVITY + "(" + KEY_ID + "));");
+        sqLiteDatabase.execSQL("Create Table " + REACTION + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + R_REACTION + " TEXT," + R_PERSON_ID + "INTEGER," + R_ACTIVITY_ID + " INTEGER);");
 
-        sqLiteDatabase.execSQL("Create Table " + PERSON_PREFERENCE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + PP__PERSON_ID + "INTEGER," + " FOREIGN KEY (" + PP__PERSON_ID + ") REFERENCES " + PERSON + "(" + KEY_ID + ")," + " FOREIGN KEY (" + ACTIVITY_TYPE_ID + ") REFERENCES " + ACTIVITY_TYPE + "(" + KEY_ID + "));");
+        sqLiteDatabase.execSQL("Create Table " + PERSON_PREFERENCE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + PP__PERSON_ID + "INTEGER," + ACTIVITY_TYPE_ID + "INTEGER);");
 
-        sqLiteDatabase.execSQL("Create Table " + ACTIVITY_IMAGE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + IMAGE + " BLOB," + I_ACTIVITY_ID + "INTEGER," + " FOREIGN KEY (" + I_ACTIVITY_ID + ") REFERENCES " + ACTIVITY + "(" + KEY_ID + "));");
+        sqLiteDatabase.execSQL("Create Table " + ACTIVITY_IMAGE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + IMAGE + " BLOB," + I_ACTIVITY_ID + " INTEGER);");
+
+        sqLiteDatabase.execSQL("Create Table " + PROFILE_IMAGE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + PIMAGE + " BLOB," + P_PERSON_ID + " INTEGER);");
 
 
+        insertData(sqLiteDatabase);
+
+    }
+
+    private void insertData(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL("INSERT INTO "+ACTIVITY_TYPE+"("+
+                Type_NAME+") VALUES ('SPORT')"
+        );
+
+        sqLiteDatabase.execSQL("INSERT INTO "+ACTIVITY +"("+
+                NAME + ", " +
+                SHORT_DESCRIPTION + "," +
+                DESCRIPTION + "," +
+                LOCATION + ", " +
+                PRICE + ", " +
+                A_PERSON_ID + ", "+
+                Date+", " +
+                A_ACTIVITY_ID +
+                ") VALUES ("+
+                "'NOME',"+
+                "'DESCRIÇÃO CURTA',"+
+                "'DESCRIÇÃO',"+
+                "'SOROCABA',"+
+                "10.00,"+
+                "1,"+
+                "'2019-02-01',"+
+                "1)"
+
+        );
     }
 
     @Override
@@ -99,6 +138,7 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + REACTION);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + PERSON_PREFERENCE);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ACTIVITY_IMAGE);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + PROFILE_IMAGE );
         onCreate(sqLiteDatabase);
     }
 }

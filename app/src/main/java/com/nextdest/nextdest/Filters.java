@@ -1,6 +1,5 @@
 package com.nextdest.nextdest;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,15 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.nextdest.database.DB;
+import com.nextdest.database.MySQLiteDatabase;
 
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 

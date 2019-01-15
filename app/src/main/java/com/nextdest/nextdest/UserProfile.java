@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.nextdest.model.User;
+import com.nextdest.database.DB;
+import com.nextdest.database.MySQLiteDatabase;
 
 public class UserProfile extends Fragment {
     Context context;

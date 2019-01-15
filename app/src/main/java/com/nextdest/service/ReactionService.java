@@ -1,67 +1,86 @@
 package com.nextdest.service;
 
-import com.nextdest.model.Reaction;
+import android.content.Context;
+import android.database.Cursor;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import com.nextdest.database.DB;
+import com.nextdest.database.MySQLiteDatabase;
+import com.nextdest.model.Reaction;
+import com.nextdest.model.ReactionType;
+
 import java.util.List;
 
 public class ReactionService implements IService<Reaction> {
 
-    private static List<Reaction> reactionList = new ArrayList<>();
+    //private static List<Reaction> reactionList = new ArrayList<>();
     private static ReactionService instance;
     private static int nextId = 1;
-    private ReactionService(){    }
-    public static ReactionService getInstance(){
+    private Context context;
+
+    public ReactionService(Context context){
+        this.context = context;
+    }
+    /*public static ReactionService getInstance(){
         if(instance==null)instance = new ReactionService();
         return instance;
-    }
+    }*/
 
     @Override
-    public void save(Reaction object) {
-        List<Reaction> userReaction = getUserReactions(object.getIdUser());
-        if(object.getId()==0 && userReaction.size()==0){
-            object.setId(nextId++);
-            reactionList.add(object);
-        }
+    public int save(Reaction object) {
 
-        for (Reaction reaction :
-                userReaction) {
-            if (reaction.getIdActivity() == object.getIdActivity()) {
-                reaction.setReaction(object.getReaction());
-            }
-            }
+        Reaction rec = getReaction(object.getIdUser(),object.getIdActivity());
+
+        DB db = new DB(context);
+        if(rec == null){
+            //object.setId(nextId++);
+            //reactionList.add(object);
+
+           return (int) db.addNew_REACTION(String.valueOf(object.getReaction().value()),object.getIdActivity(),object.getIdUser());
+        }else{
+            return db.update_reaction(rec);
+        }
     }
 
     @Override
     public Reaction load(int id) {
-        for (Reaction r :
-                reactionList) {
-            if(r.getId()==id)return r;
-        }
+
         return null;
     }
 
     @Override
     public List<Reaction> getAll() {
-        return Collections.unmodifiableList(reactionList);
+        //return Collections.unmodifiableList(reactionList);
+        return null;
     }
 
     private List<Reaction> getUserReactions(int userId){
-        List<Reaction> result = new ArrayList<>();
-        for (Reaction reaction :
-                reactionList) {
-            if(reaction.getIdUser()==userId)result.add(reaction);
-        }
-        return result;
+        return null;
     }
 
     private List<Reaction> getActivityReactions(int activityId){
-        List<Reaction> result = new ArrayList<>();
-        for (Reaction reaction :
-                reactionList) {
-            if(reaction.getIdActivity()==activityId)result.add(reaction);
+        return null;
+    }
+
+    private Reaction getReaction(int personId, int activityId){
+
+        DB db = new DB(context);
+
+        Cursor cursor = db.get_REACTION(personId,activityId);
+
+        while(cursor.moveToNext()){
+            Reaction reaction = new Reaction();
+
+            //reaction.setId(cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.R_)));
+            reaction.setIdUser(cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.R_PERSON_ID)));
+            reaction.setIdActivity(cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.R_ACTIVITY_ID)));
+            reaction.setReaction(
+                    ReactionType.valueOf(
+                        cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.R_REACTION)))
+            );
+
+            return reaction;
         }
-        return result;
+
+        return null;
     }
 }

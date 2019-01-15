@@ -75,7 +75,8 @@ public class CommentDialogFragment extends DialogFragment {
                     c.setIdActivity(idActivity);
                     c.setIdUser(idUser);
                     c.setComment(comment.getText().toString());
-                    CommentService.getInstance().save(c);
+                    CommentService commentService = new CommentService(getContext());
+                    commentService.save(c);
                 //}
                 //TODO REMOVE THIS TO ENABLE RATING
                 /*Rating r = new Rating();

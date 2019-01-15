@@ -14,6 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nextdest.database.DB;
+import com.nextdest.database.MySQLiteDatabase;
+
 import java.util.ArrayList;
 
 
