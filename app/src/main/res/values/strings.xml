@@ -41,6 +41,20 @@
     <string name="edit">Edit</string>
     <string name="slogan">"Don't Know What To Do?... We'll Provide you With a List Of Options"</string>
     <string name="profname">Username</string>
+    <string name="login">Login</string>
+    <string name="noAcc">No account yet? Create one</string>
+    <string name="reEn">Re Enter Password</string>
+    <string name="reg">Register</string>
+    <string name="passw">Password</string>
+    <string name="email">email</string>
+    <string name="olpass">Old Password</string>
+    <string name="newpass">New Password</string>
+    <string name="conpass">Confirm Password"</string>
+    <string name="saveC">Save Changes"</string>
+    <string name="whaDo">What You Like To Do?"</string>
+    <string name="co">Costs"</string>
+    <string name="sear">Search"</string>
+    <string name="edP">Edit Profile"</string>
     <string-array name="events_types">
         <item>Concert</item>
         <item>Theater</item>

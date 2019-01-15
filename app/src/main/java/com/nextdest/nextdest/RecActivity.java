@@ -208,10 +208,11 @@ public class RecActivity extends AppCompatActivity implements OnMapFragmentReady
         ReactionViewModel reactionViewModel = adapter.getItem(position);
 
         Reaction reaction = new Reaction();
-        reaction.setIdUser(1);
-      //  reaction.setIdActivity(event.getId());
+        ReactionService reactionService = new ReactionService(getApplicationContext());
+        reaction.setIdUser(Session.LoggedPerson.getId());
+        //reaction.setIdActivity(reactionViewModel.getId());
         reaction.setReaction(reactionViewModel.getCode());
-        ReactionService.getInstance().save(reaction);
+        reactionService.save(reaction);
 
     }
 

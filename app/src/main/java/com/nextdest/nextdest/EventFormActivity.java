@@ -25,17 +25,15 @@ import android.graphics.Bitmap;
 import android.widget.Toast;
 
 import com.nextdest.model.Event;
-import com.nextdest.service.EventService;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.io.ByteArrayOutputStream;
-import java.util.GregorianCalendar;
+
 public class EventFormActivity extends AppCompatActivity
         implements DatePickerDialog.OnDateSetListener,
         Serializable,
@@ -84,7 +82,7 @@ public class EventFormActivity extends AppCompatActivity
                 int Cost=Integer.parseInt(etCost.getText().toString());
                 String Location=etLocation.getText().toString();
 
-               long id= db.addNew_ACTIVITY(Name,ShortDescription,Description,Location,Cost,1,date);
+               long id= db.addNew_ACTIVITY(Name,ShortDescription,Description,Location,Cost,1,date,1);
               int _id =(int) (long)id;
                 Drawable bitmapDrawable =  ivPhoto.getDrawable();
                 Bitmap bitmap = ((BitmapDrawable)bitmapDrawable).getBitmap();

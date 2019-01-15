@@ -7,6 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.nextdest.database.DB;
+import com.nextdest.database.models.Person;
+import com.nextdest.service.PersonService;
+
 public class Register extends AppCompatActivity {
      EditText email;
      EditText username;
@@ -33,14 +37,22 @@ public class Register extends AppCompatActivity {
                 String Email=email.getText().toString();
 
               if(password.equals(repassword))  {
-             long id= db.addNew_LOGIN(UserName,password,Email);
-             Toast.makeText(getApplicationContext(),""+id,Toast.LENGTH_LONG).show();
 
-              }
-              else{
-                  Toast.makeText(getApplicationContext(),"Invalid Input",Toast.LENGTH_LONG).show();
+                  Person person = new Person();
+                  person.setPersonTypeId(1);
+                  person.setEmail(Email);
+                  PersonService personService = new PersonService(getApplicationContext());
+                  long personId = personService.save(person);
 
-              }
+                // long id= db.addNew_LOGIN(UserName, password,Email,(int)personId);
+
+                // Toast.makeText(getApplicationContext(),""+id,Toast.LENGTH_LONG).show();
+
+                  }
+                  else{
+                      Toast.makeText(getApplicationContext(),"Invalid Input",Toast.LENGTH_LONG).show();
+
+                  }
 
             }
         });

@@ -17,11 +17,12 @@ public class EventService implements IService<Event>{
 
     }
 
-    public void save(Event event) {
+    public int save(Event event) {
         if(event.getId()==0) {
             event.setId(index++);
             events.add(event);
         }
+        return 0;
     }
 
     public Event load(int id){

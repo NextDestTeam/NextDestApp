@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.nextdest.model.User;
+import com.nextdest.database.DB;
+import com.nextdest.database.MySQLiteDatabase;
 
 public class UserProfile extends Fragment {
     Context context;
@@ -45,12 +45,12 @@ public class UserProfile extends Fragment {
         Bundle bundle = getArguments();
         userName= bundle.getString("userName");
         //Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_LONG).show();
-        Cursor cursor = db.get_LOGIN_Data(userName);
+       /* Cursor cursor = db.get_LOGIN_Data(userName);
         while(cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.KEY_ID));
            name = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.LOGIN_NAME));
             email = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.EMAIL));
-        }
+        } */
         Fragment fragment = null;
         tvUsername.setText(name);
         tvEmail.setText(email);

@@ -93,7 +93,7 @@
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:inputType="textPassword"
-                    android:hint="Old Password"
+                    android:hint="@string/olpass"
                     style="@style/text" />
             </LinearLayout>
             <LinearLayout
@@ -115,7 +115,7 @@
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:inputType="textPassword"
-                    android:hint="New Password"
+                    android:hint="@string/newpass"
                     style="@style/text" />
             </LinearLayout>
             <LinearLayout
@@ -137,7 +137,7 @@
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:inputType="textPassword"
-                    android:hint="Confirm Password"
+                    android:hint="@string/conpass"
                     style="@style/text" />
             </LinearLayout>
         </LinearLayout>
@@ -149,7 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="35dp"
-            android:text="Save Changes"
+            android:text="@string/saveC"
             android:textColor="@color/colorWhite" />
 
     </LinearLayout>
