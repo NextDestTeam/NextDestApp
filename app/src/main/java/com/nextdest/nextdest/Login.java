@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nextdest.database.DB;
+
 public class Login extends AppCompatActivity {
 
     EditText username;

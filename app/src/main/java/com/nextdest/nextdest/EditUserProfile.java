@@ -33,6 +33,8 @@ import android.provider.MediaStore;
 
 
 import com.google.android.gms.common.util.IOUtils;
+import com.nextdest.database.DB;
+import com.nextdest.database.MySQLiteDatabase;
 
 import org.w3c.dom.Text;
 
@@ -84,8 +86,8 @@ public class EditUserProfile extends Fragment {
         btnSave = view.findViewById(R.id.btnSave);
 
       //  TextView tvProfName = view.findViewById(R.id.edProfName);
-        Cursor cursor = db.get_LOGIN_Data(userName);
-        while(cursor.moveToNext()) {
+        //Cursor cursor = db.get_LOGIN_Data(userName);
+        /*while(cursor.moveToNext()) {
             id = cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.KEY_ID));
             name = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.LOGIN_NAME));
             email = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.EMAIL));
@@ -116,7 +118,7 @@ public class EditUserProfile extends Fragment {
                 //are different
                 Toast.makeText(getActivity().getApplicationContext(),"passwords dont match",Toast.LENGTH_SHORT).show();
             }
-        }
+        }*/
 
         Button btnPropic = (Button) view.findViewById(R.id.btnEdPropic);
         btnPropic.setOnClickListener(new View.OnClickListener() {
@@ -188,7 +190,7 @@ public class EditUserProfile extends Fragment {
                 Bitmap bmp = BitmapFactory.decodeByteArray(photo,0,photo.length);
 
                 bmp.compress(Bitmap.CompressFormat.JPEG,70,bos);
-                db.addNew_PROFILE_IMAGE(id,bos.toByteArray());
+                /*db.addNew_PROFILE_IMAGE(id,bos.toByteArray());*/
                 //imgProfilePic= view.findViewById(R.id.edPropic);
                 imgProfilePic.setImageBitmap(bmp);
             } catch (FileNotFoundException e) {

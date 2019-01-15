@@ -81,19 +81,7 @@
         android:id="@+id/repass"/>
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/shapeemail"
-        android:drawableLeft="@drawable/iconlock"
-        android:drawablePadding="10dp"
-        android:hint="Re Enter Password"
-        android:padding="10dp"
-        android:textColor="@android:color/background_light"
-        android:textColorHighlight="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textSize="18sp"/>
+
 
     <!-- Password Label -->
     <Button

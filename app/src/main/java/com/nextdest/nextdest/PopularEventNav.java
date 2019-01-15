@@ -2,6 +2,7 @@ package com.nextdest.nextdest;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -21,6 +22,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
+import com.nextdest.database.DB;
+import com.nextdest.database.MySQLiteDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +36,9 @@ public class PopularEventNav extends AppCompatActivity
     String userName;
 
     MaterialSearchView searchView;
+    DB db;
+    Cursor cursor;
+    ArrayList<Row> values  = new ArrayList<>();
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -43,6 +49,9 @@ public class PopularEventNav extends AppCompatActivity
         //test
         i=getIntent();
         userName=i.getStringExtra("username");
+
+
+
 
         final List<String> values1=new ArrayList<>();
         values1.add("jazz_party");
@@ -83,6 +92,9 @@ public class PopularEventNav extends AppCompatActivity
 
 
 
+
+
+
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
@@ -95,13 +107,13 @@ public class PopularEventNav extends AppCompatActivity
             public void onSearchViewClosed() {
 
 
-                ArrayAdapter adapter = new ArrayAdapter(PopularEventNav.this, android.R.layout.simple_list_item_1, values1);
+             /*   ArrayAdapter adapter = new ArrayAdapter(PopularEventNav.this, android.R.layout.simple_list_item_1, values1);
 
                 testview.setAdapter(adapter);
-
-
+             */
 
             }
+
         });
 
 
@@ -131,13 +143,25 @@ public class PopularEventNav extends AppCompatActivity
             public boolean onQueryTextChange(String newText) {
                 if (newText != null && !newText.isEmpty()) {
                     final List<String> nameFound = new ArrayList<String>();
-                    for (String item : values1) {
-                        if (item.contains(newText)) {
-                            nameFound.add(item);
-                        }
+
+                    cursor=db.get_ActivitySearch(newText.toString());
+                    while(cursor.moveToNext()) {
+                        int id = cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.KEY_ID));
+                        String name = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.NAME));
+                        String DESCRIPTION = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.DESCRIPTION));
+                        String LOCATION = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.LOCATION));
+                        int PRICE = cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.PRICE));
+                        String Date = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.Date));
+                        Cursor c_image=db.get_ACTIVITY_IMAGE(id);
+                        //byte[] image = c_image.getBlob(1);
+                        //Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+                        Row row=new Row(name,Date,PRICE,LOCATION,DESCRIPTION);
+                        values.add(row);
+
                     }
 
-                    ArrayAdapter adapter = new ArrayAdapter(PopularEventNav.this, android.R.layout.simple_list_item_1, nameFound);
+
+                    ArrayAdapter adapter = new ArrayAdapter(PopularEventNav.this, android.R.layout.simple_list_item_1, values );
                     testview.setAdapter(adapter);
 
 

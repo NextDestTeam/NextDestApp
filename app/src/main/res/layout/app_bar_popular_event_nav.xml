@@ -27,15 +27,19 @@
 
             />
 
-        <ListView
-            android:id="@+id/testview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </ListView>
 
     </android.support.design.widget.AppBarLayout>
+
+    <ListView
+        android:id="@+id/testview"
+        android:layout_width="match_parent"
+        android:paddingTop="100dp"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+
+    </ListView>
+
 
 
 

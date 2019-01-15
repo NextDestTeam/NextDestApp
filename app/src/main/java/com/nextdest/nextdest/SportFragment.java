@@ -28,15 +28,15 @@ public class SportFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_sport, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.my_recycler_view);
         recyclerView.setLayoutManager(layoutManager);
-       items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.tennis));
-        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
-        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà","12:00pm",R.drawable.barca));
+       items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà"));
+        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà"));
+        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà"));
+        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà"));
+        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà"));
+        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà"));
+        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà"));
+        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà"));
+        items.add(new Row("music","23 diciembre - 19h",10,"llieda","Christmas.catCor de l’Orfeó Lleidatà"));
 
         recyclerView.setAdapter(new MyAdapter(items, new MyAdapter.OnItemClickListener() {
             @Override

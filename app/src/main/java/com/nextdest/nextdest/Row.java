@@ -1,7 +1,5 @@
 package com.nextdest.nextdest;
 
-import android.graphics.Bitmap;
-
 import com.nextdest.model.Comment;
 import com.nextdest.model.Rating;
 import com.nextdest.model.Reaction;
@@ -52,7 +50,7 @@ public class Row {
     private List<Reaction> reactionList = new ArrayList<>();
 
 
-    public Row(String name, String date, int price, String place, String detal, String time, int id) {
+    public Row(String name, String date, int price, String place, String detal) {
         this.name = name;
         this.date = date;
         Price = price;
