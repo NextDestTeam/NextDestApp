@@ -10,7 +10,8 @@ import java.net.URL;
 
 public class HttpGetRequest extends AsyncTask<String, Void, String> {
     // API url
-    private final static String url = "https://happy-weekend-meinf.herokuapp.com/happy-api/";
+    //private final static String url = "https://happy-weekend-meinf.herokuapp.com/happy-api/";
+    private final static String url = "http://51.140.207.76:8090/happy-api/";
     public static final int READ_TIMEOUT = 15000;
     public static final int CONNECTION_TIMEOUT = 15000;
 

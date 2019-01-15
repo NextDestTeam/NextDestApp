@@ -2,9 +2,10 @@ package com.nextdest.synchronization;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.util.Base64;
 
+import com.nextdest.database.DB;
 import com.nextdest.models.Login;
-import com.nextdest.nextdest.DB;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,13 +39,15 @@ public class Sync {
         HttpGetRequest httpGetRequest = new HttpGetRequest();
         final String HTTP_METHOD = "GET";
         String loginUrl = httpGetRequest.getURL() + "logins";
-        String activityUrl = httpGetRequest.getURL() + "activities";
+        String activitiesUrl = httpGetRequest.getURL() + "activities";
+        String activityIdUrl = httpGetRequest.getURL() + "activitiesId";
+        String activityUrl = httpGetRequest.getURL() + "activity";
         String activityTypeUrl = httpGetRequest.getURL() + "activityTypes";
         String personTypeUrl = httpGetRequest.getURL() + "personTypes";
         String personUrl = httpGetRequest.getURL() + "persons";
-        String commentUrl = httpGetRequest.getURL() + "personActivityComments";
+        String commentUrl = httpGetRequest.getURL() + "comments";
         String reactionUrl = httpGetRequest.getURL() + "reactions";
-        String preferenceUrl = httpGetRequest.getURL() + "preferences";
+        String preferenceUrl = httpGetRequest.getURL() + "personPreferences";
         String imageUrl = HttpGetRequest.getURL() + "images";
         String result;
         List<Login> logins = new ArrayList<>();
@@ -82,15 +85,22 @@ public class Sync {
             result = httpGetRequest.execute(personUrl, HTTP_METHOD).get();
             if(result != null){
                 JSONArray personArray = new JSONArray(result);
+                SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
                 for (int i = 0; i < personArray.length(); i++) {
                     jsonObject = personArray.getJSONObject(i);
                     Integer personId = (Integer) jsonObject.get("id");
                     String firstName = jsonObject.getString("firstName");
                     String lastName = jsonObject.getString("lastName");
                     String email = jsonObject.getString("email");
-                    String age = (String) jsonObject.get("age");
-                    SimpleDateFormat dt = new SimpleDateFormat("yyyy-mm-dd");
-                    Date birth = dt.parse(age);
+                    Date birth = null;
+                    if(!jsonObject.isNull("age")) {
+                        Object oAge = jsonObject.get("age");
+                        if (oAge != null) {
+                            String age = oAge.toString();
+                            if (age != null)
+                                birth = dt.parse(age);
+                        }
+                    }
                     String stringPersonTye = jsonObject.getString("personTypeId");
                     JSONObject jsonPersonType = new JSONObject(stringPersonTye);
                     Integer personType = (Integer) jsonPersonType.get("id");
@@ -108,20 +118,28 @@ public class Sync {
                     Integer id = (Integer) jsonObject.get("id");
                     String userName = jsonObject.getString("login");
                     String password = jsonObject.getString("password");
+                    //TODO FIX API TO PERSON and NOT PERSONID
                     String personId = jsonObject.getString("personId");
+
                     JSONObject person = new JSONObject(personId);
                     String email = person.getString("email");
                     // Look if there is a row in the database that matches with the server, if it does update the row, else insert
-                    db.addNew_LOGIN(email, userName, password);
+                    db.addNew_LOGIN(email, userName, password,Integer.parseInt(person.getString("id")));
                 }
             }
 
             httpGetRequest = new HttpGetRequest();
-            result = httpGetRequest.execute(activityUrl, HTTP_METHOD).get();
+            result = httpGetRequest.execute(activityIdUrl, HTTP_METHOD).get();
+
+
+//            result = httpGetRequest.execute(activityUrl, HTTP_METHOD).get();
             if(result != null){
                 JSONArray activityArray = new JSONArray(result);
                 for (int i = 0; i < activityArray.length(); i++) {
-                    jsonObject = activityArray.getJSONObject(i);
+                    Integer id = activityArray.getInt(i);
+                    httpGetRequest = new HttpGetRequest();
+                    String activityJsonString = httpGetRequest.execute(activityUrl+"/"+id.toString(), HTTP_METHOD).get();
+                    jsonObject = new JSONObject(activityJsonString);
                     String activityName = jsonObject.getString("name");
                     String shortDescription = jsonObject.getString("shortDescription");
                     String description = jsonObject.getString("description");
@@ -132,6 +150,9 @@ public class Sync {
                     Integer personId = (Integer) jsonPerson.get("id");
                     String date = jsonObject.getString("date");
                     Integer activityId = (Integer) jsonObject.get("id");
+
+                    importImage(db,jsonObject.getJSONObject("imageActivityId"));
+
                     // Look if there is a row in the database that matches with the server, if it does update the row, else insert
                     db.addNew_ACTIVITY(activityName, shortDescription, description, location, price, personId, date, activityId);
                 }
@@ -146,7 +167,9 @@ public class Sync {
                     Integer commentId = (Integer) jsonObject.get("id");
                     String comment = jsonObject.getString("comment");
                     Integer personId = (Integer) jsonObject.get("personId");
-                    Integer activityId = (Integer) jsonObject.get("activityId");
+                    Integer activityId = jsonObject.optInt("activityId");
+                    if(activityId==0)
+                        activityId = jsonObject.getJSONObject("activityId").getInt("id");
                     // Look if there is a row in the database that matches with the server, if it does update the row, else insert
                     db.addNew_PERSON_ACTIVITY_COMMENT(comment, personId, activityId);
                 }
@@ -182,19 +205,19 @@ public class Sync {
                 }
             }
 
-            httpGetRequest = new HttpGetRequest();
+            /*httpGetRequest = new HttpGetRequest();
             result = httpGetRequest.execute(imageUrl, HTTP_METHOD).get();
             if(result != null){
                 JSONArray imageArray = new JSONArray(result);
                 for (int i = 0; i < imageArray.length(); i++) {
                     jsonObject = imageArray.getJSONObject(i);
-                    Integer imageId = (Integer) jsonObject.get("id");
-                    Integer activityId = (Integer) jsonObject.get("activityId");
-                    byte[] image = (byte[]) jsonObject.get("image");
+                    Integer id = (Integer) jsonObject.get("id");
+                    //Integer activityId = (Integer) jsonObject.get("activityId");
+                    byte[] image = (byte[]) jsonObject.get("imageid");
                     // Look if there is a row in the database that matches with the server, if it does update the row, else insert
-                    db.addNew_ACTIVITY_IMAGE(activityId, image);
+                    db.addNew_ACTIVITY_IMAGE(id, image);
                 }
-            }
+            }*/
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -204,6 +227,16 @@ public class Sync {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    private void importImage(DB db, JSONObject imageActivityId) throws JSONException {
+
+        Integer id = (Integer) imageActivityId.get("id");
+        //Integer activityId = (Integer) jsonObject.get("activityId");
+        byte[] image = Base64.decode(imageActivityId.getString("imageid"), Base64.DEFAULT);
+        // Look if there is a row in the database that matches with the server, if it does update the row, else insert
+        db.addNew_ACTIVITY_IMAGE(id, image);
+
     }
 
     public void postComment(Integer activityId, String comment, Integer personId){

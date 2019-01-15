@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.nextdest.database.DB;
 import com.nextdest.service.LoginService;
 import com.nextdest.service.PersonService;
+import com.nextdest.synchronization.Sync;
 
 public class Login extends AppCompatActivity {
 
@@ -45,7 +46,7 @@ public class Login extends AppCompatActivity {
                 String pass = password.getText().toString();
 
                 LoginService loginService = new LoginService(getApplicationContext());
-
+                Sync syncAdapter = new Sync(getApplicationContext());
                 com.nextdest.database.models.Login login = loginService.getLogin(user,pass);
 
                 if(login == null){
@@ -55,6 +56,7 @@ public class Login extends AppCompatActivity {
                     PersonService personService = new PersonService(getApplicationContext());
                     Session.LoggedPerson = personService.load(login.getPersonId());
                     Intent i = new Intent(getApplicationContext(),PopularEventNav.class);
+                    syncAdapter.sync();
                     i.putExtra("username", user);
                     getApplicationContext().startActivity(i);
                 }

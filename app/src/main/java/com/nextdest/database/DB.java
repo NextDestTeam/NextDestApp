@@ -18,7 +18,7 @@ public class DB {
 
     public DB(Context context) {
         this.context = context;
-        mySQLiteDatabase = new MySQLiteDatabase(context, "database", null, 13);
+        mySQLiteDatabase = new MySQLiteDatabase(context, "database", null, 15);
     }
 
 
