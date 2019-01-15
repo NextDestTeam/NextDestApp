@@ -13,16 +13,22 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
 public class HttpPostRequest extends AsyncTask<String, Void, Void> {
     // API url
-    private final static String url = "http://172.16.124.241:8080/happy/";
+    private final static String url = "http://172.16.124.241:8080/happy-api/";
     // This is the JSON body of the post
     JSONObject postData;
     private String response;
     // This is a constructor that allows you to pass in the JSON body
+    public HttpPostRequest(Map<String, String> postData){
+        if(postData != null){
+            this.postData = new JSONObject(postData);
+        }
+    }
 
     // This is a function that we are overriding from AsyncTask. It takes Strings as parameters because that is what we defined for the parameters of our async task
     @Override
