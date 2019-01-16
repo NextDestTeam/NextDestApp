@@ -6,7 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 public class MySQLiteDatabase extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "database";
+    // Database Name
+    private static final String DATABASE_NAME = "NextDest";
 
     // Table Names
     public static final String PERSON_Type = "PERSON_Type";
@@ -18,7 +19,6 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String REACTION = "REACTION";
     public static final String PERSON_PREFERENCE = "PERSON_PREFERENCE";
     public static final String ACTIVITY_IMAGE = "ACTIVITY_IMAGE";
-    public static final String PROFILE_IMAGE = "PROFILE_IMAGE";
     // Common column names
     public static final String KEY_ID = "id";
     // PERSON_Type column names
@@ -29,10 +29,6 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String EMAIL = "EMAIL";
     public static final String AGE = "AGE";
     public static final String PERSON_TYPE_ID = "PERSON_TYPE_ID";
-
-    //PROFILE_IMAGE table - column names
-    public static final String PIMAGE = "PIMAGE";
-    public static final String P_PERSON_ID = "P_PERSON_ID";
 
     // LOGIN Table - column nmaes
     public static final String PERSON_ID = "PERSON_ID";
@@ -63,9 +59,8 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String PP__PERSON_ID = "PP_PERSON_ID";
     public static final String ACTIVITY_TYPE_ID = "ACTIVITY_TYPE_ID ";
     // ACTIVITY_IMAGE Table - column nmaes
-    public static final String I_ACTIVITY_ID = "I_ACTIVITY_ID ";
     public static final String IMAGE = "IMAGE";
-
+    public static final String I_ACTIVITY_ID = "I_ACTIVITY_ID ";
 
 
     public MySQLiteDatabase(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {

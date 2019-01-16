@@ -1,5 +1,7 @@
 package com.nextdest.nextdest;
 
+import android.graphics.Bitmap;
+
 import com.nextdest.model.Comment;
 import com.nextdest.model.Rating;
 import com.nextdest.model.Reaction;
@@ -18,8 +20,7 @@ public class Row {
     private int Price;
     private String place;
     private String detal;
-    private String time;
-    private int id;
+    private Bitmap image;
 
     public List<Comment> getCommentList() {
         return commentList;
@@ -50,17 +51,22 @@ public class Row {
     private List<Reaction> reactionList = new ArrayList<>();
 
 
-    public Row(String name, String date, int price, String place, String detal) {
+    public Row(String name, String date, int price, String place, String detal, Bitmap image) {
         this.name = name;
         this.date = date;
-        Price = price;
+        this.Price = price;
         this.place = place;
         this.detal = detal;
-        this.time = time;
-        this.id = id;
+        this.image = image;
     }
 
+    public Bitmap getImage() {
+        return image;
+    }
 
+    public void setImage(Bitmap image) {
+        this.image = image;
+    }
 
     public String getName() {
         return name;
@@ -102,20 +108,6 @@ public class Row {
         this.detal = detal;
     }
 
-    public String getTime() {
-        return time;
-    }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }
 

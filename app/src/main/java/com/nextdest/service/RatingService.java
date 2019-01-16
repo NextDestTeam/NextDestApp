@@ -19,13 +19,14 @@ public class RatingService implements IService<Rating> {
     }
 
     @Override
-    public void save(Rating object) {
+    public int save(Rating object) {
         if(object.getId()==0){
             object.setId(nextId++);
             ratingList.add(object);
             Event event = EventService.getInstance().load(object.getIdActivity());
             event.addRating(object);
         }
+        return 0;
     }
 
     @Override

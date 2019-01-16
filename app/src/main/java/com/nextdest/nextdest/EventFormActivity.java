@@ -26,17 +26,15 @@ import android.widget.Toast;
 
 import com.nextdest.database.DB;
 import com.nextdest.model.Event;
-import com.nextdest.service.EventService;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.io.ByteArrayOutputStream;
-import java.util.GregorianCalendar;
+
 public class EventFormActivity extends AppCompatActivity
         implements DatePickerDialog.OnDateSetListener,
         Serializable,

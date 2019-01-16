@@ -1,6 +1,5 @@
 package com.nextdest.nextdest;
 
-import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,15 +9,15 @@ import android.widget.Toast;
 
 import com.nextdest.database.DB;
 import com.nextdest.database.models.Person;
+import com.nextdest.service.PersonService;
 
 public class Register extends AppCompatActivity {
-     EditText email;
-     EditText username;
-     EditText pass;
-     EditText repass;
-     Button reg;
+    EditText email;
+    EditText username;
+    EditText pass;
+    EditText repass;
+    Button reg;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         DB db =new DB(getApplicationContext());
@@ -37,23 +36,23 @@ public class Register extends AppCompatActivity {
                 String UserName=username.getText().toString();
                 String Email=email.getText().toString();
 
-              if(password.equals(repassword))  {
+                if(password.equals(repassword))  {
 
-                  Person person = new Person();
-                  person.setPersonTypeId(1);
-                  person.setEmail(Email);
-                  PersonService personService = new PersonService(getApplicationContext());
-                  long personId = personService.save(person);
+                    Person person = new Person();
+                    person.setPersonTypeId(1);
+                    person.setEmail(Email);
+                    PersonService personService = new PersonService(getApplicationContext());
+                    long personId = personService.save(person);
 
-                 long id= db.addNew_LOGIN(UserName,password,Email,(int)personId);
+                    long id= db.addNew_LOGIN(UserName,password,Email,(int)personId);
 
-                 Toast.makeText(getApplicationContext(),""+id,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),""+id,Toast.LENGTH_LONG).show();
 
-              }
-              else{
-                  Toast.makeText(getApplicationContext(),"Invalid Input",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Invalid Input",Toast.LENGTH_LONG).show();
 
-              }
+                }
 
             }
         });

@@ -1,20 +1,13 @@
 package com.nextdest.nextdest;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -22,21 +15,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.provider.MediaStore;
 
 
 import com.google.android.gms.common.util.IOUtils;
 import com.nextdest.database.DB;
 import com.nextdest.database.MySQLiteDatabase;
-
-import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -85,9 +73,9 @@ public class EditUserProfile extends Fragment {
 
         btnSave = view.findViewById(R.id.btnSave);
 
-      //  TextView tvProfName = view.findViewById(R.id.edProfName);
-        //Cursor cursor = db.get_LOGIN_Data(userName);
-        /*while(cursor.moveToNext()) {
+        //  TextView tvProfName = view.findViewById(R.id.edProfName);
+        Cursor cursor = db.get_LOGIN_Data(userName);
+        while(cursor.moveToNext()) {
             id = cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.KEY_ID));
             name = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.LOGIN_NAME));
             email = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.EMAIL));
@@ -118,7 +106,7 @@ public class EditUserProfile extends Fragment {
                 //are different
                 Toast.makeText(getActivity().getApplicationContext(),"passwords dont match",Toast.LENGTH_SHORT).show();
             }
-        }*/
+        }
 
         Button btnPropic = (Button) view.findViewById(R.id.btnEdPropic);
         btnPropic.setOnClickListener(new View.OnClickListener() {
@@ -131,7 +119,7 @@ public class EditUserProfile extends Fragment {
         tvUsername.setText(name);
         tvEmail.setText(email);
 
-       //validate entered email
+        //validate entered email
         email = tvEmail.getText().toString().trim();
 
         emailPattern = "([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$";
@@ -149,7 +137,7 @@ public class EditUserProfile extends Fragment {
                 {
                     Toast.makeText(getActivity().getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
                     //or
-                   // textView.setText("invalid email");
+                    // textView.setText("invalid email");
                 }
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -160,7 +148,7 @@ public class EditUserProfile extends Fragment {
             }
         });
 
-       // tvProfName.setText("Leo Messi");
+        // tvProfName.setText("Leo Messi");
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -190,7 +178,7 @@ public class EditUserProfile extends Fragment {
                 Bitmap bmp = BitmapFactory.decodeByteArray(photo,0,photo.length);
 
                 bmp.compress(Bitmap.CompressFormat.JPEG,70,bos);
-                /*db.addNew_PROFILE_IMAGE(id,bos.toByteArray());*/
+                db.addNew_PROFILE_IMAGE(id,bos.toByteArray());
                 //imgProfilePic= view.findViewById(R.id.edPropic);
                 imgProfilePic.setImageBitmap(bmp);
             } catch (FileNotFoundException e) {

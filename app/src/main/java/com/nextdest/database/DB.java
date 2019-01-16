@@ -21,13 +21,16 @@ public class DB {
         mySQLiteDatabase = new MySQLiteDatabase(context, "NextDest", null, 1);
     }
 
-
+    public void open() {
+        db = mySQLiteDatabase.getWritableDatabase();
+    }
 
     public void close() {
         db.close();
     }
 
     public long addNew_PERSON_Type(String name) {
+        db = mySQLiteDatabase.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(MySQLiteDatabase.P_NAME_type, name);
         long id = db.insert(MySQLiteDatabase.PERSON_Type, null, values);
@@ -41,6 +44,7 @@ public class DB {
     }
 
     public long addNew_PERSON(String F_name, String L_name, String email, Date Age, int PERSON_TYPE_ID) {
+        db = mySQLiteDatabase.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(MySQLiteDatabase.FIRST_NAME, F_name);
         values.put(MySQLiteDatabase.LAST_NAME, L_name);
@@ -51,8 +55,11 @@ public class DB {
         return id;
     }
 
-    public Cursor get_PERSON() {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.PERSON", null);
+    public Cursor get_PERSON(int idPerson) {
+        db = mySQLiteDatabase.getWritableDatabase();
+
+        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.PERSON+" WHERE "+
+                MySQLiteDatabase.KEY_ID+" = ?",new String[]{String.valueOf(idPerson)});
 
         return c;
     }
@@ -119,22 +126,16 @@ public class DB {
     }
     public Cursor get_ACTIVITY() {
         db = mySQLiteDatabase.getWritableDatabase();
-        Cursor c = db.rawQuery("select * from " + MySQLiteDatabase.ACTIVITY + "", null);
-        return c;
-    }
-    public Cursor get_ACTIVITY(String name, String pass) {
-        Cursor c = db.rawQuery("select * from MySQLiteDatabase.ACTIVITY", null);
+        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.ACTIVITY+"" ,null);
+
 
         return c;
     }
-
     public Cursor get_ActivitySearch(String name) {
         db = mySQLiteDatabase.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from " + MySQLiteDatabase.ACTIVITY +" where " +MySQLiteDatabase.NAME + " like ? "  , new String[] { "%"+name+"%"});
         return cursor;
     }
-
-
 
     public long addNew_ACTIVITY_TYPE(String name) {
         db = mySQLiteDatabase.getWritableDatabase();
@@ -145,8 +146,7 @@ public class DB {
     }
 
     public Cursor get_ACTIVITY_TYPE() {
-        db = mySQLiteDatabase.getWritableDatabase();
-        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.ACTIVITY_TYPE+"", null);
+        Cursor c = db.rawQuery("select * from MySQLiteDatabase.ACTIVITY_TYPE", null);
 
         return c;
     }
@@ -162,8 +162,7 @@ public class DB {
     }
 
     public Cursor get_PERSON_ACTIVITY_COMMENT(int id) {
-        db = mySQLiteDatabase.getWritableDatabase();
-        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.PERSON_ACTIVITY_COMMENT+" WHERE "+MySQLiteDatabase.ACTIVITY_ID+" = ?  ", new String[]{id + ""});
+        Cursor c = db.rawQuery("select * from MySQLiteDatabase.PERSON_ACTIVITY_COMMENT WHERE MySQLiteDatabase.ACTIVITY_ID = ?  ", new String[]{id + ""});
 
         return c;
     }
@@ -179,8 +178,7 @@ public class DB {
     }
 
     public Cursor get_REACTION(int id) {
-        db = mySQLiteDatabase.getWritableDatabase();
-        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.REACTION+" WHERE "+MySQLiteDatabase.R_ACTIVITY_ID+" = ?  ", new String[]{id + ""});
+        Cursor c = db.rawQuery("select * from MySQLiteDatabase.REACTION WHERE MySQLiteDatabase.R_ACTIVITY_ID = ?  ", new String[]{id + ""});
 
         return c;
     }
@@ -195,8 +193,7 @@ public class DB {
     }
 
     public Cursor get_PERSON_PREFERENCE(int id) {
-        db = mySQLiteDatabase.getWritableDatabase();
-        Cursor c = db.rawQuery("select * from "+MySQLiteDatabase.PERSON_PREFERENCE+" WHERE "+MySQLiteDatabase.PP__PERSON_ID+" = ?  ", new String[]{id + ""});
+        Cursor c = db.rawQuery("select * from MySQLiteDatabase.PERSON_PREFERENCE WHERE MySQLiteDatabase.PP__PERSON_ID = ?  ", new String[]{id + ""});
 
         return c;
     }
@@ -252,7 +249,7 @@ public class DB {
         ContentValues values = new ContentValues();
         values.put(com.nextdest.database.MySQLiteDatabase.R_ACTIVITY_ID, rec.getIdActivity());
         values.put(com.nextdest.database.MySQLiteDatabase.R_PERSON_ID, rec.getIdUser());
-        //values.put(com.nextdest.database.MySQLiteDatabase.R_REACTION, String.valueOf(rec.getReaction().value()));
+        values.put(com.nextdest.database.MySQLiteDatabase.R_REACTION, String.valueOf(rec.getReaction().value()));
         return db.update(com.nextdest.database.MySQLiteDatabase.REACTION, values,
                 com.nextdest.database.MySQLiteDatabase.R_PERSON_ID+" = "+String.valueOf(rec.getIdUser())+
                         " "+ com.nextdest.database.MySQLiteDatabase.R_ACTIVITY_ID+" = "+String.valueOf(rec.getIdActivity()),null);

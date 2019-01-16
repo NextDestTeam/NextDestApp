@@ -59,7 +59,7 @@ public class CostFragment extends Fragment {
             @Override
             public void onItemClick(Row items) {
                 Intent intent = new Intent(getActivity(),RecActivity.class);
-                intent.putExtra("image", items.getId());
+                intent.putExtra("image", items.getImage());
                 intent.putExtra("detail", items.getDetal());
                 intent.putExtra("name", items.getName());
                 intent.putExtra("Price", items.getPrice());
