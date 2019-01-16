@@ -104,7 +104,8 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
 
         Intent intent = getIntent();
         int idEvent = intent.getIntExtra("idEvent",0);
-        event = EventService.getInstance().load(idEvent);
+        EventService eventService = new EventService(getApplicationContext());
+        event = eventService.load(idEvent);
         tvName.setText(event.getName());
 
 

@@ -64,7 +64,7 @@ public class Sync {
                     Integer activityTypeId = (Integer) jsonObject.get("id");
                     String activityTypeName = jsonObject.getString("name");
                     // Look if there is a row in the database that matches with the server, if it does update the row, else insert
-                    db.addNew_ACTIVITY_TYPE(activityTypeName);
+                    db.addNew_ACTIVITY_TYPE(activityTypeId, activityTypeName);
                 }
             }
 
@@ -150,11 +150,13 @@ public class Sync {
                     Integer personId = (Integer) jsonPerson.get("id");
                     String date = jsonObject.getString("date");
                     Integer activityId = (Integer) jsonObject.get("id");
-
+                    Integer activityType = jsonObject.getJSONObject("activityType").getInt("id");
+                    Integer imageId = jsonObject.getJSONObject("imageActivityId").getInt("id");
                     importImage(db,jsonObject.getJSONObject("imageActivityId"));
 
+
                     // Look if there is a row in the database that matches with the server, if it does update the row, else insert
-                    db.addNew_ACTIVITY(activityName, shortDescription, description, location, price, personId, date, activityId);
+                    db.addNew_ACTIVITY(activityName, shortDescription, description, location, price, personId, date, activityId,imageId,activityType);
                 }
             }
 

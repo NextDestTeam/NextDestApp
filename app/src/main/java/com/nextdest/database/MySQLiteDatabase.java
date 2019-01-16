@@ -48,6 +48,8 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
     public static final String A_PERSON_ID = "A_PERSON_ID";
     public static final String Date = "Date";
     public static final String A_ACTIVITY_ID = "ACTIVITY_ID";
+    public static final String A_IMAGE_ID="A_IMAGE_ID";
+    public static final String A_ACTIVITY_TYPE_ID="A_ACTIVITY_TYPE_ID";
     // ACTIVITY_TYPE Table - column nmaes
     public static final String Type_NAME = "Type_NAME";
     // PERSON_ACTIVITY_COMMENT Table - column nmaes
@@ -80,10 +82,14 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("Create Table " + LOGIN + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + LOGIN_NAME + " TEXT, " + PASSWORD + " TEXT," + EMAIL + " TEXT, "+MySQLiteDatabase.PERSON_ID+" INTEGER);");
 
-        sqLiteDatabase.execSQL("Create Table " + ACTIVITY + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + SHORT_DESCRIPTION + " TEXT," + DESCRIPTION + " TEXT," + LOCATION + " TEXT," + PRICE + " INTEGER," + A_PERSON_ID + " INTEGER,"+Date+" TEXT," + A_ACTIVITY_ID+ " INTEGER);");
+        sqLiteDatabase.execSQL("Create Table " + ACTIVITY + "(" + KEY_ID +
+                " Integer PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT, " + SHORT_DESCRIPTION +
+                " TEXT," + DESCRIPTION + " TEXT," + LOCATION +
+                " TEXT," + PRICE + " REAL," + A_PERSON_ID + " INTEGER,"+Date+" TEXT," +
+                A_ACTIVITY_ID+ " INTEGER,"+A_IMAGE_ID+" INTEGER,"+A_ACTIVITY_TYPE_ID+" INTEGER);");
 
 
-        sqLiteDatabase.execSQL("Create Table " + ACTIVITY_TYPE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + Type_NAME + " TEXT);");
+        sqLiteDatabase.execSQL("Create Table " + ACTIVITY_TYPE + "(" + KEY_ID + " Integer , " + Type_NAME + " TEXT);");
 
         sqLiteDatabase.execSQL("Create Table " + PERSON_ACTIVITY_COMMENT + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + COMMENT + " TEXT," + C_PERSON_ID + "INTEGER," + ACTIVITY_ID + " INTEGER);");
 
@@ -91,12 +97,12 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("Create Table " + PERSON_PREFERENCE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + PP__PERSON_ID + "INTEGER," + ACTIVITY_TYPE_ID + "INTEGER);");
 
-        sqLiteDatabase.execSQL("Create Table " + ACTIVITY_IMAGE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + IMAGE + " BLOB," + I_ACTIVITY_ID + " INTEGER);");
+        sqLiteDatabase.execSQL("Create Table " + ACTIVITY_IMAGE + "(" + KEY_ID + " Integer, " + IMAGE + " BLOB," + I_ACTIVITY_ID + " INTEGER);");
 
         sqLiteDatabase.execSQL("Create Table " + PROFILE_IMAGE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + PIMAGE + " BLOB," + P_PERSON_ID + " INTEGER);");
 
 
-        insertData(sqLiteDatabase);
+//        insertData(sqLiteDatabase);
 
     }
 

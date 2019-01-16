@@ -5,9 +5,11 @@ import android.database.Cursor;
 
 import com.nextdest.database.DB;
 import com.nextdest.database.MySQLiteDatabase;
+import com.nextdest.model.Comment;
 import com.nextdest.model.Reaction;
 import com.nextdest.model.ReactionType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReactionService implements IService<Reaction> {
@@ -82,5 +84,28 @@ public class ReactionService implements IService<Reaction> {
         }
 
         return null;
+    }
+
+    public List<Reaction> getAllByActivity(Integer id) {
+        List<Reaction> reactions = new ArrayList<>();
+
+        DB db = new DB(context);
+        Cursor cursor = db.get_REACTION_BY_ACTIVITY(id);
+
+        while(cursor.moveToNext()){
+            Reaction reaction = new Reaction();
+
+            //reaction.setId(cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.R_)));
+            reaction.setIdUser(cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.R_PERSON_ID)));
+            reaction.setIdActivity(cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.R_ACTIVITY_ID)));
+            reaction.setReaction(
+                    ReactionType.valueOf(
+                            cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.R_REACTION)))
+            );
+
+            reactions.add(reaction);
+        }
+
+        return reactions;
     }
 }

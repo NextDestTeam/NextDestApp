@@ -8,7 +8,7 @@ public class Activity {
     private String shortDescription;
     private String description;
     private String location;
-    private Integer price;
+    private Double price;
     private Date date;
     private String image;
     private Integer person;
@@ -55,11 +55,11 @@ public class Activity {
         this.location = location;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

@@ -83,15 +83,15 @@ public class EventFormActivity extends AppCompatActivity
                 int Cost=Integer.parseInt(etCost.getText().toString());
                 String Location=etLocation.getText().toString();
 
-               long id= db.addNew_ACTIVITY(Name,ShortDescription,Description,Location,Cost,1,date,1);
-              int _id =(int) (long)id;
+               //long id= db.addNew_ACTIVITY(Name,ShortDescription,Description,Location,Cost,1,date,1);
+              //int _id =(int) (long)id;
                 Drawable bitmapDrawable =  ivPhoto.getDrawable();
                 Bitmap bitmap = ((BitmapDrawable)bitmapDrawable).getBitmap();
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 byte[] Photo=stream.toByteArray();
-                long image_id=db.addNew_ACTIVITY_IMAGE(_id,Photo);
-                Toast.makeText(getApplicationContext(),""+image_id,Toast.LENGTH_LONG).show();
+                //long image_id=db.addNew_ACTIVITY_IMAGE(_id,Photo);
+//                Toast.makeText(getApplicationContext(),""+image_id,Toast.LENGTH_LONG).show();
 
             }
         });

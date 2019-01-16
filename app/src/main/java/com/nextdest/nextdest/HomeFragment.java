@@ -22,6 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -33,28 +34,31 @@ public class HomeFragment extends Fragment {
 
     private ArrayList<String> valuestemp;
     private ArrayList<Integer> imagestemp;
+    private List<Event> eventList;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        if(EventService.getInstance().getAll().size()==0){
-            generateMockEvents();
-        }
+        EventService eventService = new EventService(getContext());
+
+        /*if(EventService.getInstance().getAll().size()==0){
+            //generateMockEvents();
+        }*/
 
         Button btSearch;
         GridView gridView;
 
 
-
+        eventList = eventService.getAll();
 
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         gridView= (GridView) v.findViewById(R.id.gridView);
-        final GridAdapter gridAdapter = new GridAdapter(context , EventService.getInstance().getAll());
+        final GridAdapter gridAdapter = new GridAdapter(context , eventList);
         gridView.setAdapter(gridAdapter);
 
 //test
@@ -74,7 +78,7 @@ public class HomeFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Event event = EventService.getInstance().getAll().get(i);
+                Event event = eventList.get(i);
                 Intent intent = new Intent(getActivity() ,SelectedEventActivity.class);
                 intent.putExtra("idEvent", event.getId());
                 startActivity(intent);
@@ -126,7 +130,7 @@ public class HomeFragment extends Fragment {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 event.setPhoto(stream.toByteArray());
 
-                EventService.getInstance().save(event);
+//                EventService.getInstance().save(event);
             }
         } catch (ParseException e) {
             e.printStackTrace();

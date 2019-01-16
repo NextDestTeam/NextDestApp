@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
                     PersonService personService = new PersonService(getApplicationContext());
                     Session.LoggedPerson = personService.load(login.getPersonId());
                     Intent i = new Intent(getApplicationContext(),PopularEventNav.class);
-                    syncAdapter.sync();
+                    //syncAdapter.sync();
                     i.putExtra("username", user);
                     getApplicationContext().startActivity(i);
                 }

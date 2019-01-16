@@ -23,8 +23,8 @@ public class RatingService implements IService<Rating> {
         if(object.getId()==0){
             object.setId(nextId++);
             ratingList.add(object);
-            Event event = EventService.getInstance().load(object.getIdActivity());
-            event.addRating(object);
+//            Event event = EventService.getInstance().load(object.getIdActivity());
+//            event.addRating(object);
         }
         return 0;
     }

@@ -27,8 +27,8 @@ public class ListEventActivity extends AppCompatActivity {
         lvEvents = (ListView) findViewById(R.id.lvListEventEvents);
         btAdd = (Button) findViewById(R.id.btListEventAdd);
 
-        eventAdapter = new EventAdapter(getApplicationContext(),
-                0, EventService.getInstance().getAll());
+        /*eventAdapter = new EventAdapter(getApplicationContext(),
+                0, EventService.getInstance().getAll());*/
 
         lvEvents.setAdapter(eventAdapter);
 

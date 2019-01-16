@@ -39,7 +39,7 @@ public class Register extends AppCompatActivity {
               if(password.equals(repassword))  {
 
                   Person person = new Person();
-                  person.setPersonTypeId(1);
+                  person.setPersonTypeId(3);
                   person.setEmail(Email);
                   PersonService personService = new PersonService(getApplicationContext());
                   long personId = personService.save(person);
