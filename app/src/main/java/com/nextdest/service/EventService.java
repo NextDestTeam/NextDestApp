@@ -43,14 +43,15 @@ public class EventService implements IService<Event>{
     public Event load(int id){
         try {
             DB db = new DB(context);
-            Cursor cursor = db.get_ACTIVITY_id(id);
-            while (cursor.moveToNext()) {
+            Cursor cursorActivity = db.get_ACTIVITY_id(id);
+            while (cursorActivity.moveToNext()) {
 
 
-                Activity a = cursorToActivity(cursor);
-                cursor.close();
-                cursor = db.get_ACTIVITY_TYPE(a.getActivityType());
+                Activity a = cursorToActivity(cursorActivity);
+                cursorActivity.close();
+                Cursor cursor = db.get_ACTIVITY_TYPE(a.getActivityType());
 
+                cursor.moveToNext();
                 ActivityType activityType = new ActivityType();
                 activityType.setId(a.getActivityType());
                 activityType.setName(cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.Type_NAME)));
@@ -59,6 +60,7 @@ public class EventService implements IService<Event>{
 
 
                 cursor = db.get_ACTIVITY_IMAGE(a.getImgageId());
+                cursor.moveToNext();
                 byte[] photo = cursor.getBlob(cursor.getColumnIndex(MySQLiteDatabase.IMAGE));
 
                 cursor.close();
@@ -85,6 +87,7 @@ public class EventService implements IService<Event>{
         Event event = new Event();
         event.setId(a.getId());
         event.setCost(a.getPrice());
+        event.setShortDescription(a.getShortDescription());
         event.setDescription(a.getDescription());
         event.setDate(a.getDate());
         event.setLocation(a.getLocation());
@@ -110,7 +113,7 @@ public class EventService implements IService<Event>{
         activity.setLocation(cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.LOCATION)));
         activity.setPrice(cursor.getDouble(cursor.getColumnIndex(MySQLiteDatabase.PRICE)));
         activity.setPerson(cursor.getInt(cursor.getColumnIndex(MySQLiteDatabase.A_PERSON_ID)));
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
         try {
             String date = cursor.getString(cursor.getColumnIndex(MySQLiteDatabase.Date));
             activity.setDate(sdf.parse(date));

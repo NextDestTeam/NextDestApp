@@ -78,6 +78,7 @@ public class HomeFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                view.setEnabled(false);
                 Event event = eventList.get(i);
                 Intent intent = new Intent(getActivity() ,SelectedEventActivity.class);
                 intent.putExtra("idEvent", event.getId());

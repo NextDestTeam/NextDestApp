@@ -91,9 +91,9 @@ public class MySQLiteDatabase extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("Create Table " + ACTIVITY_TYPE + "(" + KEY_ID + " Integer , " + Type_NAME + " TEXT);");
 
-        sqLiteDatabase.execSQL("Create Table " + PERSON_ACTIVITY_COMMENT + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + COMMENT + " TEXT," + C_PERSON_ID + "INTEGER," + ACTIVITY_ID + " INTEGER);");
+        sqLiteDatabase.execSQL("Create Table " + PERSON_ACTIVITY_COMMENT + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + COMMENT + " TEXT," + C_PERSON_ID + " INTEGER," + ACTIVITY_ID + " INTEGER);");
 
-        sqLiteDatabase.execSQL("Create Table " + REACTION + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + R_REACTION + " TEXT," + R_PERSON_ID + "INTEGER," + R_ACTIVITY_ID + " INTEGER);");
+        sqLiteDatabase.execSQL("Create Table " + REACTION + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + R_REACTION + " TEXT," + R_PERSON_ID + " INTEGER," + R_ACTIVITY_ID + " INTEGER);");
 
         sqLiteDatabase.execSQL("Create Table " + PERSON_PREFERENCE + "(" + KEY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + PP__PERSON_ID + "INTEGER," + ACTIVITY_TYPE_ID + "INTEGER);");
 

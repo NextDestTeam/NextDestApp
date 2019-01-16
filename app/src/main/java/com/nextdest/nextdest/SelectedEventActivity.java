@@ -22,9 +22,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.nextdest.adapter.ReactionAdapter;
+import com.nextdest.model.Comment;
 import com.nextdest.model.Event;
 import com.nextdest.model.Reaction;
 import com.nextdest.model.ReactionType;
+import com.nextdest.service.CommentService;
 import com.nextdest.service.EventService;
 import com.nextdest.service.ReactionService;
 import com.nextdest.view.model.CommentViewModel;
@@ -113,8 +115,9 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
                 BitmapFactory.decodeByteArray(event.getPhoto(), 0, event.getPhoto().length)));
 
         tvShortDescription.setText(event.getShortDescription());
+        tvDescription.setText(event.getDescription());
         tvCost.setText(String.format("$%.2f",event.getCost()));
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY HH:mm");
         tvDate.setText(sdf.format(event.getDate()));
         tvLocation.setText(event.getLocation());
 
@@ -129,7 +132,7 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
-                CommentDialogFragment commentDialogFragment = CommentDialogFragment.newInstance(1,1);
+                CommentDialogFragment commentDialogFragment = CommentDialogFragment.newInstance(event.getId(),Session.LoggedPerson.getId());
                 commentDialogFragment.show(fragmentManager,"COMMENT_DIALOG_FRAGMENT");
                 fragmentManager.executePendingTransactions();
                 commentDialogFragment.getDialog().setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -182,9 +185,11 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
         float avg = 0;
 
         listComment.clear();
-        for (int i=0; i< event.getCommentList().size(); i++) {
+        CommentService commentService = new CommentService(getApplicationContext());
+        List<Comment> commentList = commentService.getAllByActivity(event.getId());
+        for (int i=0; i< commentList.size(); i++) {
             CommentViewModel commentViewModel = new CommentViewModel();
-            commentViewModel.setComment(event.getCommentList().get(i).getComment());
+            commentViewModel.setComment(commentList.get(i).getComment());
             //commentViewModel.setRating(event.getRatingList().get(i).getRating());
             //avg = (avg+event.getRatingList().get(i).getRating())/2;
             BitmapDrawable drawable = (BitmapDrawable) this.getResources().getDrawable(R.drawable.barca);
@@ -215,6 +220,7 @@ public class SelectedEventActivity extends AppCompatActivity implements OnMapFra
         tvName.setText(form.getName());
         tvShortDescription.setText(form.getShortDescription());
         tvDescription.setText(form.getDescription());
+
         try {
             tvDate.setText(DateFormat
                     .getDateFormat(getApplicationContext())

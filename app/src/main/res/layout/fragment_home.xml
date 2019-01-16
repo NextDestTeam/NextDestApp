@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:orientation="vertical"
 
         >
 
@@ -30,6 +31,20 @@
             android:text="@string/what"
             android:textStyle="bold"
             style = "@style/whatTxt"/>
+
+        <GridView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:id="@+id/gridView"
+            android:numColumns="2"
+
+            >
+
+
+        </GridView>
 
 
 
@@ -49,19 +64,7 @@
 
 
 
-    <GridView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="10dp"
-        android:gravity="center"
-        android:id="@+id/gridView"
-        android:numColumns="3"
 
-        >
-
-
-    </GridView>
 
 
 </RelativeLayout>

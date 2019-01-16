@@ -20,8 +20,8 @@ import static android.content.ContentValues.TAG;
 public class HttpPostRequest extends AsyncTask<String, Void, Void> {
     // API url
     //private final static String url = "http://172.16.124.241:8080/happy-api/";
-//    private final static String url = "http://51.140.207.76:8090/happy-api/";
-    private final static String url = "http://192.168.1.147:8080/happy-api/";
+    private final static String url = "http://51.140.207.76:8090/happy-api/";
+    //private final static String url = "http://192.168.1.147:8080/happy-api/";
     // This is the JSON body of the post
     JSONObject postData;
     private String response;

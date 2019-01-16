@@ -18,7 +18,7 @@ public class DB {
 
     public DB(Context context) {
         this.context = context;
-        mySQLiteDatabase = new MySQLiteDatabase(context, "database", null, 22);
+        mySQLiteDatabase = new MySQLiteDatabase(context, "database", null, 26);
     }
 
 
@@ -246,8 +246,8 @@ public class DB {
         /*public static final String R_REACTION = "R_REACTION";
         public static final String R_PERSON_ID = "R_PERSON_ID";
         public static final String R_ACTIVITY_ID = "R_ACTIVITY_ID";*/
-        Cursor cursor = db.rawQuery("select * from "+ com.nextdest.database.MySQLiteDatabase.REACTION+" WHERE "+
-                        com.nextdest.database.MySQLiteDatabase.R_PERSON_ID+" = ? AND "+ com.nextdest.database.MySQLiteDatabase.R_ACTIVITY_ID+" = ?",
+        Cursor cursor = db.rawQuery("select * from "+ MySQLiteDatabase.REACTION+" WHERE "+
+                        MySQLiteDatabase.R_PERSON_ID+" = ? AND "+ MySQLiteDatabase.R_ACTIVITY_ID+" = ?",
                 new String[]{String.valueOf(personId),String.valueOf(activityId)});
 
         return cursor;
@@ -266,8 +266,8 @@ public class DB {
 
     public Cursor get_PERSON_ACTIVITY_COMMENT(int idUser, int idActivity) {
         db = mySQLiteDatabase.getWritableDatabase();
-        Cursor c = db.rawQuery("select * from "+ com.nextdest.database.MySQLiteDatabase.PERSON_ACTIVITY_COMMENT+" WHERE "+
-                        com.nextdest.database.MySQLiteDatabase.ACTIVITY_ID+" = ?  AND "+ com.nextdest.database.MySQLiteDatabase.R_PERSON_ID+" = ?",
+        Cursor c = db.rawQuery("select * from "+ MySQLiteDatabase.PERSON_ACTIVITY_COMMENT+" WHERE "+
+                        MySQLiteDatabase.ACTIVITY_ID+" = ?  AND "+ MySQLiteDatabase.C_PERSON_ID+" = ?",
                 new String[]{idActivity + "",idUser+""});
 
         return c;

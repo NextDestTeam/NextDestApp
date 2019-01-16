@@ -83,7 +83,7 @@ public class CommentService implements IService<Comment>{
 
             Comment comment = new Comment();
             comment.setComment(personActivityComment.getComment());
-            comment.setId(personActivityComment.getId());
+            //comment.setId(personActivityComment.getId());
             comment.setIdActivity(personActivityComment.getActivityId());
             comment.setIdUser(personActivityComment.getPersonId());
 

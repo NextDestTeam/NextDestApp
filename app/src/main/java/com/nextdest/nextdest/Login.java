@@ -41,7 +41,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
 
@@ -52,13 +51,18 @@ public class Login extends AppCompatActivity {
                 if(login == null){
                     Toast.makeText(getApplicationContext(),"Invalid Username Or Password",Toast.LENGTH_LONG).show();
                 }else {
-
-                    PersonService personService = new PersonService(getApplicationContext());
-                    Session.LoggedPerson = personService.load(login.getPersonId());
-                    Intent i = new Intent(getApplicationContext(),PopularEventNav.class);
-                    //syncAdapter.sync();
-                    i.putExtra("username", user);
-                    getApplicationContext().startActivity(i);
+                    view.setEnabled(false);
+                    try {
+                        PersonService personService = new PersonService(getApplicationContext());
+                        Session.LoggedPerson = personService.load(login.getPersonId());
+                        Intent i = new Intent(getApplicationContext(), PopularEventNav.class);
+                        //syncAdapter.sync();
+                        i.putExtra("username", user);
+                        getApplicationContext().startActivity(i);
+                    }catch (Exception ex){
+                        ex.printStackTrace();
+                        view.setEnabled(true);
+                    }
                 }
 
             }
